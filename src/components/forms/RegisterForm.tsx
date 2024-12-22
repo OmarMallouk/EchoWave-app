@@ -10,7 +10,15 @@ const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
     const [password, setPassword] = useState("");
 
 
- 
+    const handleSubmit = (e: React.FormEvent) =>{
+        e.preventDefault();
+
+
+        onRegister(username,email,password);
+    };
+
+  
+
     );
 
 }
