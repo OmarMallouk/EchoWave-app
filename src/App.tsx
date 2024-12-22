@@ -1,10 +1,15 @@
 import { useState } from "react";
-
+import { AuthProvider } from "./context/AuthContext";
+import Login from "./pages/Login/Login";
+import Home from "./pages/Home/Home";
 import "./App.css";
 
-function App() {
+const App: React.FC =() => {
   return (
- <div><h1>hi</h1></div>
+    <AuthProvider>
+      <Login/>
+      <Home/>
+    </AuthProvider>
   );
 }
 
