@@ -1,29 +1,29 @@
 import { useState } from "react";
 
 interface LoginFormProps{
-    onLogin: (email: string, password: string) => void;
+    onLogin: (username: string, password: string) => void;
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
 
     const handleSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
 
-        onLogin(email, password);
+        onLogin(username, password);
     };
 
 
     return(
         <form onSubmit={handleSubmit}>
             <div>
-                <label htmlFor="email">Email</label>
+                <label htmlFor="username">Username</label>
                 <input 
-                type="email"
+                type="text"
                 id="email"
-                value={email}
-                onChange={(e)=> setEmail(e.target.value)}
+                value={username}
+                onChange={(e)=> setUsername(e.target.value)}
                 required
                 ></input>
             </div>
