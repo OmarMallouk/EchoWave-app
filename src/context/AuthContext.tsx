@@ -6,3 +6,9 @@ interface AuthTypes {
     login: (token: string) => void;
     logouts: () => void;
 }
+
+export const AuthContext = createContext<AuthTypes | null>(null);
+
+export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
+    
+}
