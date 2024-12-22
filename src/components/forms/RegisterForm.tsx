@@ -17,7 +17,21 @@ const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
         onRegister(username,email,password);
     };
 
-  
+    return(
+
+        <form onSubmit={handleSubmit}>
+            <div>
+                <label htmlFor="username">Username</label>
+                <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e)=> setUsername(e.target.value)}
+                required
+                ></input>
+            </div>
+       
+        </form>
 
     );
 
