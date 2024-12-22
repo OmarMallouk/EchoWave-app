@@ -4,7 +4,7 @@ import { createContext, useState, ReactNode } from "react";
 interface AuthTypes {
     isAuthenticated: boolean;
     login: (token: string) => void;
-    logouts: () => void;
+    logout: () => void;
 }
 
 export const AuthContext = createContext<AuthTypes | null>(null);
@@ -23,5 +23,11 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
         localStorage.removeItem("Token");
     };
 
-    
+    return(
+
+        <AuthContext.Provider value={{isAuthenticated,login,logout}}>
+            {children}
+        </AuthContext.Provider>
+    );
+
 }
