@@ -37,7 +37,9 @@ const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
                 required
                 ></input>
             </div>
-          
+            <button type="submit">Login</button>
         </form>
-    )
-}
+    );
+};
+
+export default LoginForm;
