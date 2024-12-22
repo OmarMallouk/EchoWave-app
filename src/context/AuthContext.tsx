@@ -10,5 +10,11 @@ interface AuthTypes {
 export const AuthContext = createContext<AuthTypes | null>(null);
 
 export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
-    
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    const login =(token: string) =>{
+
+        setIsAuthenticated(true);
+        localStorage.setItem("Token: ",token);
+    };
 }
