@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createContext, useState, ReactNode } from "react";
 
 interface AuthTypes {
@@ -7,10 +7,21 @@ interface AuthTypes {
     logout: () => void;
 }
 
-export const AuthContext = createContext<AuthTypes | null>(null);
-
+export const AuthContext = createContext<AuthTypes>({
+    isAuthenticated: false,
+    login: () => {}, 
+    logout: () => {}, 
+  });
+  
 export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
     const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+    useEffect(()=>{
+        const token = localStorage.getItem("Token");
+        if(token){
+            setIsAuthenticated(true);
+        }
+    },[])
 
     const login =(token: string) =>{
 

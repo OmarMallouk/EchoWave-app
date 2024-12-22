@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+
 
 interface LoginFormProps{
     onLogin: (username: string, password: string) => void;
@@ -8,13 +8,13 @@ interface LoginFormProps{
 const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const navigate = useNavigate();
+ 
 
     const handleSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
 
         onLogin(username, password);
-        navigate("/home");
+       
     };
 
 
