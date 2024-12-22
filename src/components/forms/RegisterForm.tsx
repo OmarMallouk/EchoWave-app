@@ -40,7 +40,17 @@ const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
                 required
                 ></input>
             </div>
-    
+            <div>
+                <label htmlFor="password">Password</label>
+                <input
+                type="password"
+                id="password"
+                value={password}
+                onChange={(e)=> setPassword(e.target.value)}
+                required
+                ></input>
+            </div>
+            <button type="submit" onClick={handleSubmit}>Signup</button>
         </form>
 
     );
