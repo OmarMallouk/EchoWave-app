@@ -30,7 +30,17 @@ const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
                 required
                 ></input>
             </div>
-       
+            <div>
+                <label htmlFor="email">Email</label>
+                <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(e)=> setEmail(e.target.value)}
+                required
+                ></input>
+            </div>
+    
         </form>
 
     );
