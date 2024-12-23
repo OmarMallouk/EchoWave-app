@@ -7,8 +7,15 @@ const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-  
+    useEffect(() =>{
+        const token = localStorage.getItem("token");
 
+        if (token){
+            setIsLoggedIn(true);
+        }
+    }, []);
+
+ 
 
     return ( 
         <div className="navPage">
