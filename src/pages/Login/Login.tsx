@@ -4,6 +4,8 @@ import { AuthContext } from "../../context/AuthContext";
 import LoginForm from "../../components/forms/LoginForm";
 import { useNavigate } from "react-router-dom";
 import { loginn } from "../../apis/authApi";
+import "./Login.module.css";
+
 
 const Login: React.FC = () =>{
     const {login} = useContext(AuthContext);
