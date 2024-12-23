@@ -47,4 +47,23 @@ body{
         border-radius: 10px;
       }
       
-   
+      img{
+        height: 150px;
+        width: 50%;
+        margin-bottom: 50px;
+      }
+    
+      button{
+        width: 30%;
+        background-color: #7D2A9D;
+        color: white;
+        margin-top: 10px;
+        margin-left: 130px;
+      }
+    
+      .registerBtn a {
+        color: #7D2A9D;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    
