@@ -15,7 +15,15 @@ const Navbar = () => {
         }
     }, []);
 
- 
+    const handleBtns = () =>{
+        if (isLoggedIn){
+            localStorage.removeItem("token");
+            setIsLoggedIn(false);
+        }else{
+            navigate("/login");
+        }
+    };
+
 
     return ( 
         <div className="navPage">
