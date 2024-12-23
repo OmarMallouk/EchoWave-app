@@ -2,7 +2,6 @@ import React from "react";
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthContext";
 import LoginForm from "../../components/forms/LoginForm";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { loginn } from "../../apis/authApi";
 
@@ -17,7 +16,11 @@ const Login: React.FC = () =>{
 
         try {
             const response = await loginn(username,password);
-            const token = response.data.token;
+            const token = response.token;
+            
+            if (!token) {
+                throw new Error("Token not found in the response.");
+              }
             login(token);
 
             console.log("Login successful", response);
@@ -30,11 +33,16 @@ const Login: React.FC = () =>{
         }
     };
 
+    const handleRegisterChange = () =>{
+        navigate("/register");
+    }
+
     return (
 
         <div>
             <h1>Login</h1>
             <LoginForm onLogin={handleLogin}/>
+            <button onClick={handleRegisterChange}>Dont have an account? Register now</button>
         </div>
     );
 

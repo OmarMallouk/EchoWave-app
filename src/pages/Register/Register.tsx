@@ -20,12 +20,18 @@ const Register: React.FC = () =>{
             
         }
     };
+    
+    const handleLogiChange = () =>{
+        navigate("/login");
+    }
+
 
     return(
 
         <div>
             <h1>Register</h1>
             <RegisterForm onRegister={handleRegister}/>
+            <button onClick={handleLogiChange}>already a user? login now</button>
         </div>
 
     );

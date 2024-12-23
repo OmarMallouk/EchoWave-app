@@ -1,5 +1,6 @@
 import { AuthProvider } from "./context/AuthContext";
 import Login from "./pages/Login/Login";
+import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoutes";
@@ -10,8 +11,8 @@ const App: React.FC =() => {
     <AuthProvider>
       <BrowserRouter>
       <Routes>
-      <Route path="/" element={<Login/>}/>
-
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/register" element={<Register/>}/>
       <Route path="/home" element={<PrivateRoute><Home/></PrivateRoute>}/>
       </Routes>
       </BrowserRouter>
