@@ -26,7 +26,8 @@ const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
                 <img src={logo} alt="logos" />
                 <input 
                 type="text"
-                id="email"
+                id="username"
+                placeholder="username"
                 value={username}
                
                 onChange={(e)=> setUsername(e.target.value)}
@@ -38,7 +39,7 @@ const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
                 type="password"
                 id="password"
                 value={password}
-                
+                placeholder="password"
                 onChange={(e)=>setPassword(e.target.value)}
                 required
                 ></input>
