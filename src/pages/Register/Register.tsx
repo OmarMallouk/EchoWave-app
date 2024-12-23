@@ -19,7 +19,16 @@ const Register: React.FC = () =>{
             console.error("Registration failed..", error);
             
         }
-    }
+    };
+
+    return(
+
+        <div>
+            <h1>Register</h1>
+            <RegisterForm onRegister={handleRegister}/>
+        </div>
+
+    );
 
     
 }
