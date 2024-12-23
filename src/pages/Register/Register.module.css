@@ -67,3 +67,19 @@ body{
         cursor: pointer;
     }
     
+    .registerBtn a:hover {
+        color: rgb(188, 188, 206);
+    }
+    
+    input::placeholder {
+        text-align: center;
+        font-weight: bold;
+        color: #000000; 
+        font-style: italic;
+    }
+    
+    input:focus::placeholder {
+        color: #030101; 
+    }
+    
+    
