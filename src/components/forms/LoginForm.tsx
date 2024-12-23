@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo from "../../assets/logoPure (1).png";
+import logo from "/assests/logo.png?url";
 
 
 
