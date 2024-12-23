@@ -23,7 +23,7 @@ export const register = async (username: string, email:string, password: string)
 }
 
 
-export const login = async (username: string, password: string) =>{
+export const loginn = async (username: string, password: string) =>{
 
     try {
         const response = await axios.post("http://127.0.0.1:8080/auth/login", {username,password},{
