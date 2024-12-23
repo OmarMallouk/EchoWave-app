@@ -12,7 +12,12 @@ export const register = async (username: string, email:string, password: string)
         console.log("Registered successfully", response);
         return response.data;
         
-    } catch (error) {
+    } catch (error: unknown) {
+        if(axios.isAxiosError(error)){
+            throw new Error(error.response?.data?.message || "Registration failed.");
+        }
+        throw new Error("An error has occured ;(");
+        
         
     }
 }
