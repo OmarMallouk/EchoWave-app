@@ -1,0 +1,32 @@
+body{
+    background-image: url("/public/assests/loginRecords.jpg");
+        background-size: cover; 
+        background-position: center; 
+        background-repeat: no-repeat; 
+    }
+    
+    .registerPage {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        height: 60vh;
+        border-radius: 30px;
+        background-color: #090707;
+    }
+    
+    .registerContainer {
+        max-width: 400px;
+        padding: 20px;
+        background-color: #090707;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      
+    }
+    
+ 

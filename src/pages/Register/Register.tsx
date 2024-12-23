@@ -2,6 +2,7 @@ import React from "react";
 import RegisterForm from "../../components/forms/RegisterForm";
 import { register } from "../../apis/authApi";
 import { useNavigate } from "react-router-dom";
+import styles from "./Register.module.css";
 
 
 const Register: React.FC = () =>{
@@ -21,17 +22,18 @@ const Register: React.FC = () =>{
         }
     };
     
-    const handleLogiChange = () =>{
+    const handleLoginChange = () =>{
         navigate("/login");
     }
 
 
     return(
 
-        <div>
-            <h1>Register</h1>
+        <div className={styles.registerPage}>
+             <div className={styles.registerContainer}>
             <RegisterForm onRegister={handleRegister}/>
-            <button onClick={handleLogiChange}>already a user? login now</button>
+            <h3 className={styles.registerBtn} >already a user? <a href="#" onClick={handleLoginChange}> login now </a></h3>
+            </div>
         </div>
 
     );
