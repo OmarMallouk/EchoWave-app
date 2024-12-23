@@ -56,3 +56,5 @@ const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
     );
 
 }
+
+export default RegisterForm;
