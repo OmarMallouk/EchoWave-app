@@ -5,6 +5,7 @@ import LoginForm from "../../components/forms/LoginForm";
 import { useNavigate } from "react-router-dom";
 import { loginn } from "../../apis/authApi";
 import LoginCard from "../../components/LoginCard/LoginCard";
+import styles from "../../components/LoginCard/LoginCard.module.css"
 import "./Login.module.css";
 
 
@@ -45,7 +46,9 @@ const Login: React.FC = () =>{
         <div>
             <h1>Login</h1>
             <LoginCard>
-            <LoginForm onLogin={handleLogin}/>
+            <LoginForm onLogin={handleLogin} containerClassname={styles.formContainer}
+          inputClassname={styles.input}
+          buttonClassname={styles.button}/>
             <button onClick={handleRegisterChange}>Dont have an account? Register now</button>
             </LoginCard>
         </div>

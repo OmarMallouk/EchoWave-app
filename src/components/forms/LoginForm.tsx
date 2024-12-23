@@ -1,11 +1,15 @@
 import { useState } from "react";
+import logo from "../../assets/logoPure (1).png";
 
 
 interface LoginFormProps{
     onLogin: (username: string, password: string) => void;
+    containerClassname?: string;
+    inputClassname?: string;
+    buttonClassname?: string;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
+const LoginForm: React.FC<LoginFormProps> = ({onLogin, inputClassname, containerClassname, buttonClassname}) =>{
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
  
@@ -19,13 +23,15 @@ const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
 
 
     return(
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={containerClassname}>
             <div>
+                <img src={logo} alt="logos" />
                 <label htmlFor="username">Username</label>
                 <input 
                 type="text"
                 id="email"
                 value={username}
+                className={inputClassname}
                 onChange={(e)=> setUsername(e.target.value)}
                 required
                 ></input>
@@ -40,7 +46,7 @@ const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
                 required
                 ></input>
             </div>
-            <button type="submit">Login</button>
+            <button type="submit" className={buttonClassname}>Login</button>
         </form>
     );
 };
