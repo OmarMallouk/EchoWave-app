@@ -27,7 +27,19 @@ const Navbar = () => {
 
     return ( 
         <div className="navPage">
-           
+            <div className="navContainer">
+                <img src={logo} alt="logos" />
+                <ul>
+                    <li>Home</li>
+                    <li>Mood</li>
+                    <li>Genre</li>
+                    <li>Originality</li>
+                    <li>Channels</li>
+                </ul>
+                
+                <button onClick={handleBtns}>{isLoggedIn ? "Logout" : "Login/Register"}</button>
+                
+            </div>
         </div>
      );
 }
