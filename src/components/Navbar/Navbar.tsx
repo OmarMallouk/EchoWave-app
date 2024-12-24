@@ -18,6 +18,15 @@ const Navbar = () => {
       };
 
  
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollPos = window.pageYOffset;
+            // If Im scrolling down, hide the navbar
+            if (prevScrollPos < currentScrollPos) {
+                setIsScrolled(true);
+            } else {
+      
+    }, [prevScrollPos]);
 
     const handleBtns = () =>{
         if (isLoggedIn){
