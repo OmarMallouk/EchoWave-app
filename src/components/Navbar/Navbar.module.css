@@ -41,3 +41,30 @@
     margin: 0; 
     flex-grow: 1;
 }
+
+.ulContainer {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%; 
+}
+
+
+.navToggle {
+    display: none; 
+    font-size: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #7D2A9D;
+    width: 10%;
+}
+
+.navMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 60px;
+    margin: 0;
+    padding: 0;
+}
