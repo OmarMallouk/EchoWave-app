@@ -47,7 +47,7 @@ const Login: React.FC = () =>{
   <a href="#" onClick={handleRegisterChange}>
     Register now
   </a></h3>
-            
+          
             </div>
         </div>
     );

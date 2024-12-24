@@ -2,23 +2,21 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "/assests/logo.png?url";
+import styles from "./Navbar.module.css";
 
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+
     const navigate = useNavigate();
 
-    useEffect(() =>{
-        const token = localStorage.getItem("token");
-
-        if (token){
-            setIsLoggedIn(true);
-        }
-    }, []);
+ 
 
     const handleBtns = () =>{
         if (isLoggedIn){
-            localStorage.removeItem("token");
-            setIsLoggedIn(false);
+           
+            navigate("/login");
+       
         }else{
             navigate("/login");
         }
@@ -26,22 +24,35 @@ const Navbar = () => {
 
 
     return ( 
-        <div className="navPage">
-            <div className="navContainer">
-                <img src={logo} alt="logos" />
-                <ul>
-                    <li>Home</li>
-                    <li>Mood</li>
-                    <li>Genre</li>
-                    <li>Originality</li>
-                    <li>Channels</li>
-                </ul>
-                
-                <button onClick={handleBtns}>{isLoggedIn ? "Logout" : "Login/Register"}</button>
-                
+        <div className={styles.navPage}>
+            <div className={styles.navContainer}>
+                <div className={styles.navLogo} >
+                    <img src={logo} alt="Logo" />
+                    <div className={styles.navText}>Echo Wave</div>
+                </div>
+                <button className={styles.navToggle} onClick={toggleMenu}>
+                    ☰
+                </button>
+                <div className={styles.ulContainer}>
+                    <ul
+                        className={`${styles.navMenu} ${
+                            isMenuOpen ? styles.menuOpen : ""
+                        }`}
+                    >
+                        <li>Home</li>
+                        <li>Mood</li>
+                        <li>Genre</li>
+                        <li>Originality</li>
+                        <li>Channels</li>
+                    </ul>
+                </div>
+                <button className={styles.authButton} onClick={handleBtns}>
+                    {isLoggedIn ? "Logout" : "Register/Login"}
+                </button>
             </div>
         </div>
-     );
-}
+    );
+    
+};
  
 export default Navbar;

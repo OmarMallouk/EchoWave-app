@@ -29,37 +29,6 @@ background-image: url("/public/assests/loginRecords.jpg");
   
 }
 
-form{
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-.dw {
-    margin-top: 20px;
-    color: blue;
-    cursor: pointer;
-}
-
-input {
-    width: 60%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-  }
-  
-  img{
-    height: 150px;
-    width: 50%;
-    margin-bottom: 50px;
-  }
-
-  button{
-    width: 30%;
-    background-color: #7D2A9D;
-    color: white;
-    margin-top: 10px;
-    margin-left: 130px;
-  }
 
   .registerBtn a {
     color: #7D2A9D;
