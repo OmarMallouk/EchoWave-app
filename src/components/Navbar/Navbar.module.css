@@ -121,3 +121,27 @@
         
         
     }
+
+    .navMenu {
+        display: none; 
+        flex-direction: column; 
+        
+        gap: 10px;
+        width: 80%; 
+        background-color: white;
+        position: absolute;
+        top: 60px;
+        right: 0; 
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        
+    }
+
+    .navMenu.menuOpen {
+        display: flex; 
+        background-color: rgb(15, 15, 15); 
+        border-radius: 20px;
+        margin-right: 10px;
+        width: 10%;
+    }
+
