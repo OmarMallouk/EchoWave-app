@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext";
 import logo from "/assests/logo.png?url";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const {isAuthenticated, logout} = useAuth();
     const [isScrolled, setIsScrolled] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -38,14 +39,18 @@ const Navbar = () => {
     }, [prevScrollPos]);
 
     const handleBtns = () =>{
-        if (isLoggedIn){
-           
+        if (isAuthenticated){
+            logout();
+        }
             navigate("/login");
-       
-        }else{
+        
+    };
+
+    useEffect(() => {
+        if (!isAuthenticated) {
             navigate("/login");
         }
-    };
+    }, [isAuthenticated, navigate]);
 
 
     return ( 
@@ -72,7 +77,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <button className={styles.authButton} onClick={handleBtns}>
-                    {isLoggedIn ? "Logout" : "Register/Login"}
+                    {isAuthenticated ? "Logout" : "Register/Login"}
                 </button>
             </div>
         </div>
