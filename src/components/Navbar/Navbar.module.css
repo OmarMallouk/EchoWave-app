@@ -20,7 +20,24 @@
 }
 .navLogo {
     display: flex;
-    align-items: center; 
+    align-items: center;
     gap: 10px; 
     margin: 0; 
+}
+
+.navLogo > img {
+    width: 60px; 
+    height: 50px; 
+    object-fit: contain; 
+    margin: 0;
+    
+}
+
+.navText {
+    width: 100px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #7D2A9D;
+    margin: 0; 
+    flex-grow: 1;
 }
