@@ -6,9 +6,16 @@ import styles from "./Navbar.module.css";
 
 const Navbar = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+    const [isScrolled, setIsScrolled] = useState(false);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     const navigate = useNavigate();
+
+    const toggleMenu = () => {
+        setIsMenuOpen((prevState) => !prevState);
+        console.log(isMenuOpen);
+      };
 
  
 
