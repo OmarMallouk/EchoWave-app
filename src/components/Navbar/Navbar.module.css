@@ -162,3 +162,13 @@
 }
 
 
+@media (max-width: 470px) {
+    .navContainer {
+        flex-direction: row; 
+        align-items: center; 
+    }
+
+    .navText {
+        font-size: 14px; 
+    }
+
