@@ -1,6 +1,6 @@
 
 
-body.body1 {
+.body1 {
     display: flex;
     justify-content: center; 
     align-items: center; 

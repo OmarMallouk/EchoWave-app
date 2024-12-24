@@ -41,13 +41,14 @@ const Navbar = () => {
     const handleBtns = () =>{
         if (isAuthenticated){
             logout();
+            navigate("/login");
         }
             navigate("/login");
         
     };
 
     useEffect(() => {
-        if (!isAuthenticated) {
+        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/register") {
             navigate("/login");
         }
     }, [isAuthenticated, navigate]);
