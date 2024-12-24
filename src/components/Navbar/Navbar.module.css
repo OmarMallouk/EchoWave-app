@@ -95,3 +95,29 @@
 .authButton:hover {
     background-color: #bbacc0;
 }
+
+@media (max-width: 768px) {
+    .navContainer {
+        flex-wrap: nowrap; 
+        justify-content: space-between; 
+    }
+
+    .navLogo {
+        height: 40px; 
+    }
+
+    .navText {
+        font-size: 16px; 
+        text-align: center;
+        flex-grow: 1;
+    }
+
+    .navToggle {
+        display: block;
+       
+        font-size: 24px; 
+        cursor: pointer;
+        margin-left: auto; 
+        
+        
+    }
