@@ -78,3 +78,14 @@ input:focus::placeholder {
     }
 }
 
+@media (max-width: 480px) {
+    .loginContainer {
+        min-height: 80vh;
+        max-width: 95%;
+        padding: 10px;
+    }
+
+    .registerBtn a {
+        font-size: 12px;
+    }
+}
