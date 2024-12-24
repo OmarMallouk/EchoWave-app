@@ -172,3 +172,19 @@
         font-size: 14px; 
     }
 
+    .navToggle {
+        margin-left: auto; 
+    }
+
+    .navMenu.menuOpen {
+        width: 20%; 
+        border-radius: 0; 
+    }
+
+    .authButton {
+        font-size: 10px;
+        margin-left: 10px;
+        width: 100%;
+
+    }
+}
