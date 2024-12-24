@@ -68,3 +68,30 @@
     margin: 0;
     padding: 0;
 }
+
+.navMenu li {
+    color: #7D2A9D;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.navMenu li:hover {
+    color: #f0e7f3;
+}
+
+.authButton {
+    background-color: #7D2A9D;
+    color: white;
+    padding: 6px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 13px;
+    width: 200px;
+    transition: background-color 0.3s ease;
+}
+
+.authButton:hover {
+    background-color: #bbacc0;
+}
