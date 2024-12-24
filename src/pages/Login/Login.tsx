@@ -40,7 +40,7 @@ const Login: React.FC = () =>{
 
     return (
 
-        <body className={styles.body1}>
+        <div className={styles.body1}>
             <div className={styles.loginPage}>
                 <div className={styles.loginContainer}>
                 <LoginForm onLogin={handleLogin} />
@@ -51,7 +51,7 @@ const Login: React.FC = () =>{
             
                 </div>
             </div>
-        </body>
+        </div>
     );
 
 }
