@@ -62,3 +62,19 @@ input:focus::placeholder {
     color: #030101; 
 }
 
+@media (max-width: 768px) {
+    .loginPage {
+        min-height: 70vh;
+        padding: 10px;
+    }
+
+    .loginContainer {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .registerBtn a {
+        font-size: 14px;
+    }
+}
+
