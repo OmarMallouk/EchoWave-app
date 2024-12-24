@@ -40,16 +40,18 @@ const Login: React.FC = () =>{
 
     return (
 
-        <div className={styles.loginPage}>
-            <div className={styles.loginContainer}>
-            <LoginForm onLogin={handleLogin} />
-            <h3 className={styles.registerBtn}>Dont have an account?{' '}
-  <a href="#" onClick={handleRegisterChange}>
-    Register now
-  </a></h3>
-          
+        <body className={styles.body1}>
+            <div className={styles.loginPage}>
+                <div className={styles.loginContainer}>
+                <LoginForm onLogin={handleLogin} />
+                <h3 className={styles.registerBtn}>Dont have an account?{' '}
+              <a href="#" onClick={handleRegisterChange}>
+                Register now
+              </a></h3>
+            
+                </div>
             </div>
-        </div>
+        </body>
     );
 
 }

@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import styles from "./Home.module.css"
 
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
         navigate("/")
     }
     return ( 
-        <div>
+        <div className={styles.body2}>
             Welcome Home!
 
             <button onClick={handleLogout}>logout</button>

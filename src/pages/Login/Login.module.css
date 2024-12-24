@@ -1,31 +1,37 @@
-body{
-background-image: url("/public/assests/loginRecords.jpg");
-    background-size: cover; 
-    background-position: center; 
-    background-repeat: no-repeat; 
+
+
+body.body1 {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/assests/loginRecords.jpg");
+    
 }
 
+
 .loginPage {
+  
     display: flex;
     flex-direction: column;
     gap: 20px;
     justify-content: center;
     align-items: center;
-    height: 60vh;
+    min-height: 100vh;
     border-radius: 30px;
-    background-color: #090707;
+    background-color: transparent;
 }
 
 .loginContainer {
     max-width: 400px;
     padding: 20px;
     background-color: #090707;
-    border-radius: 8px;
+    border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    
   
 }
 
