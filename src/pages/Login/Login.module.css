@@ -5,7 +5,12 @@ body.body1 {
     justify-content: center; 
     align-items: center; 
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/assests/loginRecords.jpg");
-    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
 }
 
 
