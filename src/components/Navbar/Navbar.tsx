@@ -25,7 +25,16 @@ const Navbar = () => {
             if (prevScrollPos < currentScrollPos) {
                 setIsScrolled(true);
             } else {
-      
+                setIsScrolled(false);
+            }
+            setPrevScrollPos(currentScrollPos);
+        };
+
+        window.addEventListener("scroll", handleScroll);
+
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
     }, [prevScrollPos]);
 
     const handleBtns = () =>{
