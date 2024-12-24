@@ -28,14 +28,15 @@ const Register: React.FC = () =>{
 
 
     return(
-
-        <div className={styles.registerPage}>
+        <div className={styles.body1}>
+            <div className={styles.registerPage}>
              <div className={styles.registerContainer}>
             <RegisterForm onRegister={handleRegister}/>
             <h3 className={styles.registerBtn} >already a user? 
             <a href="#" onClick={handleLoginChange}> login now </a>
             </h3>
             </div>
+        </div>
         </div>
 
     );
