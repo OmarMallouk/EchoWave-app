@@ -95,6 +95,23 @@ const Home = () => {
         </Container>
       </div>
 
+      <div className={styles.featuresContainer}>
+        <h2 className={styles.featuresTitle}>Features</h2>
+        <div className={styles.fadeInSection}>
+        <div className={styles.imageWrapper}>
+          <img
+            src={writing}
+            alt="Example"
+            className={styles.fadeInImage}
+          />
+        </div>
+    
+            </div>
+
+
+            </div>
+
+       
 
       </div>
     );
