@@ -142,7 +142,14 @@ const Home = () => {
           className={styles.fadeInImage}
         />
         </div>
-     
+        <div className={styles.fadeInText}>
+          <h2>“Stay Unique with <span className={styles.highlightLyrics}>AI</span> Originality Check</h2>
+          <p>–Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.”</p>
+          <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
+                check now
+              </Button>
+        </div>
+            </div>
             </div>
 
        
