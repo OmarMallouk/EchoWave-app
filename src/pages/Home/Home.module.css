@@ -133,4 +133,23 @@
 
 
 
+  .featuresTitle {
+    text-align: center;
+    font-size: 4.5rem;
+    color: rgb(247, 242, 242);
+    margin-top: 2rem;
+    opacity: 0; 
+    transform: translateY(-50px); 
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .fadeInSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    min-height: 50vh;
+    opacity: 0; 
+    transform: translateY(50px); 
+  }
   
