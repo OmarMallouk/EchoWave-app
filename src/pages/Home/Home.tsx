@@ -124,7 +124,11 @@ const Home = () => {
               </Button>
     </div>
     <div className={styles.imageWrapper}>
- 
+    <img
+      src={lyricNote}
+      alt="Example"
+      className={styles.fadeInImage}
+    />
   </div>
  </div>
       
