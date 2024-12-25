@@ -18,3 +18,23 @@
    
   }
   
+  .title {
+    color: var(--mantine-color-white);
+    font-size: 60px;
+    font-weight: 900;
+    line-height: 1.1;
+  
+  }
+  
+  .description {
+    color: var(--mantine-color-white);
+    max-width: 600px;
+  
+  
+  }
+  
+  .control {
+    margin-top: calc(var(--mantine-spacing-xl) * 1.5);
+  
+   
+  }
