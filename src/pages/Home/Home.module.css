@@ -39,4 +39,26 @@
     
   }
   
+  .control {
+    margin-top: calc(var(--mantine-spacing-xl) * 1);
+    background-color: var(--mantine-color-blue-1);
+    
+
+   
+  }
+
+
+  .highlightLyrics {
+    color: #7D2A9D; 
+    
+  }
+
+  .subtitle{
+    display: block;
+    text-align: left;
+    margin-left: 8px;
+    
+    
+  }
+  
  
