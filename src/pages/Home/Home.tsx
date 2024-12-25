@@ -22,7 +22,15 @@ const Home = () => {
         scrollTrigger: {
           trigger: `.${styles.featuresTitle}`,
           start: "top 80%", 
-       
+          toggleActions: "play none none reverse",
+          markers: false, 
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+      });
+      
+  
     }, []);
   
 
