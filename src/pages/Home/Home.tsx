@@ -78,7 +78,11 @@ const Home = () => {
           opacity={1}
           zIndex={0}
         />
-      
+        <Container className={styles.container} size="xl">
+          <Title className={styles.title}>Unique Exclusive <span className={styles.highlightLyrics}>Lyrics</span>, <br />
+          <span className={styles.subtitle}>Just for <span className={styles.highlightYou}>You</span></span></Title>
+        
+          </div>
         </Container>
       </div>
 
