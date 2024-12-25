@@ -115,6 +115,15 @@ const Home = () => {
             </div>
 
 
+            <div className={styles.fadeInSectionReverse}>
+    <div className={styles.fadeInText}>
+      <h2>“Tailored <span className={styles.highlightLyrics}>Lyrics</span> for Every <span className={styles.highlightLyrics}>Genre</span></h2>
+      <p>– Whether it’s hip-hop, rock, country, our AI crafts lyrics that flow smoothly with your chosen style.”</p>
+
+ </div>
+      
+
+
             </div>
 
        
