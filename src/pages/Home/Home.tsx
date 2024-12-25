@@ -88,7 +88,9 @@ const Home = () => {
               <Title className={styles.intro1} size="sm" mt="xl">
                Not a member yet ?
               </Title>
-             
+              <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
+                Get started
+              </Button>
           </div>
         </Container>
       </div>
