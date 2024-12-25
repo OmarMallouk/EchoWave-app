@@ -220,3 +220,28 @@
     text-align: left; 
   }
 
+
+  @media screen and (max-width: 1200px) {
+   
+
+    .fadeInText {
+        max-width: 80%;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    
+
+    .fadeInText {
+        max-width: 90%;
+        font-size: 1rem;
+    }
+
+    .fadeInImage {
+        max-width: 100%;
+    }
+
+    .featuresTitle {
+        font-size: 3rem;
+    }
+}
