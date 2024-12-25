@@ -105,7 +105,13 @@ const Home = () => {
             className={styles.fadeInImage}
           />
         </div>
-    
+        <div className={styles.fadeInText}>
+          <h2>“Craft <span className={styles.highlightLyrics}>Lyrics</span> That Matches Your <span className={styles.highlightLyrics}>Mood</span></h2>
+          <p>– Let your emotions guide the words as our AI tailors lyrics to fit the genre you choose.”</p>
+          <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
+                Start now
+              </Button>
+        </div>
             </div>
 
 
