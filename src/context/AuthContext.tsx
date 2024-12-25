@@ -14,13 +14,19 @@ export const AuthContext = createContext<AuthTypes>({
   });
   
 export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
-    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const [isAuthenticated, setIsAuthenticated] = useState<boolean>(() => {
+        return !!localStorage.getItem("Token");
+      });
 
-    useEffect(()=>{
+      useEffect(() => {
         const token = localStorage.getItem("Token");
-            setIsAuthenticated(!!token);
-    },[])
-
+        if (token) {
+          setIsAuthenticated(true);
+        } else {
+          setIsAuthenticated(false);
+        }
+      }, []);
+      
     const login =(token: string) =>{
 
         localStorage.setItem("Token",token);
