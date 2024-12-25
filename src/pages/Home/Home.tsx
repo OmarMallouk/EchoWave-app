@@ -134,6 +134,15 @@ const Home = () => {
       
 
 
+      <div className={styles.fadeInSection2}>
+      <div className={styles.imageWrapper}>
+        <img
+          src={originalCh}
+          alt="Example"
+          className={styles.fadeInImage}
+        />
+        </div>
+     
             </div>
 
        
