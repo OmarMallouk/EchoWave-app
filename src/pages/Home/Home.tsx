@@ -55,7 +55,12 @@ const Home = () => {
             duration: 1,
           });
 
-      
+       gsap.to(`.${styles.fadeInSection2}`, {
+        scrollTrigger: {
+          trigger: `.${styles.fadeInSection2}`,
+          start: "top 80%",
+    
+
 
     return ( 
     
