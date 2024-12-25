@@ -44,8 +44,8 @@ const Login: React.FC = () =>{
             <div className={styles.loginPage}>
                 <div className={styles.loginContainer}>
                 <LoginForm onLogin={handleLogin} />
-                <h3 className={styles.registerBtn}>Dont have an account?{' '}
-              <a href="#" onClick={handleRegisterChange}>
+                <h3 className={styles.registertitle}>Dont have an account?{' '}
+              <a href="#" className={styles.registerBtn} onClick={handleRegisterChange}>
                 Register now
               </a></h3>
             

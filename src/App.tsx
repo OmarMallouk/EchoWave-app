@@ -19,7 +19,7 @@ const App: React.FC =() => {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
-      <Route path="/register" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
+      <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>
       </MantineProvider>
       </BrowserRouter>

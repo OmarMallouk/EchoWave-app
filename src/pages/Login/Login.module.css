@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center; 
     align-items: center; 
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/public/assests/loginRecords.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/assests/loginRecords.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -40,8 +40,11 @@
   
 }
 
+.registertitle{
+    color: white;
+}
 
-  .registerBtn a {
+  .registerBtn  {
     color: #7D2A9D;
     text-decoration: underline;
     cursor: pointer;
@@ -51,11 +54,13 @@
     color: rgb(188, 188, 206);
 }
 
+
 input::placeholder {
     text-align: center;
     font-weight: bold;
     color: #000000; 
     font-style: italic;
+   
 }
 
 input:focus::placeholder {

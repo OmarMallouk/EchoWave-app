@@ -1,14 +1,20 @@
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styles from "./Home.module.css"
-import { Button, Container, Overlay, Text, Title } from '@mantine/core';
+import lyricNote from "/assests/notelyric.jpg?url";
+import styles from "./Home.module.css";
+import { Button, Container, Overlay, Text, Title, Grid, SimpleGrid, Skeleton } from '@mantine/core';
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
-
+const PRIMARY_COL_HEIGHT = '300px';
 
 const Home = () => {
-    
+    const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`;
 
-  
+
     return ( 
+        <div>
         <div className={styles.hero}>
         <Overlay
           gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
@@ -31,7 +37,10 @@ const Home = () => {
           </div>
         </Container>
       </div>
-     );
+     
+     
+      </div>
+    );
 }
- 
+
 export default Home;
