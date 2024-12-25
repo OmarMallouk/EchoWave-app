@@ -59,7 +59,15 @@ const Home = () => {
         scrollTrigger: {
           trigger: `.${styles.fadeInSection2}`,
           start: "top 80%",
-    
+          toggleActions: "play none none reverse",
+          once: true,
+        },
+        opacity: 1,
+        y: 0,
+        duration: 1,
+      });
+    }, []);
+  
 
 
     return ( 
