@@ -208,3 +208,15 @@
   transform: translateY(50px);
   }
   
+  .fadeInSectionReverse img {
+    width: 45%; 
+    height: auto;
+    filter: brightness(70%);
+  }
+  
+  .fadeInSectionReverse .fadeInText {
+    width: 50%;
+    color: white;
+    text-align: left; 
+  }
+
