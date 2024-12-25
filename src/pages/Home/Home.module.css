@@ -1,7 +1,7 @@
 
 .hero {
     position: relative;
-    background-image: url("../../../public/assests/herologo.jpg");
+    background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../../../public/assests/herologo.jpg");
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -43,7 +43,7 @@
   .control {
     margin-top: calc(var(--mantine-spacing-xl) * 1);
     background-color: var(--mantine-color-blue-1);
-    
+    margin-left: 35px;
 
    
   }
@@ -62,16 +62,8 @@
     
   }
   
-  .highlightYou {
-    color: #7D2A9D;
-    
-  }
 
-  .highlightMagic{
-    color: #7D2A9D;
-    
-  }
-
+  
   .intro1{
     margin: 0;
     color: white;
@@ -85,3 +77,5 @@
     gap: 20px;
     margin-left: 10px;
   }
+
+  
