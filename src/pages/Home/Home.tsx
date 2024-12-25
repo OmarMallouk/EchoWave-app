@@ -43,7 +43,13 @@ const Home = () => {
         duration: 1,
       });
 
-    }, []);
+          gsap.to(`.${styles.fadeInSectionReverse}`, {
+            scrollTrigger: {
+              trigger: `.${styles.fadeInSectionReverse}`,
+              start: "top 80%",
+              toggleActions: "play none none reverse",
+              once: true,
+    
   
 
 
