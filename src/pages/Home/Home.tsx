@@ -119,7 +119,13 @@ const Home = () => {
     <div className={styles.fadeInText}>
       <h2>“Tailored <span className={styles.highlightLyrics}>Lyrics</span> for Every <span className={styles.highlightLyrics}>Genre</span></h2>
       <p>– Whether it’s hip-hop, rock, country, our AI crafts lyrics that flow smoothly with your chosen style.”</p>
-
+      <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
+                Get started
+              </Button>
+    </div>
+    <div className={styles.imageWrapper}>
+ 
+  </div>
  </div>
       
 
