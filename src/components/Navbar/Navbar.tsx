@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link  } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import logo from "/assests/logo.png?url";
 import styles from "./Navbar.module.css";
@@ -70,7 +70,9 @@ const Navbar = () => {
                             isMenuOpen ? styles.menuOpen : ""
                         }`}
                     >
-                        <li>Home</li>
+                        <li>
+                             <Link to="/home">Home</Link>
+                             </li>
                         <li>Mood</li>
                         <li>Genre</li>
                         <li>Originality</li>
