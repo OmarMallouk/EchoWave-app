@@ -31,9 +31,9 @@ const Register: React.FC = () =>{
         <div className={styles.body1}>
             <div className={styles.registerPage}>
              <div className={styles.registerContainer}>
-            <RegisterForm onRegister={handleRegister}/>
-            <h3 className={styles.registerBtn} >already a user? 
-            <a href="#" onClick={handleLoginChange}> login now </a>
+            <RegisterForm  className={styles.registerForm} onRegister={handleRegister}/>
+            <h3 className={styles.registerBtn} >already a user?  
+            <a href="#" className={styles.registerBtns} onClick={handleLoginChange}> Login now </a>
             </h3>
             </div>
         </div>
