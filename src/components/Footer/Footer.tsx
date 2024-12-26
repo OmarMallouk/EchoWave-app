@@ -8,7 +8,12 @@ const Footer = () => {
           <img src="/logo.png" alt="Logo" className={styles.logo} />
         </div>
         <ul className={styles.buttonList}>
-       
+          <li className={styles.buttonItem}>
+            <button className={styles.button}>Home</button>
+          </li>
+          <li className={styles.buttonItem}>
+            <button className={styles.button}>Mood</button>
+          </li>
   
         </ul>
       </footer>
