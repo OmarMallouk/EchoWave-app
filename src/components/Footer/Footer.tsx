@@ -1,27 +1,32 @@
 import React from "react";
 import styles from "./Footer.module.css";
+import logo from "/assests/logo.png?url";
 
 const Footer = () => {
     return ( 
-        <footer className={styles.footer}>
-        <div className={styles.logoContainer}>
-          <img src="/logo.png" alt="Logo" className={styles.logo} />
+        <div>
+            <footer className={styles.footer}>
+            <div className={styles.logoContainers}>
+              <div className={styles.navLogos}><img src={logo} alt="Logos" className={styles.logos} /></div>
+            </div>
+            <div className={styles.ulContainers}>
+                <ul className={styles.navMenus} >
+                  <li className={styles.buttonItems}>
+                    <button className={styles.buttons}>Home</button>
+                  </li>
+                  <li className={styles.buttonItems}>
+                    <button className={styles.buttons}>Mood</button>
+                  </li>
+                  <li className={styles.buttonItems}>
+                    <button className={styles.buttons}>Genre</button>
+                  </li>
+                  <li className={styles.buttonItems}>
+                    <button className={styles.buttons}>Originality</button>
+                  </li>
+                </ul>
+            </div>
+                  </footer>
         </div>
-        <ul className={styles.buttonList}>
-          <li className={styles.buttonItem}>
-            <button className={styles.button}>Home</button>
-          </li>
-          <li className={styles.buttonItem}>
-            <button className={styles.button}>Mood</button>
-          </li>
-          <li className={styles.buttonItem}>
-            <button className={styles.button}>Genre</button>
-          </li>
-          <li className={styles.buttonItem}>
-            <button className={styles.button}>Originality</button>
-          </li>
-        </ul>
-      </footer>
      );
 }
  
