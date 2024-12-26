@@ -62,9 +62,6 @@
   
 }
 
-/* .fadeInText span{
-  margin-right: 20px;
-} */
 
 .subtitle{
   display: block;
@@ -421,7 +418,6 @@ transform: translateY(50px);
   }
 }
 
-/* Additional section */
 .additional-section {
   padding: 20px;
   background-color: #000000; 
