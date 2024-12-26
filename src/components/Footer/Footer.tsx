@@ -14,7 +14,12 @@ const Footer = () => {
           <li className={styles.buttonItem}>
             <button className={styles.button}>Mood</button>
           </li>
-  
+          <li className={styles.buttonItem}>
+            <button className={styles.button}>Genre</button>
+          </li>
+          <li className={styles.buttonItem}>
+            <button className={styles.button}>Originality</button>
+          </li>
         </ul>
       </footer>
      );
