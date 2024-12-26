@@ -1,19 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect,useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import lyricNote from "/assests/genrelyric.jpg?url";
 import originalCh from "/assests/originalCheck.jpg?url";
 import writing from "/assests/writing.jpg?url";
+import channel1 from "/assests/records5.jpeg?url";
 import styles from "./Home.module.css";
-import { Button, Container, Overlay, Text, Title, Grid, SimpleGrid, Skeleton } from '@mantine/core';
+import { Button, Container, Overlay,Title } from '@mantine/core';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
-const PRIMARY_COL_HEIGHT = '300px';
+
+const cardsData = [
+  {
+      title: "Jay in the Cray",
+      description: "Jay is, and always have been the right way :!",
+      imgSrc: channel1,
+      link: "https://twitter.com/mannupaaji",
+  },
+];
 
 const Home = () => {
-    const SECONDARY_COL_HEIGHT = `calc(${PRIMARY_COL_HEIGHT} / 2 - var(--mantine-spacing-md) / 2)`;
-
 
     useEffect(() => {
       gsap.registerPlugin(ScrollTrigger);
@@ -69,6 +76,7 @@ const Home = () => {
     }, []);
   
 
+   
 
     return ( 
         <div>
@@ -113,11 +121,12 @@ const Home = () => {
               </Button>
         </div>
             </div>
-
+         
+         
 
             <div className={styles.fadeInSectionReverse}>
     <div className={styles.fadeInText}>
-      <h2>“Tailored <span className={styles.highlightLyrics}>Lyrics</span> for Every <span className={styles.highlightLyrics}>Genre</span></h2>
+      <h2>“Tailored <span className={styles.highlightLyrics}>Lyrics</span> for Every <span className={styles.highlightGenre}>Genre</span></h2>
       <p>– Whether it’s hip-hop, rock, country, our AI crafts lyrics that flow smoothly with your chosen style.”</p>
       <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
                 Get started
@@ -143,18 +152,49 @@ const Home = () => {
         />
         </div>
         <div className={styles.fadeInText}>
-          <h2>“Stay Unique with <span className={styles.highlightLyrics}>AI</span> Originality Check</h2>
+          <h2>“Stay Unique with <span className={styles.highlightLyrics}>AI</span> Originality <span className={styles.highlightLyrics}>Check</span></h2>
           <p>–Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.”</p>
           <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
                 check now
               </Button>
         </div>
             </div>
-            </div>
+            </div> 
 
-       
 
-      </div>
+            <div className={styles.chane}>Channels</div> 
+
+
+
+<div className={styles.carouselsCo}>
+  
+              <div className={styles.container2}>
+    <div className={styles.carousel}>
+      <div className={styles.carousel__face}><span>This is something</span></div>
+      <div className={styles.carousel__face}><span>Very special</span></div>
+      <div className={styles.carousel__face}><span>Special is the key</span></div>
+      <div className={styles.carousel__face}><span>For you</span></div>
+      <div className={styles.carousel__face}><span>Just give it</span></div>
+      <div className={styles.carousel__face}><span>A try</span></div>
+      <div className={styles.carousel__face}><span>And see</span></div>
+      <div className={styles.carousel__face}><span>How IT Works</span></div>
+      <div className={styles.carousel__face}><span>Woow</span></div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div className={styles.additionalSection}>
+  <h2>Another Section Below</h2>
+  <p>This section will be visible below the carousel.</p>
+</div>
+
+</div>
+
+      
     );
 }
 
