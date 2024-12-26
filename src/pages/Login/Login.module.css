@@ -54,7 +54,35 @@ font-size: 14px;
 margin-top: 10px;
   }
 
- 
+  .loginForm img {
+    height: 150px;
+    width: 80%; 
+    max-width: 200px;
+    margin-bottom: 30px;
+    margin-left: 20px;
+  }
+
+  .loginForm button {
+    background-color: #7d2a9d;
+    color: #fff;
+    padding: 8px;
+    width: 40%;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .loginForm button:hover {
+    background-color: #541f91;
+    
+  }
+  
+  .loginBtn {
+    color: #7d2a9d;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+  }
   
   .loginBtn a {
     color: #7d2a9d;
