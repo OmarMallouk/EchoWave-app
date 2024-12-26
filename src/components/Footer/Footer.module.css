@@ -30,3 +30,12 @@ footer {
     margin: 0 10px;
   }
   
+  .button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #555;
+    color: #fff;
+  }
+  
