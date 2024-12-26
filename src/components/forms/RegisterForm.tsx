@@ -2,10 +2,11 @@ import { useState } from "react";
 import logo from "/assests/logo.png?url";
 
 interface RegisterProps{
+    className?: string;
     onRegister: (username: string, email:string, password: string) => void;
 }
 
-const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
+const RegisterForm: React.FC<RegisterProps> = ({className,onRegister}) =>{
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -20,7 +21,7 @@ const RegisterForm: React.FC<RegisterProps> = ({onRegister}) =>{
 
     return(
 
-        <form onSubmit={handleSubmit}>
+        <form className={className} onSubmit={handleSubmit}>
           
             <div>
             <img src={logo} alt="logos" />
