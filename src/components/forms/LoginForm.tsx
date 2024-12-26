@@ -4,10 +4,11 @@ import logo from "/assests/logo.png?url";
 
 
 interface LoginFormProps{
+    className?: string;
     onLogin: (username: string, password: string) => void;
 }
 
-const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
+const LoginForm: React.FC<LoginFormProps> = ({className,onLogin}) =>{
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
  
@@ -21,7 +22,7 @@ const LoginForm: React.FC<LoginFormProps> = ({onLogin}) =>{
 
 
     return(
-        <form onSubmit={handleSubmit} >
+        <form className={className} onSubmit={handleSubmit} >
             <div>
                 <img src={logo} alt="logos" />
                 <input 
