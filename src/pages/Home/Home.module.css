@@ -412,4 +412,54 @@ transform: translateY(50px);
   transform: rotateY(320deg) translateZ(430px);
 }
 
+@keyframes rotate360 {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+/* Additional section */
+.additional-section {
+  padding: 20px;
+  background-color: #000000; 
+  color: white;
+  margin-top: 50px; 
+}
+
+
+@media screen and (max-width: 768px) {
+  .container2 {
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+
+  .carousel__face {
+    width: 250px;
+    height: 150px;
+  }
+
+  .carousel {
+    animation-duration: 30s; 
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .container2 {
+    margin-left: 0;
+    margin-right: 0;
+    width: 100%;
+  }
+
+  .carousel__face {
+    width: 200px; 
+    height: 120px;
+  }
+
+  .carousel {
+    animation-duration: 20s; 
+  }
 }
