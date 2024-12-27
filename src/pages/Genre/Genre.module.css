@@ -28,4 +28,40 @@
     margin-left: 200px;
   }
   
+  .image {
+    position: relative;
+    width: 300px;
+    height: auto;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 0 20px rgba(128, 0, 128, 0.219);
+    overflow: hidden;
+    /* object-fit: cover; */
+  }
+  
+  .image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); 
+    z-index: 1;
+  }
+  
+  .imageText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 2; 
+    opacity: 1; 
+    transition: opacity 0.3s ease; 
+  }
+
   
