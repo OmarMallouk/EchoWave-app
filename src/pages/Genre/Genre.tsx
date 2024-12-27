@@ -15,7 +15,11 @@ const Genre = () => {
     useEffect(() => {
         const images = document.querySelectorAll(`.${styles.image}`);
       
-     
+        images.forEach((image, index) => {
+          gsap.fromTo(
+            image,
+         
+      
       
       }
     
