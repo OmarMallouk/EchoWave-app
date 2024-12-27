@@ -26,7 +26,7 @@ const App: React.FC =() => {
       <Route path="/mood" element={<Mood />} />
       <Route path="/genre" element={<Genre />} />
       <Route path="/origin" element={<Originality />} />
-      <Route path="/origin" element={<Channels />} />
+      <Route path="/channels" element={<Channels />} />
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
       <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>
