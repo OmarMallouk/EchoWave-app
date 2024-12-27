@@ -62,3 +62,14 @@
     opacity: 1; /* Ensure the text is visible by default */
     transition: opacity 0.3s ease; /* Add smooth transition for opacity */
   }
+
+  .Title1 {
+    font-size: 40px;
+    height: auto;
+    width: auto;
+    margin-top: 80px; /* Add space to push the title down */
+    padding: 10px 0;  /* Optional: Add some padding for better spacing */
+    color: #fff;  /* Ensure text is visible on dark background */
+  }
+  
+
