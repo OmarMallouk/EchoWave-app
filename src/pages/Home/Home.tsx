@@ -181,6 +181,7 @@ const Home = () => {
       <div className={styles.carousel__face}><span>Woow</span></div>
     </div>
   </div>
+
 </div>
 
 
@@ -191,6 +192,8 @@ const Home = () => {
   <h2>Another Section Below</h2>
   <p>This section will be visible below the carousel.</p>
 </div>
+
+
 
 </div>
 
