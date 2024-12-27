@@ -108,7 +108,13 @@ const Originality = () => {
     </div>
 </div>
 
-
+<div className={styles.flexContainer2}>
+  <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-4">
+    <div className={styles.card}>Waiting for results</div>
+    <div className="divider lg:divider-horizontal">OR</div>
+    <div className={styles.card}>Alternative Approach</div>
+  </div>
+</div>
 
 
 
