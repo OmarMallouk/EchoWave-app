@@ -81,4 +81,8 @@
   cursor: pointer;
 }
   
- 
+  .image:hover .imageText {
+    opacity: 1; 
+
+  }
+
