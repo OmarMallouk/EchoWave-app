@@ -121,4 +121,17 @@
   
   }
   
- 
+  .card {
+    display: grid;
+    place-items: center;
+    width: 30%; 
+    height: 500px; 
+    background: linear-gradient(to bottom right, #2d082e, #4b2768, #391f46); 
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    color: white;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  
