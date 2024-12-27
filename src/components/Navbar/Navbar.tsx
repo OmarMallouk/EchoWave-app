@@ -48,7 +48,7 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/register" && window.location.pathname !== "/mood" && window.location.pathname !== "/genre" && window.location.pathname !== "/home" && window.location.pathname !== "/") {
+        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/origin" && window.location.pathname !== "/register" && window.location.pathname !== "/mood" && window.location.pathname !== "/genre" && window.location.pathname !== "/home" && window.location.pathname !== "/") {
             navigate("/login");
         }
     }, [isAuthenticated, navigate]);
