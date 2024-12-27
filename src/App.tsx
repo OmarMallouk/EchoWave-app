@@ -4,6 +4,7 @@ import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 import Mood from "./pages/Mood/Mood";
 import Genre from "./pages/Genre/Genre";
+import Channels from "./pages/AllChannels/Channels";
 import Originality from "./pages/Originality/Originality";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
@@ -25,6 +26,7 @@ const App: React.FC =() => {
       <Route path="/mood" element={<Mood />} />
       <Route path="/genre" element={<Genre />} />
       <Route path="/origin" element={<Originality />} />
+      <Route path="/origin" element={<Channels />} />
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
       <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>
