@@ -17,3 +17,14 @@
     padding: 20px;
   }
   
+  .imageGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 1200px;
+    position: relative; 
+    margin-left: 200px;
+  }
+  
+ 
