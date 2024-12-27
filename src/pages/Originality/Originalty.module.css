@@ -71,3 +71,22 @@
     text-align: center;
 }
 
+
+
+.leftDiv h1{
+    background-color: #7D2A9D;
+    padding: 6px 9px;
+    width: 40%;
+    border-radius: 15px;
+    margin-left: 100px;
+    
+}
+
+.leftDiv button{
+    background-color: #7D2A9D;
+    padding: 4px 7px;
+    border-radius: 15px;
+    width: 25%;
+    margin-top: 15px;
+    margin-right: 90px;
+}
