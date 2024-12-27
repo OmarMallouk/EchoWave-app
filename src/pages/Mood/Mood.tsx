@@ -94,7 +94,14 @@ const Mood = () => {
           </radialGradient>
         </defs>
       </svg>
-   
+      <div className="mx-auto text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-center w-full max-w-full">
+        <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        Your Generated Output:
+        </h2>
+        <p className="mt-6 text-pretty text-lg text-gray-300">
+        {aiOutput || 'Select a mood to generate content.'}
+        </p>
+     
     </div>
   </div>
 </div>
