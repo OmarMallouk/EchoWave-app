@@ -25,10 +25,21 @@ const Genre = () => {
             {
               y: 0, 
               x: 0,
-            
+              stagger: 0.5,
+              scrollTrigger: {
+                trigger: image,
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: 1,
+                markers: false,
+              },
+            }
+          );
+        });
       }, []);
       
-     
+   
+    
     return ( 
 
 
