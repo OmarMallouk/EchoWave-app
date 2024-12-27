@@ -18,11 +18,17 @@ const Genre = () => {
         images.forEach((image, index) => {
           gsap.fromTo(
             image,
-         
+            { 
+              y: gsap.utils.random(100, 50),
+              x: gsap.utils.random(-50, 50),
+            },
+            {
+              y: 0, 
+              x: 0,
+            
+      }, []);
       
-      
-      }
-    
+     
     return ( 
 
 
