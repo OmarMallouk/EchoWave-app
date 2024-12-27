@@ -75,6 +75,12 @@ const Originality = () => {
     aria-labelledby="dropdownMenuButton1"
     data-twe-dropdown-menu-ref>
     <li>
+      <a
+        className="block w-full whitespace-nowrap bg-white px-4 py-2 text-sm font-normal text-neutral-700 hover:bg-zinc-200/60 focus:bg-zinc-200/60 focus:outline-none active:bg-zinc-200/60 active:no-underline dark:bg-surface-dark dark:text-white dark:hover:bg-neutral-800/25 dark:focus:bg-neutral-800/25 dark:active:bg-neutral-800/25"
+        href="#"
+        data-twe-dropdown-item-ref
+        >Action</a>
+    </li>
 
   </ul>
 </div>
