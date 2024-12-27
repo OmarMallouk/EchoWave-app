@@ -48,7 +48,7 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/register" && window.location.pathname !== "/mood" && window.location.pathname !== "/home" && window.location.pathname !== "/") {
+        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/register" && window.location.pathname !== "/mood" && window.location.pathname !== "/genre" && window.location.pathname !== "/home" && window.location.pathname !== "/") {
             navigate("/login");
         }
     }, [isAuthenticated, navigate]);
@@ -71,12 +71,12 @@ const Navbar = () => {
                         }`}
                     >
                         <li>
-                             <Link to="/home">Home</Link>
+                             <Link to="/">Home</Link>
                              </li>
-                        <li>Mood</li>
-                        <li>Genre</li>
-                        <li>Originality</li>
-                        <li>Channels</li>
+                        <li><Link to="/mood">Mood</Link></li>
+                        <li><Link to="/genre">Genre</Link></li>
+                        <li><Link to="/origin">Originality</Link></li>
+                        <li><Link to="/channels">Channels</Link></li>
                     </ul>
                 </div>
                 <button className={styles.authButton} onClick={handleBtns}>
