@@ -1,0 +1,31 @@
+.body3 {
+    position: relative;
+    overflow: visible;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.671)
+      ),
+      url("/public/assests/lyricPageBack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    margin: 0;
+    padding: 20px;
+  }
+
+ 
+  .imageGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 90%;
+    max-width: 1200px;
+    position: relative; 
+    margin-left: 200px;
+  }
+  
+  

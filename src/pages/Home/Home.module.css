@@ -3,7 +3,7 @@
 
 .hero {
   position: relative;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("../../../public/assests/herologo.jpg");
+  background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("/assests/herologo.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
