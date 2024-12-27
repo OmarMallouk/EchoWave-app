@@ -93,7 +93,21 @@ const Genre = () => {
           </radialGradient>
         </defs>
       </svg>
-  
+      <div className="mx-auto text-center lg:mx-0 lg:flex-auto lg:py-32 lg:text-center w-full max-w-full">
+        <h2 className="text-balance text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+        Your Generated Output:
+        </h2>
+        <p className="mt-6 text-pretty text-lg text-gray-300">
+        {aiOutput || 'Select a mood to generate content.'}
+        </p>
+        <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-center">
+          <a
+            href="#"
+            className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          >
+            Download
+          </a>
+        </div>
       </div>
     </div>
   </div>
