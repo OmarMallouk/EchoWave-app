@@ -90,3 +90,12 @@
     margin-top: 15px;
     margin-right: 90px;
 }
+
+.leftDiv input{
+    padding: 6px 9px;
+    width: 70%;
+    border-radius: 12px;
+    margin-left: 30px;
+    background-color: #3a393a09;
+    color: white;
+}
