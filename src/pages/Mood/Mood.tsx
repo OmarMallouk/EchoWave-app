@@ -39,7 +39,13 @@ const Mood = () => {
         });
       }, []);
       
-  
+      const handleMoodSelection = (mood: string) => {
+        setSelectedMood(mood);
+        // api didnt add yet
+        const output = `Generated lyrics mood: ${mood}`;
+        setAiOutput(output);
+      
+      }
 
   return (
    <div className={styles.body2}> 
