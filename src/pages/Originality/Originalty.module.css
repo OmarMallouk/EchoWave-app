@@ -34,3 +34,15 @@
     color: #fff;
     margin-top: 40px;
 }
+
+.leftDiv,
+
+.rightDiv {
+     /* Light gray background */
+    padding: 20px;
+    border-radius: 8px;
+    width: 30%; /* Each div takes up 30% of the container width */
+    box-sizing: border-box; /* Include padding in width */
+    overflow: hidden;
+}
+
