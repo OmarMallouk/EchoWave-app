@@ -18,7 +18,22 @@ const Mood = () => {
       
         images.forEach((image, index) => {
           gsap.fromTo(
-     
+            image,
+            { 
+              y: gsap.utils.random(100, 50),
+              x: gsap.utils.random(-50, 50),
+            },
+            {
+              y: 0, 
+              x: 0,
+              stagger: 0.5,
+              scrollTrigger: {
+                trigger: image,
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: 1,
+                markers: false,
+              },
             }
           );
         });
