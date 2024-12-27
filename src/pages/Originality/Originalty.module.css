@@ -24,3 +24,13 @@
     text-align: center;
     margin-top: 80px;
   }
+
+  .flexContainer {
+    display: flex;
+    justify-content: space-between; /* Space between the divs */
+    align-items: flex-start; /* Align items to the top */
+    width: 100%; /* Ensure full width */
+    gap: 20px; /* Optional: space between flex items */
+    color: #fff;
+    margin-top: 40px;
+}
