@@ -1,0 +1,19 @@
+.body4 {
+    position: relative;
+    overflow: visible;
+    display: block; 
+
+    background-image: linear-gradient(
+        rgba(0, 0, 0, 0.5),
+        rgba(0, 0, 0, 0.74)),
+    url("/public/assests/lyricPageBack.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    background-color: #7D2A9D;
+  }
+  
+
