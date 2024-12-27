@@ -44,3 +44,18 @@
     box-sizing: border-box;
     overflow: hidden;
 }
+
+.centerDiv{
+    margin-top: 10px;
+}
+
+.centerDiv h1{
+    margin-right: 100px ;
+    margin-bottom: 25px;
+    background-color: #7D2A9D;
+    padding: 4px 5px;
+    width: 80%;
+    border-radius: 15px;
+}
+
+
