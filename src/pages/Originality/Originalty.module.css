@@ -134,4 +134,12 @@
     text-align: center;
   }
   
+  .divider {
+    margin: 20px 0; 
+    color: #d16ba5; 
+  }
+  
+  .lg\:divider-horizontal {
+    margin: 0 20px; 
+  }
   
