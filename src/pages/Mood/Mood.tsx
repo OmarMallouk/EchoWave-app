@@ -50,7 +50,27 @@ const Mood = () => {
   return (
    <div className={styles.body2}> 
 
+   <div className={styles.Title1}> <h1>Choose a mood and feel the harmony</h1></div>
+
+
+ 
+   <div className={styles.imageGrid}>
+        {['Sad', 'Angry', 'Happy', 'Stressed', 'Ecstatic', 'Depressed'].map((mood) => (
+          <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
+           
+          </div>
+        ))}
+      </div>
    
+   
+
+
+
+
+
+
+
+        
       </div>          
       
       
