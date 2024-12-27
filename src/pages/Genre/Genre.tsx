@@ -77,6 +77,18 @@ const Genre = () => {
 </div>
    
 
+<div className="w-full">
+  <div className="mx-auto py-24 sm:px-6 sm:py-32 lg:px-8">
+    <div className="relative isolate overflow-hidden bg-gray-900 px-6 pt-16 shadow-2xl sm:rounded-3xl sm:px-16 md:pt-24 lg:flex lg:gap-x-20 lg:px-24 lg:pt-0 w-full">
+      <svg
+        viewBox="0 0 1024 1024"
+        aria-hidden="true"
+        className="absolute left-1/2 top-1/2 -z-10 size-[64rem] -translate-y-1/2 [mask-image:radial-gradient(closest-side,white,transparent)] sm:left-full sm:-ml-80 lg:left-1/2 lg:ml-0 lg:-translate-x-1/2 lg:translate-y-0"
+      >
+   
+    </div>
+  </div>
+</div>
 
         </div>
      );
