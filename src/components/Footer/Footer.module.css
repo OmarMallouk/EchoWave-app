@@ -1,12 +1,14 @@
 
+
 .footer {
   display: flex;
-  align-items: center; 
-  justify-content: space-between; 
+  align-items: center;
+  justify-content: space-between;
   padding: 20px 40px;
   background-color: #0c0c0c;
   color: #fff;
-  box-sizing: border-box; 
+  box-sizing: border-box;
+  margin-top: auto;  
 }
 
 .logos {
@@ -17,9 +19,8 @@
 .ulContainers {
   flex: 2;
   display: flex;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
- 
 }
 
 .navMenus {
@@ -31,18 +32,15 @@
 }
 
 .buttonItems {
-  margin: 0 10px; 
+  margin: 0 10px;
 }
 
 .buttons {
-
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
   color: #fff;
   font-size: 16px;
-
 }
 
 .buttons:hover {
