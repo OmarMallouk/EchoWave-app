@@ -34,7 +34,7 @@
 }
 
 .navText {
-    width: 100px;
+    width: 150px;
     font-size: 18px;
     font-weight: bold;
     color: #7D2A9D;
@@ -84,11 +84,12 @@
 .authButton {
     background-color: #7D2A9D;
     color: white;
-    padding: 6px 15px;
+    padding: 6px 8px;
     border: none;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 13px;
-    width: 200px;
+    width: 150px;
     transition: background-color 0.3s ease;
 }
 
