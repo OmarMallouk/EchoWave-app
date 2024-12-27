@@ -52,6 +52,21 @@ const Genre = () => {
     <div className={styles.body3}>
 
 
+<div className={styles.Title1}> <h1>Choose a Genre and feel the harmony</h1></div>
+
+
+<div className={styles.imageGrid}>
+        {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country'].map((mood) => (
+          <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
+          
+          </div>
+        ))}
+      </div>
+      
+
+
+
+
 
         </div>
      );
