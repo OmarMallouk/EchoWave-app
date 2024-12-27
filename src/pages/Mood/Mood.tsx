@@ -13,8 +13,24 @@ const Mood = () => {
   const [selectedMood, setSelectedMood] = useState('');
   const [aiOutput, setAiOutput] = useState('');
 
+    useEffect(() => {
+        const images = document.querySelectorAll(`.${styles.image}`);
+      
+        images.forEach((image, index) => {
+          gsap.fromTo(
+     
+            }
+          );
+        });
+      }, []);
+      
+  
 
-          
+  return (
+   <div className={styles.body2}> 
+
+   
+      </div>          
       
       
                    
