@@ -58,4 +58,16 @@
     border-radius: 15px;
 }
 
+.centerDiv button{
+   margin-left: 15px;
+   background-color: rgba(60, 63, 63, 0.993);
+}
+
+
+
+.leftDiv h1,
+.centerDiv h1,
+.rightDiv h1 {
+    text-align: center;
+}
 
