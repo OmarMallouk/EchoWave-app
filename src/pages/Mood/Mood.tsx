@@ -57,7 +57,8 @@ const Mood = () => {
    <div className={styles.imageGrid}>
         {['Sad', 'Angry', 'Happy', 'Stressed', 'Ecstatic', 'Depressed'].map((mood) => (
           <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
-           
+            <img src={`https://picsum.photos/300/300?random=${mood}`} alt={mood} />
+            <div className={styles.imageText}>{mood}?</div>
           </div>
         ))}
       </div>
