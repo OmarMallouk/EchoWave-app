@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     darkMode: ["class"],
-    content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}"],
+    content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}", "./node_modules/tw-elements/js/**/*.js",],
   theme: {
   	extend: {
   		borderRadius: {
@@ -55,6 +55,8 @@ export default {
   },
   plugins: [require("tailwindcss-animate"),
 	require('daisyui'),
-  ],
-}
+	require("tw-elements/plugin.cjs")],
+  darkMode: "class"
+  
+};
 
