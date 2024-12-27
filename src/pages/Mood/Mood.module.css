@@ -38,4 +38,27 @@
     overflow: hidden;
     /* object-fit: cover; */
   }
- 
+  
+  .image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+    z-index: 1;
+  }
+  
+  .imageText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    z-index: 2; /* Ensure text is above the overlay */
+    opacity: 1; /* Ensure the text is visible by default */
+    transition: opacity 0.3s ease; /* Add smooth transition for opacity */
+  }
