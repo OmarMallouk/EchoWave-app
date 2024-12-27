@@ -58,14 +58,24 @@ const Genre = () => {
 <div className={styles.imageGrid}>
         {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country'].map((mood) => (
           <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
-          
+            <img src={`https://picsum.photos/300/300?random=${mood}`} alt={mood} />
+            <div className={styles.imageText}>{mood}?</div>
           </div>
         ))}
       </div>
       
+   
+<div className={styles.Title1}> <h1>Didn't find any? search more </h1></div>  
 
 
-
+<div className="dropdown dropdown-hover dropdown-right dropdown-end">
+  <div tabIndex={0} role="button" className="btn m-1">Moods</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+    <li><a>Item 1</a></li>
+    <li><a>Item 2</a></li>
+  </ul>
+</div>
+   
 
 
         </div>
