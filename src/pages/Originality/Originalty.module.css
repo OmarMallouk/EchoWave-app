@@ -99,3 +99,26 @@
     background-color: #3a393a09;
     color: white;
 }
+
+.rightDiv h1{
+    background-color: #7D2A9D;
+    padding: 6px 9px;
+    width: 40%;
+    border-radius: 15px;
+    margin-left: 150px;
+    margin-bottom: 10px;
+}
+
+
+.flexContainer2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; 
+    height: auto;
+    margin-top: 100px;
+    
+  
+  }
+  
+ 
