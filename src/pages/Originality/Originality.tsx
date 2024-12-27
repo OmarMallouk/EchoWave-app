@@ -29,7 +29,8 @@ const Originality = () => {
 <div className={styles.flexContainer}>
     <div className={styles.leftDiv}>
       <h1>Drop your lyrics below</h1>
-  
+
+    <button className={styles.submitButton}>Submit</button>
     </div>
 
 
