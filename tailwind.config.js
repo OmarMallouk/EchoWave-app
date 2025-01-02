@@ -1,7 +1,13 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-    darkMode: ["class"],
+    darkMode: "class",
     content: ["./index.html", "./src/**/*.{ts,tsx,js,jsx}", "./node_modules/tw-elements/js/**/*.js",],
+	safelist: [
+        'data-[twe-carousel-fade]:duration-[600ms]',
+        'duration-[350ms]',
+        'ease-[cubic-bezier(0,0,0.15,1),_cubic-bezier(0,0,0.15,1)]',
+        'ease-[cubic-bezier(0.25,0.1,0.25,1.0)]',
+    ],
   theme: {
   	extend: {
   		borderRadius: {
@@ -55,8 +61,8 @@ export default {
   },
   plugins: [require("tailwindcss-animate"),
 	require('daisyui'),
-	require("tw-elements/plugin.cjs")],
-  darkMode: "class"
+	require("tw-elements/plugin")],
+ 
   
 };
 
