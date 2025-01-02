@@ -4,10 +4,11 @@ import Register from "./pages/Register/Register";
 import Home from "./pages/Home/Home";
 import Mood from "./pages/Mood/Mood";
 import Genre from "./pages/Genre/Genre";
-import Channels from "./pages/AllChannels/Channels";
+// import Channels from "./pages/AllChannels/Channels";
 import Originality from "./pages/Originality/Originality";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import ScrollToTop from "./components/ui/ScrollToTop";
 import { BrowserRouter,Routes,Route } from "react-router-dom";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import '@mantine/core/styles.css';
@@ -21,12 +22,13 @@ const App: React.FC =() => {
       <BrowserRouter>
       <MantineProvider>
       <Navbar/>
+      <ScrollToTop />
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/mood" element={<Mood />} />
       <Route path="/genre" element={<Genre />} />
       <Route path="/origin" element={<Originality />} />
-      <Route path="/channels" element={<Channels />} />
+      {/* <Route path="/channels" element={<Channels />} /> */}
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
       <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>
