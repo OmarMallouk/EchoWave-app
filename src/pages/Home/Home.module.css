@@ -333,7 +333,7 @@ transform: translateY(50px);
   background-color: #0f0f0f;
   width: 100%;
   height: 100%;
-  padding-top: 16rem;
+  padding-top: 12rem;
 }
 
 .container2 {
@@ -342,7 +342,6 @@ transform: translateY(50px);
   margin-left: 700px;
   perspective: 1000px;
   height: 400px; 
-  margin-bottom: 50px; 
 }
 
 .carousel {
@@ -372,24 +371,34 @@ transform: translateY(50px);
 }
 
 
+/* Highlight the hover*/
+.carousel__face:hover {
+  transform: scale(1.2) translateZ(450px); 
+  z-index: 10; /*appearstop */
+  transition: transform 0.5s ease, z-index 0.5s ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+
 .carousel__face:nth-child(1) {
 
   transform: rotateY(0deg) translateZ(430px);
 }
 .carousel__face:nth-child(2) {
-  background-image: url("https://images.pexels.com/photos/1258865/pexels-photo-1258865.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("/assests/lyricPageBack2.jpg");
   transform: rotateY(40deg) translateZ(430px);
 }
 .carousel__face:nth-child(3) {
-  background-image: url("https://images.pexels.com/photos/808466/pexels-photo-808466.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("/assests/notelyric.jpg");
   transform: rotateY(80deg) translateZ(430px);
 }
 .carousel__face:nth-child(4) {
-  background-image: url("https://images.pexels.com/photos/1394841/pexels-photo-1394841.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("/assests/notelyric.jpg");
   transform: rotateY(120deg) translateZ(430px);
 }
 .carousel__face:nth-child(5) {
-  background-image: url("https://images.pexels.com/photos/969679/pexels-photo-969679.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-image: url("/assests/notelyric.jpg");
   transform: rotateY(160deg) translateZ(430px);
 }
 .carousel__face:nth-child(6) {

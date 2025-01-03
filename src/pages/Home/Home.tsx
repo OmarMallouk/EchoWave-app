@@ -1,5 +1,4 @@
 import { useEffect,useRef, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import lyricNote from "/assests/genrelyric.jpg?url";
 import originalCh from "/assests/originalCheck.jpg?url";
 import writing from "/assests/writing.jpg?url";
@@ -183,17 +182,6 @@ const Home = () => {
   </div>
 
 </div>
-
-
-
-
-
-<div className={styles.additionalSection}>
-  <h2>Another Section Below</h2>
-  <p>This section will be visible below the carousel.</p>
-</div>
-
-
 
 </div>
 
