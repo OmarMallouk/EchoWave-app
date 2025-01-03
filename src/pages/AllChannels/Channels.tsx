@@ -44,7 +44,12 @@ const Channels = () => {
 
 
 
-
+    <div className={styles.tableGrid}>
+      <div className={styles.columnHeader}>Channel</div>
+      <div className={styles.columnHeader}>Song Name</div>
+      <div className={styles.columnHeader}>Views</div>
+      
+    
     </div>
 
         </div>
