@@ -52,9 +52,14 @@ const Channels = () => {
       {data.map((item, index) => (
         <React.Fragment key={index}>
           <div className={styles.gridItem}>
-         
+            <img
+              src={item.channel}
+              alt={item.channel}
+              className={styles.channelImage}
+            />
           </div>
-        
+          <div className={styles.gridItem}>{item.song}</div>
+          <div className={styles.gridItem}>{item.views}</div>
         </React.Fragment>
       ))}
     </div>
