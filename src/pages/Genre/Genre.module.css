@@ -25,7 +25,7 @@
     width: 90%;
     max-width: 1200px;
     position: relative; 
-    margin-left: 200px;
+    margin: 0 auto;
   }
   
   .image {
@@ -39,6 +39,14 @@
     overflow: hidden;
     /* object-fit: cover; */
   }
+
+  .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease; 
+  }
+  
   
   .image::after {
     content: '';
@@ -79,6 +87,14 @@
   opacity: 0.8;
   transition: transform 1.3s ease; 
   cursor: pointer;
+}
+
+.image:hover img {
+  transform: scale(1.2); 
+}
+
+.image:hover::after {
+  background: rgba(0, 0, 0, 0.6);
 }
   
   .image:hover .imageText {
