@@ -39,7 +39,8 @@ const Channels = () => {
     </div>
 
 
-
+    
+    <div className={styles.Title3}> <h1>Most Viewed</h1></div>
 
 
 
