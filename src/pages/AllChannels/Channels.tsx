@@ -26,6 +26,15 @@ const Channels = () => {
     return ( 
         <div className={styles.body5}>
 
+<div className={styles.Title3}> <h1>Explore our Channels</h1></div>
+            
+
+
+
+    
+
+
+
 
     </div>
 
