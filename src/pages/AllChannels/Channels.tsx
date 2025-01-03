@@ -49,7 +49,14 @@ const Channels = () => {
       <div className={styles.columnHeader}>Song Name</div>
       <div className={styles.columnHeader}>Views</div>
       
-    
+      {data.map((item, index) => (
+        <React.Fragment key={index}>
+          <div className={styles.gridItem}>
+         
+          </div>
+        
+        </React.Fragment>
+      ))}
     </div>
 
         </div>
