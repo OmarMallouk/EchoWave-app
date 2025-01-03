@@ -29,6 +29,13 @@ const Channels = () => {
 <div className={styles.Title3}> <h1>Explore our Channels</h1></div>
             
 
+<div className={styles.cardGrid}>
+      {popularData.map((item) => (
+        <div key={item.id} className={styles.card}>
+         
+        </div>
+      ))}
+    </div>
 
 
     
