@@ -32,13 +32,14 @@ const Channels = () => {
 <div className={styles.cardGrid}>
       {popularData.map((item) => (
         <div key={item.id} className={styles.card}>
-         
+          <img src={item.image} alt={item.title} className={styles.cardImage} />
+          <h3 className={styles.cardTitle}>{item.title}</h3>
         </div>
       ))}
     </div>
 
 
-    
+
 
 
 
