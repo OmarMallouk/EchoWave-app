@@ -12,31 +12,35 @@ const Genre = () => {
   const [selectedMood, setSelectedMood] = useState('');
   const [aiOutput, setAiOutput] = useState('');
 
-    useEffect(() => {
-        const images = document.querySelectorAll(`.${styles.image}`);
-      
-        images.forEach((image, index) => {
-          gsap.fromTo(
-            image,
-            { 
-              y: gsap.utils.random(100, 50),
-              x: gsap.utils.random(-50, 50),
+  useEffect(() => {
+    const images = document.querySelectorAll(`.${styles.image}`);
+  
+    if (images.length > 0) {
+      images.forEach((image) => {
+        gsap.fromTo(
+          image,
+          {
+            y: gsap.utils.random(100, 50),
+            x: gsap.utils.random(-50, 50),
+            opacity: 0, // Start invisible
+          },
+          {
+            y: 0,
+            x: 0,
+            opacity: 1, // Fade in
+            stagger: 0.5,
+            scrollTrigger: {
+              trigger: image,
+              start: "top 80%",
+              end: "bottom 20%",
+              scrub: 1,
+              markers: false,
             },
-            {
-              y: 0, 
-              x: 0,
-              stagger: 0.5,
-              scrollTrigger: {
-                trigger: image,
-                start: "top 80%",
-                end: "bottom 20%",
-                scrub: 1,
-                markers: false,
-              },
-            }
-          );
-        });
-      }, []);
+          }
+        );
+      });
+    }
+  }, [styles.image]);
       
       const handleMoodSelection = (mood: string) => {
         setSelectedMood(mood);
@@ -105,7 +109,7 @@ const Genre = () => {
             href="#"
             className="rounded-md bg-white px-3.5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm hover:bg-gray-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
           >
-            Download
+            Add to collection
           </a>
         </div>
       </div>
