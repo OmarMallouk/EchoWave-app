@@ -1,10 +1,10 @@
 import axios from "axios";
 
 
-export const register = async (username: string, email:string, password: string) =>{
+export const register = async (username: string, email:string, password: string, role:string, channelName?: string) =>{
 
     try {
-        const response = await axios.post("http://127.0.0.1:8080/users/create", {username,email,password},
+        const response = await axios.post("http://127.0.0.1:8080/users/create", {username,email,password, role, channelName},
             {headers:{
                 "Content-Type": "application/json",
             },}
