@@ -138,5 +138,18 @@
     color: #f7f5f5;
   }
   
- 
+  .inputContainer {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .inputField {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 70%;
+  }
+  
  
