@@ -147,7 +147,20 @@ const Mood = () => {
    
 
 
-
+{lyrics ? (
+  <div className={`${styles.generatedLyrics} grid-container`}>
+    <div className={`${styles.lyricsCard}`}>
+      <h2>Generated Lyrics for {selectedMood}</h2>
+      <p>{lyrics}</p>
+      
+     
+    </div>
+  </div>
+): (
+  <div className={styles.placeholderText}>
+    <p>Click on a mood to generate lyrics</p>
+  </div>
+)}
 
         
       </div>          
