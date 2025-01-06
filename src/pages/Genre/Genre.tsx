@@ -124,7 +124,8 @@ const Genre = () => {
 <div className={styles.imageGrid}>
         {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country'].map((genre) => (
           <div key={genre} className={styles.image} onClick={() => handleGenreSelection(genre)}>
-          
+            <img src={`https://picsum.photos/300/300?random=${genre}`} alt={genre} />
+            <div className={styles.imageText}>{genre}</div>
           </div>
         ))}
       </div>
