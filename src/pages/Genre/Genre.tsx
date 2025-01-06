@@ -54,7 +54,11 @@ const Genre = () => {
         };
 
 
- 
+        const generateGenreLyrics = async (genre:any) => {
+          try {
+            const prompt = `mood: ${genre}, lyrics:`;
+          
+            setLyrics(response.data.generated_text);
           } catch (error) {
             setLyrics(null);
             console.error("Error calling generate-mood API:", error);
