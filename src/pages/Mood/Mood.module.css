@@ -100,3 +100,16 @@
 
   }
 
+
+
+  .grid-container {
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #8e44ad, #3498db);
+    border-radius: 12px;
+    color: #fff;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
