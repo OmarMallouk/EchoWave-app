@@ -60,6 +60,10 @@ const RegisterForm: React.FC<RegisterProps> = ({className,onRegister}) =>{
                 required
                 ></input>
             </div>
+            <select value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="user">User</option>
+                <option value="song_producer">Song Producer</option>
+            </select>
            
             <button type="submit" onClick={handleSubmit}>Signup</button>
         </form>
