@@ -74,9 +74,26 @@ const Mood = () => {
         }
       };
 
+      console.log({ title, lyrics, selectedMood, user });
 
+      const addToCollection = async () =>{
+        if (!title || !lyrics || !selectedMood || !user){
+          setError("Missing fields");
+        return;
+        }
+        try{
+          const userData = JSON.parse(localStorage.getItem("User") || "{}");
 
     
+         
+
+       
+        }catch(error){
+          console.error("Error adding collection", error);
+          setError("Something went wrong :(");
+        }
+      };
+
 
   return (
    <div className={styles.body2}> 
