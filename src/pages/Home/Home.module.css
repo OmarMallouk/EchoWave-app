@@ -49,7 +49,12 @@
   border: none;
   padding: 10px 20px;
   font-size: 16px;
-
+  border-radius: 20px;
+  cursor: pointer;
+  width: 50%; 
+  margin-top: 20px;
+  margin-right: 100px;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
 .control:hover{
