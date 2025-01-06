@@ -8,7 +8,7 @@ import styles from "./Login.module.css";
 
 
 const Login: React.FC = () =>{
-    const {login} = useContext(AuthContext);
+    const {login, user} = useContext(AuthContext);
     const navigate = useNavigate();
 
         
@@ -18,14 +18,15 @@ const Login: React.FC = () =>{
         try {
             const response = await loginn(username,password);
             const token = response.token;
+            const user = response.user;
             
             if (!token) {
                 throw new Error("Token not found in the response.");
               }
-            login(token);
+            login(token, user);
 
             console.log("Login successful", response);
-            navigate("/home");
+            navigate("/");
             
             
         } catch (error) {
