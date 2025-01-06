@@ -135,7 +135,14 @@ const Genre = () => {
 
 
 <div className="dropdown dropdown-hover dropdown-right dropdown-end">
-  
+  <div tabIndex={0} role="button" className="btn m-1">Genre</div>
+  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+    {['Funk', 'Mid-Night-Jazz', 'Soft-Blues', 'hard-Rock'].map((genre) => (
+      <li key={genre}>
+        <a onClick={() => handleGenreSelection(genre)}>{genre}</a>
+      </li>
+    ))}
+  </ul>
 </div>
    
    
