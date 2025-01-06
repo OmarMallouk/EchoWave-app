@@ -102,7 +102,12 @@ const Mood = () => {
             },
           });
 
-       
+          if (response.status === 200){
+            console.log("lyric added: ", response.data);
+            
+          }else{
+            setError("Failed to add collection");
+          }
         }catch(error){
           console.error("Error adding collection", error);
           setError("Something went wrong :(");
