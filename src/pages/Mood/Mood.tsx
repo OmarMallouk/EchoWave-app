@@ -148,9 +148,9 @@ const Mood = () => {
 
 
 {lyrics ? (
-  <div className={`${styles.generatedLyrics} grid-container`}>
+  <div className={`${styles.gridContainer} `}>
     <div className={`${styles.lyricsCard}`}>
-      <h2>Generated Lyrics for {selectedMood}</h2>
+      <h2>Generated Lyrics for <span>{selectedMood}</span></h2>
       <p>{lyrics}</p>
       
       <div className={styles.inputContainer}>
