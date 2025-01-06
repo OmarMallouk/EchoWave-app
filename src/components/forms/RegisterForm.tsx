@@ -64,7 +64,15 @@ const RegisterForm: React.FC<RegisterProps> = ({className,onRegister}) =>{
                 <option value="user">User</option>
                 <option value="song_producer">Song Producer</option>
             </select>
-           
+            {role === "song_producer" && (
+                <input
+                    type="text"
+                    placeholder="Channel Name"
+                    value={channelName}
+                    onChange={(e) => setChannelName(e.target.value)}
+                    required
+                />
+            )}
             <button type="submit" onClick={handleSubmit}>Signup</button>
         </form>
 
