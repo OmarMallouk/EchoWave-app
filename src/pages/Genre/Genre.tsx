@@ -41,7 +41,14 @@ const Genre = () => {
       });
     }, []);
       
-
+    useEffect(() => {
+            const userData = JSON.parse(localStorage.getItem("User") || "{}");
+            if (userData._id) {
+                setUser(userData._id);
+            }
+        }, []);
+    
+  
   
   
 
