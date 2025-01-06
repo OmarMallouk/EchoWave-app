@@ -147,6 +147,16 @@ const Genre = () => {
    
    
 
+{lyrics ? (
+  <div className={`${styles.gridContainer}`}>
+  
+    </div>
+  </div>
+): (
+  <div className={styles.placeholderText}>
+    <p>Click on a genre to generate lyrics</p>
+  </div>
+)}
 
 
         </div>
