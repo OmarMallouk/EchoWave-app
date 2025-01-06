@@ -20,7 +20,10 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
         return !!localStorage.getItem("Token");
       });
 
-
+      const [user, setUser] = useState<any>(() => {
+        const userData = localStorage.getItem("User");
+        return userData ? JSON.parse(userData) : null;
+      });
 
       useEffect(() => {
         const token = localStorage.getItem("Token");
@@ -29,7 +32,7 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
             setIsAuthenticated(true);
         } else {
             setIsAuthenticated(false);
-        
+            setUser(null);
         }
     }, []);
       
