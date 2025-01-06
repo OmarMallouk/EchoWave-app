@@ -153,7 +153,16 @@ const Mood = () => {
       <h2>Generated Lyrics for {selectedMood}</h2>
       <p>{lyrics}</p>
       
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          placeholder="Enter Title"
+          className={styles.inputField}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
      
+      </div>
     </div>
   </div>
 ): (
