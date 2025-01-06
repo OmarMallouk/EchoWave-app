@@ -19,95 +19,46 @@
 
 
   .Title2 {
-    font-size: 24px;
-    color: #fff;
-    text-align: center;
-    margin-top: 80px;
+    font-size: 40px;
+    height: auto;
+    width: auto;
+    margin-top: 80px; 
+    padding: 10px 0;  
+    color: #fff; 
   }
 
-  .flexContainer {
-    display: flex;
-    justify-content: space-between; 
-    align-items: flex-start; 
-    width: 100%; 
-    gap: 20px; 
-    color: #fff;
-    margin-top: 40px;
-}
+  .Title2>h1>span{
+    color: #cc6ef1;
+  }
 
-.leftDiv,
 
-.rightDiv {
+  .gridContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 100px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
     padding: 20px;
-    border-radius: 8px;
-    width: 30%; 
-    box-sizing: border-box;
-    overflow: hidden;
-}
-
-.centerDiv{
-    margin-top: 10px;
-}
-
-.centerDiv h1{
-    margin-right: 100px ;
-    margin-bottom: 25px;
-    background-color: #7D2A9D;
-    padding: 4px 5px;
-    width: 80%;
-    border-radius: 15px;
-}
-
-.centerDiv button{
-   margin-left: 15px;
-   background-color: rgba(60, 63, 63, 0.993);
-}
-
-
-
-.leftDiv h1,
-.centerDiv h1,
-.rightDiv h1 {
-    text-align: center;
-}
-
-
-
-.leftDiv h1{
-    background-color: #7D2A9D;
-    padding: 6px 9px;
-    width: 40%;
-    border-radius: 15px;
-    margin-left: 100px;
-    
-}
-
-.leftDiv button{
-    background-color: #7D2A9D;
-    padding: 4px 7px;
-    border-radius: 15px;
-    width: 25%;
-    margin-top: 15px;
-    margin-right: 90px;
-}
-
-.leftDiv input{
-    padding: 6px 9px;
-    width: 70%;
-    border-radius: 12px;
-    margin-left: 30px;
-    background-color: #3a393a09;
     color: white;
-}
+    font-weight: bold;
+  }
+  
 
-.rightDiv h1{
-    background-color: #7D2A9D;
-    padding: 6px 9px;
-    width: 40%;
-    border-radius: 15px;
-    margin-left: 150px;
-    margin-bottom: 10px;
-}
+  .gridItem {
+    text-align: center;
+
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(160, 123, 175, 0.1);
+    background-color:#51136e9c;
+  }
+
+
+
+
+  
 
 
 .flexContainer2 {
@@ -126,7 +77,7 @@
     place-items: center;
     width: 30%; 
     height: 500px; 
-    background: linear-gradient(to bottom right, #2d082e, #4b2768, #391f46); 
+    background: linear-gradient(to bottom right, #2d082e8e, #4b2768c5, #391f46a9); 
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
     color: white;
@@ -136,7 +87,9 @@
   
   .divider {
     margin: 20px 0; 
-    color: #d16ba5; 
+    color: #ffffff; 
+    font-size: 20px;
+    font-weight: bold;
   }
   
   .lg\:divider-horizontal {
