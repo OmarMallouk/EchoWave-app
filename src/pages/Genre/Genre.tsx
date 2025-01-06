@@ -88,7 +88,17 @@ const Genre = () => {
   
             console.log("Adding lyric:", { title, lyrics, selectedGenre, user: userData._id });
   
-        
+            const response = await axios.post("http://127.0.0.1:8080/lyrics/create", {
+              title,
+              content: lyrics,
+              user: userData._id,
+              genre: { name: selectedGenre },
+            },{
+              headers:{
+                "Content-Type": "application/json",
+              },
+            });
+  
        
           }catch(error){
             console.error("Error adding collection", error);
