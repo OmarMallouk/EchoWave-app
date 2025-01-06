@@ -152,4 +152,13 @@
     width: 70%;
   }
   
- 
+  .addButton{
+    padding: 5px 10px;
+    background-color: #680f8b;
+    border-radius: 15px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .addButton:hover{
+    transform: scale(0.9); 
+  }
