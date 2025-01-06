@@ -1,94 +1,68 @@
 
 
-
 .hero {
   position: relative;
-  background-image:linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5)), url("/assests/herologo.jpg");
-  background-size: cover;
-  background-position: center;
+  background: url("/assests/herologo.jpg") center / cover no-repeat;
   height: 100vh;
-  margin-top: 40px;
-  
-  
+  margin-top: 60px;
+  padding: 20px;
 }
 
-.container {
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  padding-bottom: calc(var(--mantine-spacing-xl) * 6);
-  z-index: 1;
-  position: relative;
-  
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, 0.65) 40%);
+  z-index: 0;
+}
 
- 
+.content {
+  position: absolute; 
+  top: 35%;
+  left: 10%;
+  transform: translateY(-50%); 
+  display: grid;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  z-index: 1;
+  color: var(--mantine-color-white);
 }
 
 .title {
-  color: var(--mantine-color-white);
-  font-size: 60px;
+  font-size: 50px;
   font-weight: 900;
   line-height: 1.1;
-  
- 
-
-}
-
-.description {
-  color: var(--mantine-color-white);
-  max-width: 600px;
-  
-}
-
-.control {
-  margin-top: calc(var(--mantine-spacing-xl) * 1);
-  background-color: var(--mantine-color-blue-1);
-  margin-left: 35px;
-
- 
 }
 
 
-.highlightLyrics {
-  color: #7D2A9D; 
- 
-  
+.control:hover{
+  background-color: #2e0b3b; 
+  transform: scale(1.05); 
 }
 
-.highlightGenre{
-  color: #7D2A9D; 
-  
+.highlightLyrics,
+.highlightGenre {
+  color: #7D2A9D;
 }
-
-
-.subtitle{
-  display: block;
-  text-align: left;
-  margin-left: 8px;
-  
-  
-}
-
 
 
 .intro1{
   margin: 0;
   color: white;
-  
+  margin-top: 20px;
 }
 
-.heroWrap{
-  display: flex;
+.heroWrap {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 10px;
   align-items: center;
-  justify-content: flex-start;
-  gap: 20px;
-  margin-left: 10px;
 }
 
-
-.highlightYou {                      /**/
+.highlightYou {                    
   color: #7D2A9D;
   
 }  
@@ -371,10 +345,9 @@ transform: translateY(50px);
 }
 
 
-/* Highlight the hover*/
 .carousel__face:hover {
   transform: scale(1.2) translateZ(450px); 
-  z-index: 10; /*appearstop */
+  z-index: 10;
   transition: transform 0.5s ease, z-index 0.5s ease;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
   cursor: pointer;
