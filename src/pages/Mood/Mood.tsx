@@ -91,7 +91,16 @@ const Mood = () => {
 
           console.log("Adding lyric:", { title, lyrics, selectedMood, user: userData._id });
 
-         
+          const response = await axios.post("http://127.0.0.1:8080/lyrics/create", {
+            title,
+            content: lyrics,
+            user: userData._id,
+            mood: { name: selectedMood },
+          },{
+            headers:{
+              "Content-Type": "application/json",
+            },
+          });
 
        
         }catch(error){
