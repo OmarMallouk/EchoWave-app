@@ -8,11 +8,11 @@ import styles from "./Register.module.css";
 const Register: React.FC = () =>{
     const navigate = useNavigate();
 
-    const handleRegister = async (username: string, email: string, password: string) =>{
+    const handleRegister = async (username: string, email: string, password: string, role: string, channelName?:string) =>{
 
         try {
             
-            const response = await register(username,email,password);
+            const response = await register(username,email,password, role, channelName);
             console.log("Registerd successfully", response);
             navigate("/login");
             
