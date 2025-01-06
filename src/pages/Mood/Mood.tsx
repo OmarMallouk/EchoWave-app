@@ -161,7 +161,12 @@ const Mood = () => {
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
-     
+        <button
+          className={styles.addButton}
+          onClick={addToCollection}
+        >
+          Add to Collection
+        </button>
       </div>
     </div>
   </div>
