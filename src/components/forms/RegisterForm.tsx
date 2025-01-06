@@ -3,20 +3,26 @@ import logo from "/assests/logo.png?url";
 
 interface RegisterProps{
     className?: string;
-    onRegister: (username: string, email:string, password: string) => void;
+    onRegister: (username: string, email:string, password: string, role: string, channelName:string) => void;
 }
 
 const RegisterForm: React.FC<RegisterProps> = ({className,onRegister}) =>{
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [role, setRole] = useState("user");
+    const [channelName, setChannelName] = useState("");
 
 
     const handleSubmit = (e: React.FormEvent) =>{
         e.preventDefault();
 
+    if (role === "song_producer" && !channelName) {
+            alert("Channel name is required for song producers.");
+            return;
+        }
 
-        onRegister(username,email,password);
+        onRegister(username,email,password, role, channelName);
     };
 
     return(
@@ -54,6 +60,7 @@ const RegisterForm: React.FC<RegisterProps> = ({className,onRegister}) =>{
                 required
                 ></input>
             </div>
+           
             <button type="submit" onClick={handleSubmit}>Signup</button>
         </form>
 

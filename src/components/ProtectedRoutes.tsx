@@ -12,7 +12,7 @@ const ProtectedRoute: React.FC<PrivateProps> = ({children, publicOnly = false}) 
     const location = useLocation();
 
     if (publicOnly && isAuthenticated) {
-        return <Navigate to="/home" replace />;
+        return <Navigate to="/" replace />;
     }
 
     if (!publicOnly && !isAuthenticated) {
