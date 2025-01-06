@@ -84,7 +84,13 @@ const Mood = () => {
         try{
           const userData = JSON.parse(localStorage.getItem("User") || "{}");
 
-    
+          if (!userData._id){
+            setError("User not found");
+            return;
+          }
+
+          console.log("Adding lyric:", { title, lyrics, selectedMood, user: userData._id });
+
          
 
        
