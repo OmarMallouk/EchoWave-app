@@ -57,7 +57,15 @@ const Genre = () => {
         const generateGenreLyrics = async (genre:any) => {
           try {
             const prompt = `mood: ${genre}, lyrics:`;
-          
+            const response = await axios.post(
+              'http://127.0.0.1:5000/generate-genre',
+              { prompt },
+              {
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+              }
+            );
             setLyrics(response.data.generated_text);
           } catch (error) {
             setLyrics(null);
