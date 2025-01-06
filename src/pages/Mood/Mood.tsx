@@ -55,6 +55,17 @@ const Mood = () => {
         await generateMoodLyrics(mood);
       };
       
+      const generateMoodLyrics = async (mood:any) => {
+        try {
+          const prompt = `mood: ${mood}, lyrics:`;
+       
+        } catch (error) {
+          setLyrics(null);
+          console.error("Error calling generate-mood API:", error);
+        }
+      };
+
+
 
     
 
