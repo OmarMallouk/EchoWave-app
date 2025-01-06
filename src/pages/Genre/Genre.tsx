@@ -48,7 +48,18 @@ const Genre = () => {
             }
         }, []);
     
-  
+    const handleGenreSelection = async (genre:any) => {
+          setSelectedGenre(genre);
+          await generateGenreLyrics(genre);
+        };
+
+
+ 
+          } catch (error) {
+            setLyrics(null);
+            console.error("Error calling generate-mood API:", error);
+          }
+        };
   
   
 
