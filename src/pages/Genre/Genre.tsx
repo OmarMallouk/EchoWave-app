@@ -149,7 +149,13 @@ const Genre = () => {
 
 {lyrics ? (
   <div className={`${styles.gridContainer}`}>
-  
+    <div className={`${styles.lyricsCard}`}>
+      <h2>Generated Lyrics for <span>{selectedGenre}</span></h2>
+      <p>{lyrics}</p>
+      
+      <div className={styles.inputContainer}>
+      
+      </div>
     </div>
   </div>
 ): (
