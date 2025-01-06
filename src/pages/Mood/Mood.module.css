@@ -128,4 +128,22 @@
     justify-content: center;
   }
   
- 
+  .inputField {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 70%;
+  }
+  
+  .addButton {
+    padding: 10px 15px;
+    background-color: #6c5ce7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .addButton:hover {
+    background-color: #4a47a3;
+  }
