@@ -81,6 +81,15 @@ const Genre = () => {
           try{
             const userData = JSON.parse(localStorage.getItem("User") || "{}");
   
+            if (!userData._id){
+              setError("User not found");
+              return;
+            }
+  
+            console.log("Adding lyric:", { title, lyrics, selectedGenre, user: userData._id });
+  
+        
+       
           }catch(error){
             console.error("Error adding collection", error);
             setError("Something went wrong :(");
