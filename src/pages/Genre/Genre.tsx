@@ -99,7 +99,12 @@ const Genre = () => {
               },
             });
   
-       
+            if (response.status === 200){
+              console.log("lyric added: ", response.data);
+              
+            }else{
+              setError("Failed to add collection");
+            }
           }catch(error){
             console.error("Error adding collection", error);
             setError("Something went wrong :(");
@@ -117,7 +122,11 @@ const Genre = () => {
 
 
 <div className={styles.imageGrid}>
-       
+        {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country'].map((genre) => (
+          <div key={genre} className={styles.image} onClick={() => handleGenreSelection(genre)}>
+          
+          </div>
+        ))}
       </div>
       
    
