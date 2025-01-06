@@ -21,7 +21,8 @@
     gap: 20px;
     justify-content: center;
     align-items: center;
-    height: 60%; 
+    height: 75%; 
+    width: 25%;
     max-width: 90%;
     padding: 20px 70px;
     border-radius: 30px;
@@ -35,38 +36,62 @@
     display: flex;
     flex-direction: column;
     gap: 20px;
-    align-items: center; 
-  }
-  
-  .registerForm input {
-    width: 100%; 
-    max-width: 300px; 
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-    font-size: 16px;
+    align-items: center;
+    max-width: 400px; 
+    margin: 0 auto; 
   }
   
   .registerForm img {
     height: 150px;
-    width: 80%; 
+    width: 80%;
     max-width: 200px;
     margin-bottom: 30px;
     margin-left: 20px;
   }
-
+  
+  .registerForm input,
+  .registerForm select {
+    width: 100%;
+    max-width: 300px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    margin-bottom: 15px; 
+  }
+  
+  .registerForm select {
+    background-color: #fff; 
+    appearance: none; 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+  }
+  
+  .registerForm select:focus {
+    outline: none;
+    border-color: #7d2a9d;
+  }
+  
   .registerForm button {
     background-color: #7d2a9d;
     color: #fff;
-    padding: 8px;
-    width: 40%;
+    padding: 12px 20px; 
+    width: 50%; 
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
   }
   
   .registerForm button:hover {
     background-color: #541f91;
+  }
+  
+  .registerForm button:focus {
+    outline: none;
+    box-shadow: 0 0 5px rgba(125, 42, 157, 0.8); 
   }
   
   .registerBtn {
