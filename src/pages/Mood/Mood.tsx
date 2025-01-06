@@ -118,12 +118,12 @@ const Mood = () => {
   return (
    <div className={styles.body2}> 
 
-   <div className={styles.Title1}> <h1>Choose a mood and feel the harmony</h1></div>
+   <div className={styles.Title1}> <h1>Choose a mood and feel the <span>harmony</span></h1></div>
 
 
  
    <div className={styles.imageGrid}>
-        {['Sad', 'Angry', 'Happy', 'Stressed', 'Ecstatic', 'Depressed'].map((mood) => (
+        {['Sad', 'Angry', 'Happy', 'Stressed', 'Ecstatic', 'Depressed', 'Envy', 'Loved'].map((mood) => (
           <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
             <img src={`https://picsum.photos/300/300?random=${mood}`} alt={mood} />
             <div className={styles.imageText}>{mood}</div>
@@ -132,7 +132,7 @@ const Mood = () => {
       </div>
    
    
-<div className={styles.Title1}> <h1>Didn't find any? search more </h1></div>  
+<div className={styles.Title1}> <h1>Didn't find any? search <span>more</span> </h1></div>  
 
 <div className="dropdown dropdown-hover dropdown-right dropdown-end">
   <div tabIndex={0} role="button" className="btn m-1">Moods</div>

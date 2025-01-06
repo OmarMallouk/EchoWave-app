@@ -118,11 +118,11 @@ const Genre = () => {
     <div className={styles.body3}>
 
 
-<div className={styles.Title1}> <h1>Choose a Genre and feel the harmony</h1></div>
+<div className={styles.Title1}> <h1>Pick a Genre and immerse yourself in the <span>rhythm</span>.</h1></div>
 
 
 <div className={styles.imageGrid}>
-        {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country'].map((genre) => (
+        {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country', 'Broadway', 'Gospel'].map((genre) => (
           <div key={genre} className={styles.image} onClick={() => handleGenreSelection(genre)}>
             <img src={`https://picsum.photos/300/300?random=${genre}`} alt={genre} />
             <div className={styles.imageText}>{genre}</div>
@@ -131,7 +131,7 @@ const Genre = () => {
       </div>
       
    
-<div className={styles.Title1}> <h1>Didn't find any? search more </h1></div>  
+<div className={styles.Title1}> <h1>Didn't find any? search <span>more</span> </h1></div>  
 
 
 <div className="dropdown dropdown-hover dropdown-right dropdown-end">
