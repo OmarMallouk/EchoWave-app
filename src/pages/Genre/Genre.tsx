@@ -154,7 +154,19 @@ const Genre = () => {
       <p>{lyrics}</p>
       
       <div className={styles.inputContainer}>
-      
+        <input
+          type="text"
+          placeholder="Enter Title"
+          className={styles.inputField}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button
+          className={styles.addButton}
+          onClick={addToCollection}
+        >
+          Add to Collection
+        </button>
       </div>
     </div>
   </div>
