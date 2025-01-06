@@ -58,7 +58,16 @@ const Mood = () => {
       const generateMoodLyrics = async (mood:any) => {
         try {
           const prompt = `mood: ${mood}, lyrics:`;
-       
+          const response = await axios.post(
+            'http://127.0.0.1:5000/generate-mood',
+            { prompt },
+            {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            }
+          );
+          setLyrics(response.data.generated_text);
         } catch (error) {
           setLyrics(null);
           console.error("Error calling generate-mood API:", error);
