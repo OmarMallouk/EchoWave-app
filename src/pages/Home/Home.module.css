@@ -37,6 +37,20 @@
   line-height: 1.1;
 }
 
+.description {
+  font-size: 17px;
+  max-width: 600px;
+  margin-top: 20px;
+}
+
+.control {
+  background-color: #7D2A9D;
+  color: rgb(255, 255, 255);
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+
+}
 
 .control:hover{
   background-color: #2e0b3b; 
