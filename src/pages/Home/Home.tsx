@@ -4,7 +4,7 @@ import originalCh from "/assests/originalCheck.jpg?url";
 import writing from "/assests/writing.jpg?url";
 import channel1 from "/assests/records5.jpeg?url";
 import styles from "./Home.module.css";
-import { Button, Container, Overlay,Title } from '@mantine/core';
+import { Button} from '@mantine/core';
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -80,26 +80,24 @@ const Home = () => {
     return ( 
         <div>
         <div className={styles.hero}>
-        <Overlay
-          gradient="linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(0, 0, 0, .65) 40%)"
-          opacity={1}
-          zIndex={0}
-        />
-        <Container className={styles.container} size="xl">
-          <Title className={styles.title}>Unique Exclusive <span className={styles.highlightLyrics}>Lyrics</span>, <br />
-          <span className={styles.subtitle}>Just for <span className={styles.highlightYou}>You</span></span></Title>
-          <Title className={styles.description} size="sm" mt="xl">
-          Transform your ideas into original <span className={styles.highlightMagic}>lyrics</span> with the power of AI. Whether you’re a budding <span className={styles.highlightMagic}>songwriter</span> or a seasoned <span className={styles.highlightMagic}>musician</span>, our platform helps you craft songs that reflect your unique <span className={styles.highlightMagic}>voice</span>, <span className={styles.highlightMagic}>style</span> and <span className={styles.highlightMagic}>mood</span>, instantly. 
-          </Title>
-          <div className={styles.heroWrap} >
-              <Title className={styles.intro1} size="sm" mt="xl">
-               Not a member yet ?
-              </Title>
-              <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
-                Get started
-              </Button>
-          </div>
-        </Container>
+        <div className={styles.content}>
+    <h1 className={styles.title}>
+      Unique Exclusive <span className={styles.highlightLyrics}>Lyrics</span>, <br />
+      <span className={styles.subtitle}>
+        Just for <span className={styles.highlightYou}>You</span>
+      </span>
+    </h1>
+    <p className={styles.description}>
+      Transform your ideas into original <span className={styles.highlightMagic}>lyrics</span> with the power of AI. 
+      Whether you’re a budding <span className={styles.highlightMagic}>songwriter</span> or a seasoned <span className={styles.highlightMagic}>musician</span>, 
+      our platform helps you craft songs that reflect your unique <span className={styles.highlightMagic}>voice</span>, 
+      <span className={styles.highlightMagic}>style</span>, and <span className={styles.highlightMagic}>mood</span>, instantly.
+    </p>
+    <div className={styles.heroWrap}>
+      <h2 className={styles.intro1}>Not a member yet?</h2>
+      <button className={styles.control}>Get started</button>
+    </div>
+  </div>
       </div>
 
       <div className={styles.featuresContainer}>
@@ -151,7 +149,7 @@ const Home = () => {
         />
         </div>
         <div className={styles.fadeInText}>
-          <h2>“Stay Unique with <span className={styles.highlightLyrics}>AI</span> Originality <span className={styles.highlightLyrics}>Check</span></h2>
+          <h2>“Stay Unique with our Originality <span className={styles.highlightLyrics}> feature</span></h2>
           <p>–Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.”</p>
           <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
                 check now
