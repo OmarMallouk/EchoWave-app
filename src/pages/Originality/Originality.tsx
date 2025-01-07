@@ -58,6 +58,12 @@ const Originality = () => {
       }, [lyricResult]);
 
 
+    const handleSubmission = async (lyrics:any) =>{
+      setSubmittedLyrics(lyrics);
+      await generatedScore(lyrics);
+    };
+
+
 
 
    
