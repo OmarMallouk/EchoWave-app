@@ -30,6 +30,20 @@ const Originality = () => {
             }
         }, []);
 
+        useEffect(() => {
+          const fetchUserLyrics = async (id: string) => {
+            try {
+           
+            } catch (error) {
+              console.error("Error fetching lyrics", error);
+            }
+          };
+      
+          if (userId) {
+            fetchUserLyrics(userId); 
+          }
+        }, [userId]);
+    
 
 
 
