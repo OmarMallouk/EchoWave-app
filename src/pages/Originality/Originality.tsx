@@ -83,6 +83,13 @@ const Originality = () => {
     }
 
    
+    const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+      const selectedLyric  = event.target.value;
+      setSelectedLyric(selectedLyric); 
+
+      console.log("Selected Lyric Content: ", selectedLyric);
+    };
+  
 
 
     return ( 
