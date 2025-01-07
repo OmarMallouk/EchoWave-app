@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import { TextInput  } from '@mantine/core';
 import styles from './Originalty.module.css';
 import {
@@ -13,59 +14,72 @@ import {
 const Originality = () => {
     const [focused, setFocused] = useState(false);
     const [value, setValue] = useState('');
-     const [aiOutput, setAiOutput] = useState('');
-    const floating = value.trim().length !== 0 || focused || undefined;
+    const [submittedLyrics, setSubmittedLyrics] = useState('');
+    const [lyricResult, setLyricResult] = useState([]);
+    const [userLyrics, setUserLyrics] = useState<any[]>([]);
+    const [userId, setUserId] = useState<string | null>(null);
+    const [error, setError] = useState("");
+    const [selectedLyric, setSelectedLyric] = useState<string>("");
 
     initTWE({ Dropdown, Ripple });
+
+ 
+
+
+   
 
 
     return ( 
 
         <div className={styles.body4}>
-
 <div className={styles.Title2}> <h1>Want to check your lyrics <span>originality</span>?</h1></div>
-
 
 <div className={styles.gridContainer}>
   <div className={styles.gridItem}>
     <h1>Drop your lyrics below</h1>
-    <input type="text" placeholder="Write here" className={styles.inputField} />
-    <button className={styles.btn}>Submit</button>
+    <input type="text" placeholder="Write here" className={styles.inputField}  value={value} 
+    onChange={(e) => setValue(e.target.value)} />
+    <button className={styles.btn} onClick={() => handleSubmission(value)}>Submit</button>
   </div>
 
 
   <div className={styles.gridItem}>
     <h1>Choose from your list</h1>
-    <select className={styles.dropdown}>
+    <select className={styles.dropdown} onChange={handleDropdownChange}>
       <option value="" disabled selected>Select an option</option>
-      <option value="1">Option 1</option>
-      <option value="2">Option 2</option>
-      <option value="3">Option 3</option>
+      {userLyrics.map((lyric:any, index:number) =>(
+        <option key={index} value={lyric.content}>{lyric.title}</option>
+      ))}
     </select>
+    <button className={styles.btn} onClick={handleDropdownSubmit}>
+            Submit Selected
+          </button>
   </div>
-
-
-  {/* <div className={styles.gridItem}>
-    <h1>Upload your file here</h1>
-    <div className={styles.customFileUpload}>
-    <label htmlFor="fileInput" className={styles.uploadLabel}>
-      Select File
-    </label>
-    <input type="file" id="fileInput" className={styles.fileInput} />
-  </div>
-  </div> */}
 </div>
+
 
 <div className={styles.flexContainer2}>
-  <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-4">
-    <div className={styles.card}>Waiting for results</div>
-    <div className="divider lg:divider-horizontal"><h1 className={styles.divider}>OR</h1></div>
-    <div className={styles.card}>Alternative Approach</div>
-  </div>
-</div>
-
-
-
+                <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-4">
+                    <div className={styles.card}>
+                    {lyricResult && lyricResult.length > 0 ? (
+                lyricResult.map((result: any, index: number) => (
+                    <div key={index}>
+                      <p><strong>Artist:</strong> {result.artist}</p>
+                      <p><strong>Track:</strong> {result.track}</p>
+                        <p><strong>Lyric:</strong> {result.lyric}</p>
+                        <p><strong>Similarity Score:</strong> {result.similarity}</p>
+                    </div>
+                ))
+            ) : (
+                "Waiting for results"
+            )}
+        </div>
+                    <div className="divider lg:divider-horizontal">
+                        <h1 className={styles.divider}>OR</h1>
+                    </div>
+                    <div className={styles.card}>Alternative Approach</div>
+                </div>
+            </div>
 
 </div>
      );
