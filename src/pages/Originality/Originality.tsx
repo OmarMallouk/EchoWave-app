@@ -90,7 +90,13 @@ const Originality = () => {
       console.log("Selected Lyric Content: ", selectedLyric);
     };
   
-
+    const handleDropdownSubmit = () => {
+      if (selectedLyric) {
+        handleSubmission(selectedLyric); 
+        
+      }
+    };
+    
 
     return ( 
 
