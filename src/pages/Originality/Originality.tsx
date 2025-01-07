@@ -51,6 +51,13 @@ const Originality = () => {
         }, [userId]);
     
 
+        useEffect(() => {
+          if (lyricResult) {
+              console.log("Lyric Result:", lyricResult);
+          }
+      }, [lyricResult]);
+
+
 
 
    
