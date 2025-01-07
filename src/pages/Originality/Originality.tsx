@@ -68,7 +68,15 @@ const Originality = () => {
       try {
         
         const response = await axios.post("http://127.0.0.1:5000/api/similarity",
-    
+          {lyrics:selectedLyric},
+          {
+            headers: {
+              'Content-Type': 'application/json',
+            },
+          }
+        );
+        setLyricResult(response.data)
+        console.log(response.data);
       } catch (error) {
         console.error("Something went wrong :(", error);
       }
