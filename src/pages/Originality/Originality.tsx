@@ -23,7 +23,14 @@ const Originality = () => {
 
     initTWE({ Dropdown, Ripple });
 
- 
+         useEffect(() => {
+            const userData = JSON.parse(localStorage.getItem("User") || "{}");
+            if (userData._id) {
+              setUserId(userData._id);
+            }
+        }, []);
+
+
 
 
    
