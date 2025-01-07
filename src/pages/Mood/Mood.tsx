@@ -74,6 +74,8 @@ const Mood = () => {
         }
       };
 
+      
+
       console.log({ title, lyrics, selectedMood, user });
 
       const addToCollection = async () =>{
