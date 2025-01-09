@@ -20,6 +20,8 @@ const Originality = () => {
     const [userId, setUserId] = useState<string | null>(null);
     const [error, setError] = useState("");
     const [selectedLyric, setSelectedLyric] = useState<string>("");
+    const [activeTab, setActiveTab] = useState("input");
+
 
     initTWE({ Dropdown, Ripple });
 
@@ -103,29 +105,33 @@ const Originality = () => {
         <div className={styles.body4}>
 <div className={styles.Title2}> <h1>Want to check your lyrics <span>originality</span>?</h1></div>
 
-<div className={styles.gridContainer}>
-  <div className={styles.gridItem}>
-    <h1>Drop your lyrics below</h1>
-    <input type="text" placeholder="Write here" className={styles.inputField}  value={value} 
-    onChange={(e) => setValue(e.target.value)} />
-    <button className={styles.btn} onClick={() => handleSubmission(value)}>Submit</button>
-  </div>
 
 
-  <div className={styles.gridItem}>
-    <h1>Choose from your list</h1>
-    <select className={styles.dropdown} onChange={handleDropdownChange}>
-      <option value="" disabled selected>Select an option</option>
-      {userLyrics.map((lyric:any, index:number) =>(
-        <option key={index} value={lyric.content}>{lyric.title}</option>
-      ))}
-    </select>
-    <button className={styles.btn} onClick={handleDropdownSubmit}>
-            Submit Selected
-          </button>
-  </div>
-</div>
 
+
+     
+        {activeTab === "dropdown" && (
+          <div className={styles.gridItem}>
+            <h1>Choose from your list</h1>
+            <select
+              className={styles.dropdown}
+              onChange={handleDropdownChange}
+            >
+              <option value="" disabled selected>
+                Select an option
+              </option>
+              {userLyrics.map((lyric: any, index: number) => (
+                <option key={index} value={lyric.content}>
+                  {lyric.title}
+                </option>
+              ))}
+            </select>
+            <button className={styles.btn} onClick={handleDropdownSubmit}>
+              Submit Selected
+            </button>
+          </div>
+        )}
+      </div>
 
 <div className={styles.flexContainer2}>
                 <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-4">
