@@ -86,6 +86,17 @@ const imagesPerSlide = 3;
           images[(currentIndex + 2) % images.length],
         ];
 
+        const handleDownload = () => {
+          if (selectedLyrics) { 
+            const element = document.createElement("a");
+            const file = new Blob([selectedLyrics], { type: "text/plain" });
+            element.href = URL.createObjectURL(file);
+            element.download = "lyrics.txt";
+            document.body.appendChild(element); 
+            element.click();
+          }
+        };
+
      
 
    return ( 
