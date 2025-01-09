@@ -29,24 +29,3 @@ const imagesPerSlide = 3;
     { src: channel5, title: 'Title 3' },
   ];
 
-
-     
-          
-    
-
-    return ( 
-        <div className={styles.body6}>
-            
-
-  
-
-
-  
-
-
- 
-        </div>
-     );
-}
- 
-export default UserProfile;
