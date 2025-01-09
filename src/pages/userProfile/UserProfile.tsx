@@ -126,7 +126,23 @@ const imagesPerSlide = 3;
    overflowY: userLyrics?.length > 3 ? "auto" : "visible",
  }}
 >
+ {userLyrics?.length > 0 ? (
+   userLyrics.map((lyric) => (
+     <div className={styles.lyricsContainer} key={lyric._id}>
+       <div className={styles.lyricsTitle}>{lyric.title}</div>
 
+       <button
+         className={styles.viewLyricsButton}
+         onClick={() => handleOpenModal(lyric.content)}
+       >
+         View Lyrics <span role="img" aria-label="search icon">🔍</span>
+       </button>
+     </div>
+   ))
+ ) : (
+   <div>No lyrics available.</div>
+ )}
+</div>
 
  
        </div>
