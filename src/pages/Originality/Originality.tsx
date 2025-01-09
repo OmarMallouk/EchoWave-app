@@ -109,7 +109,26 @@ const Originality = () => {
 
 
 
-     
+      <div className={styles.gridContainer}>
+        {activeTab === "input" && (
+          <div className={styles.gridItem}>
+            <h1>Drop your lyrics below</h1>
+            <input
+              type="text"
+              placeholder="Write here"
+              className={styles.inputField}
+              value={value}
+              onChange={(e) => setValue(e.target.value)}
+            />
+            <button
+              className={styles.btn}
+              onClick={() => handleSubmission(value)}
+            >
+              Submit
+            </button>
+          </div>
+        )}
+
         {activeTab === "dropdown" && (
           <div className={styles.gridItem}>
             <h1>Choose from your list</h1>
