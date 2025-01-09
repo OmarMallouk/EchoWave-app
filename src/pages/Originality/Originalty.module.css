@@ -164,3 +164,11 @@
     transition: background-color 0.3s ease;
   }
   
+  .tabButton:hover {
+    background-color: #b129d3;
+  }
+  
+  .activeTab {
+    background-color: #b129d3;
+    color: white;
+  }
