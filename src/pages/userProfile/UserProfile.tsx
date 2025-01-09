@@ -80,6 +80,11 @@ const imagesPerSlide = 3;
           ); 
         };
       
+        const visibleImages = [
+          images[(currentIndex) % images.length],
+          images[(currentIndex + 1) % images.length],
+          images[(currentIndex + 2) % images.length],
+        ];
 
      
 
