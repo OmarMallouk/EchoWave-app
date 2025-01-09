@@ -7,6 +7,7 @@ import Genre from "./pages/Genre/Genre";
 import Channels from "./pages/AllChannels/Channels";
 import Channel from "./pages/Channel/Channel";
 import Originality from "./pages/Originality/Originality";
+import UserProfile from "./pages/userProfile/UserProfile";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ui/ScrollToTop";
@@ -31,6 +32,7 @@ const App: React.FC =() => {
       <Route path="/origin" element={<Originality />} />
       <Route path="/channels" element={<Channels />} />
       <Route path="/channel" element={<Channel/>} />
+      <Route path="/userProfile" element={<UserProfile/>} />
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
       <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>
