@@ -29,3 +29,42 @@ const imagesPerSlide = 3;
     { src: channel5, title: 'Title 3' },
   ];
 
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("User") || "{}");
+       if (userData._id) {
+             setUserId(userData._id);
+           }
+       }, []);
+
+       useEffect(() => {
+           const fetchUserLyrics = async (id: string) => {
+             try {
+               const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+                 headers: {
+                   "Content-Type": "application/json",
+                 },
+               });
+               console.log(response.data); 
+               setUserLyrics(response.data.lyrics || []); 
+             } catch (error) {
+               console.error("Error fetching lyrics", error);
+             }
+           };
+       
+           if (userId) {
+             fetchUserLyrics(userId); 
+           }
+         }, [userId]);
+
+     
+
+   return ( 
+       <div className={styles.body6}>
+           
+
+ 
+       </div>
+    );
+}
+
+export default UserProfile;
