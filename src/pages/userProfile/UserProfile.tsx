@@ -68,6 +68,18 @@ const imagesPerSlide = 3;
           setShowModal(false);
         };
 
+        console.log("here",userLyrics);
+         
+        const nextImage = () => {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); 
+        };
+      
+        const prevImage = () => {
+          setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+          ); 
+        };
+      
 
      
 
