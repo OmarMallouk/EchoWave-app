@@ -6,7 +6,7 @@
     background-image: linear-gradient(
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.671)),
-    url("/public/assests/lyricPageBack.jpg");
+    url("/public/assests/channel2.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -142,5 +142,25 @@
   
   .lg\:divider-horizontal {
     margin: 0 20px; 
+  }
+  
+
+  .tabContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .tabButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #9a5eca70;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 10px;
+    transition: background-color 0.3s ease;
   }
   
