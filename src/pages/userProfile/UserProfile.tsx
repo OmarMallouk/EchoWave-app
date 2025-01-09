@@ -144,6 +144,22 @@ const imagesPerSlide = 3;
  )}
 </div>
 
+{showModal && (
+       <>
+         <div className={styles.modalOverlay} onClick={handleCloseModal}></div>
+         <div className={styles.lyricsModal}>
+           <button className={styles.closeModal} onClick={handleCloseModal}>
+             &times;
+           </button>
+           <h2>Lyrics</h2>
+           <p>{selectedLyrics}</p>
+           <button onClick={handleDownload} className={styles.downloadButton}>
+             Download Lyrics
+           </button>
+         </div>
+       </>
+     )}
+
  
        </div>
     );
