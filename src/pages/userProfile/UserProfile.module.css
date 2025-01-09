@@ -17,3 +17,38 @@
   }
   
   
+  .profileContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px;
+    align-items: start;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    margin-top: 60px;
+}
+
+.profileInfo {
+    max-width: 90%;
+    text-align: left; 
+}
+
+.profileTitle {
+    display: block;
+    font-size: 3rem;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+    margin-top: 50px;
+    text-align: left; 
+}
+
+.profileDescription {
+    line-height: 1.6;
+    font-size: 1.2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 60px;
+    text-align: left; 
+}
+
+  
