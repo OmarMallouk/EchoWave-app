@@ -118,7 +118,14 @@ const Originality = () => {
         >
           Write Lyrics
         </button>
-       
+        <button
+          className={`${styles.tabButton} ${
+            activeTab === "dropdown" ? styles.activeTab : ""
+          }`}
+          onClick={() => setActiveTab("dropdown")}
+        >
+          Select Lyrics
+        </button>
       </div>
 
       <div className={styles.gridContainer}>
