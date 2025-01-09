@@ -115,6 +115,19 @@ const imagesPerSlide = 3;
  </div>
 </div>
 
+
+
+<div className={styles.Title1}> <h1>Created Lyrics </h1></div>  
+
+<div
+ className={styles.lyricsList}
+ style={{
+   maxHeight: userLyrics?.length > 3 ? "300px" : "auto",
+   overflowY: userLyrics?.length > 3 ? "auto" : "visible",
+ }}
+>
+
+
  
        </div>
     );
