@@ -101,7 +101,19 @@ const imagesPerSlide = 3;
 
    return ( 
        <div className={styles.body6}>
-           
+              <div className={styles.profileContainer}>
+ <div className={styles.profileInfo}>
+   <h1 className={styles.profileTitle}>Luna Vega</h1>
+   <p className={styles.profileDescription}>
+     "I am Luna 'FunkStar' Vega, a fearless rockstar with a passion for blending the raw energy of rock with the groovy soul of funk. My music is all about bold basslines, gritty guitar riffs, and infectious rhythms that get people moving. On stage, I bring a vibrant, electrifying presence, complete with neon-colored outfits and an unapologetic love for life. Offstage, I'm a dreamer, writing songs under the stars and living by my mantra: 'Stay groovy, stay true.'"
+   </p>
+ </div>
+ <div className={styles.profileImage}>
+   <img src={channel1} alt="Luna Vega"/>
+   
+   <button className={styles.editButton}> <span className={styles.editIcon}>✏️</span> Edit Profile</button>
+ </div>
+</div>
 
  
        </div>
