@@ -160,6 +160,29 @@ const imagesPerSlide = 3;
        </>
      )}
 
+     
+<div className={styles.Title2}> <h1>Bookmarked Channels </h1></div>  
+
+<div className={styles.carouselContainer}>
+     <button className={`${styles.carouselButton} ${styles.carouselButtonPrev}`} onClick={prevImage}>
+       &#10094;
+     </button>
+
+     <div className={styles.carousel}>
+       {visibleImages.map((image, index) => (
+         <div key={index} className={styles.carouselItem}>
+           <img className={styles.carouselImage} src={image.src} alt={image.title} />
+           <div className={styles.carouselTitle}>{image.title}</div>
+         </div>
+       ))}
+     </div>
+
+     <button className={`${styles.carouselButton} ${styles.carouselButtonNext}`} onClick={nextImage}>
+       &#10095;
+     </button>
+   </div>
+
+
  
        </div>
     );
