@@ -227,3 +227,68 @@
     text-align: center;
   }
   
+  .carouselImage {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .carouselImage:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); 
+    cursor: pointer;
+  }
+  
+  .carouselTitle {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #fff;
+    font-weight: bold;
+  }
+  
+  .carouselButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1;
+    border-radius: 20px;
+  }
+  
+  .carouselButtonPrev {
+    left: 550px;
+  }
+  
+  .carouselButtonNext {
+    right: 550px;
+  }
+  
+
+  .Title3 {
+    font-size: 25px;
+    font-weight: bold;
+    height: auto;
+    width: auto;
+    text-align: left;
+    margin-top: 80px; 
+    margin-left: 25px;
+    padding: 20px 0;  
+    color: #fff;  
+  }
+  
+  .Title3>h1>span{
+    color: #bf1fff;
+    margin-left: 70px;
+  }
+
+
+  .Title3>h1>span:hover{
+    color: #ff00d4;
+    cursor: pointer;
+  }
