@@ -21,59 +21,39 @@ const cardsData = [
 
 const Home = () => {
 
-    useEffect(() => {
-      gsap.registerPlugin(ScrollTrigger);
-  
-      gsap.to(`.${styles.featuresTitle}`, {
-        scrollTrigger: {
-          trigger: `.${styles.featuresTitle}`,
-          start: "top 80%", 
-          toggleActions: "play none none reverse",
-          markers: false, 
-        },
-        opacity: 1,
-        y: 0,
-        duration: 1,
-      });
-      
-  
-      gsap.to(`.${styles.fadeInSection}`, {
-        scrollTrigger: {
-          trigger: `.${styles.fadeInSection}`,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true,
-        },
-        opacity: 1,
-        y: 0,
-        duration: 1,
-      });
+useEffect(() => {
+  gsap.registerPlugin(ScrollTrigger);
 
-          gsap.to(`.${styles.fadeInSectionReverse}`, {
-            scrollTrigger: {
-              trigger: `.${styles.fadeInSectionReverse}`,
-              start: "top 80%",
-              toggleActions: "play none none reverse",
-              once: true,
-            },
-            opacity: 1,
-            y: 0,
-            duration: 1,
-          });
+  // Animate the features title
+  gsap.to(`.${styles.featuresTitle}`, {
+    scrollTrigger: {
+      trigger: `.${styles.featuresTitle}`,
+      start: "top 80%", 
+      toggleActions: "play none none reverse",
+      markers: false, 
+    },
+    opacity: 1,
+    y: 0,
+    duration: 1,
+  });
 
-       gsap.to(`.${styles.fadeInSection2}`, {
-        scrollTrigger: {
-          trigger: `.${styles.fadeInSection2}`,
-          start: "top 80%",
-          toggleActions: "play none none reverse",
-          once: true,
-        },
-        opacity: 1,
-        y: 0,
-        duration: 1,
-      });
-    }, []);
-  
+  gsap.fromTo(
+    `.${styles.fadeInSection}`, // Target all fadeInSection elements
+    { opacity: 0, y: 50 }, // Starting state
+    {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      stagger: 0.3, // Delay between animations
+      scrollTrigger: {
+        trigger: `.${styles.featuresContainer}`, // Main container as trigger
+        start: "top 80%",
+        toggleActions: "play none none reverse",
+      },
+    }
+  );
+
+}, []);
 
    
 
@@ -90,8 +70,8 @@ const Home = () => {
     <p className={styles.description}>
       Transform your ideas into original <span className={styles.highlightMagic}>lyrics</span> with the power of AI. 
       Whether you’re a budding <span className={styles.highlightMagic}>songwriter</span> or a seasoned <span className={styles.highlightMagic}>musician</span>, 
-      our platform helps you craft songs that reflect your unique <span className={styles.highlightMagic}>voice</span>, 
-      <span className={styles.highlightMagic}>style</span>, and <span className={styles.highlightMagic}>mood</span>, instantly.
+      our platform helps you craft songs that reflect your unique <span className={styles.highlightMagic}>voice</span>,  
+      <span className={styles.highlightMagic}> style</span>, and <span className={styles.highlightMagic}>mood</span> instantly.
     </p>
     <div className={styles.heroWrap}>
       <h2 className={styles.intro1}>Not a member yet?</h2>
@@ -100,64 +80,51 @@ const Home = () => {
   </div>
       </div>
 
+      {/* second section */}
+
       <div className={styles.featuresContainer}>
-        <h2 className={styles.featuresTitle}>Features</h2>
-        <div className={styles.fadeInSection}>
-        <div className={styles.imageWrapper}>
-          <img
-            src={writing}
-            alt="Example"
-            className={styles.fadeInImage}
-          />
+  <h2 className={`${styles.featuresTitle} fadeInSection`}>Features</h2>
+  <div className={styles.featuresRow}>
+        <div className={`${styles.fadeInSection}`}>
+          <div className={styles.featureItem}>
+            <img src={lyricNote} alt="Writing Feature" className={styles.featureImage} />
+            <h3 className={styles.featureHeading}>
+            “Craft <span className={styles.highlight}>Lyrics</span> That Match Your <br /><span className={styles.highlight}>Mood</span>”
+            </h3>
+            <p className={styles.featureDescription}>
+              Let your emotions guide the words as our AI tailors lyrics to fit the genre you choose.
+            </p>
+            <button className={styles.featureButton}>Start Now</button>
+          </div>
         </div>
-        <div className={styles.fadeInText}>
-          <h2>“Craft <span className={styles.highlightLyrics}>Lyrics</span> That Matches Your <span className={styles.highlightLyrics}>Mood</span></h2>
-          <p>– Let your emotions guide the words as our AI tailors lyrics to fit the genre you choose.”</p>
-          <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
-                Start now
-              </Button>
+
+        <div className={`${styles.fadeInSection}`}>
+          <div className={styles.featureItem}>
+            <img src={originalCh} alt="Lyric Note Feature" className={styles.featureImage} />
+            <h3 className={styles.featureHeading}>
+            “Tailored <span className={styles.highlight}>Lyrics</span> for Every <br /><span className={styles.highlight}>Genre</span>”
+            </h3>
+            <p className={styles.featureDescription}>
+              Whether it’s hip-hop, rock, or country, our AI crafts lyrics that flow smoothly with your chosen style.
+            </p>
+            <button className={styles.featureButton}>Get Started</button>
+          </div>
         </div>
-            </div>
-         
-         
 
-            <div className={styles.fadeInSectionReverse}>
-    <div className={styles.fadeInText}>
-      <h2>“Tailored <span className={styles.highlightLyrics}>Lyrics</span> for Every <span className={styles.highlightGenre}>Genre</span></h2>
-      <p>– Whether it’s hip-hop, rock, country, our AI crafts lyrics that flow smoothly with your chosen style.”</p>
-      <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
-                Get started
-              </Button>
-    </div>
-    <div className={styles.imageWrapper}>
-    <img
-      src={lyricNote}
-      alt="Example"
-      className={styles.fadeInImage}
-    />
-  </div>
- </div>
-      
-
-
-      <div className={styles.fadeInSection2}>
-      <div className={styles.imageWrapper}>
-        <img
-          src={originalCh}
-          alt="Example"
-          className={styles.fadeInImage}
-        />
+        <div className={`${styles.fadeInSection}`}>
+          <div className={styles.featureItem}>
+            <img src={writing} alt="Originality Check Feature" className={styles.featureImage} />
+            <h3 className={styles.featureHeading}>
+            “Stay Unique with our Originality <br /><span className={styles.highlight}>Feature</span>”
+            </h3>
+            <p className={styles.featureDescription}>
+              Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.
+            </p>
+            <button className={styles.featureButton}>Check Now</button>
+          </div>
         </div>
-        <div className={styles.fadeInText}>
-          <h2>“Stay Unique with our Originality <span className={styles.highlightLyrics}> feature</span></h2>
-          <p>–Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.”</p>
-          <Button  color="rgba(124, 39, 143, 1)" size="sm" radius="xl" className={styles.control}>
-                check now
-              </Button>
-        </div>
-            </div>
-            </div> 
-
+      </div>
+</div>
 
             <div className={styles.chane}>Channels</div> 
 
