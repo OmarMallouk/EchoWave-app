@@ -1,9 +1,9 @@
 .navPage {
-
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    width: 100%;
     padding: 10px 20px;
     background-color: #0a0909;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -70,7 +70,7 @@
 }
 
 .navMenu li {
-    color: #7D2A9D;
+    color: #f0e7f3;
     font-size: 17px;
     font-weight: bold;
     cursor: pointer;
@@ -78,18 +78,19 @@
 }
 
 .navMenu li:hover {
-    color: #f0e7f3;
+    color: #7D2A9D ;
+    
 }
 
 .authButton {
     background-color: #7D2A9D;
     color: white;
-    padding: 6px 8px;
+    padding: 8px 10px;
     border: none;
-    border-radius: 15px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: 13px;
-    width: 150px;
+    width: 75px;
     transition: background-color 0.3s ease;
 }
 
