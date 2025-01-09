@@ -29,6 +29,7 @@
   gap: 20px;
   z-index: 1;
   color: var(--mantine-color-white);
+  text-align: left;
 }
 
 .title {
@@ -47,13 +48,12 @@
   background-color: #7D2A9D;
   color: rgb(255, 255, 255);
   border: none;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 20px;
+  padding: 7px 7px;
+  font-size: 14px;
+  border-radius: 25px;
   cursor: pointer;
-  width: 50%; 
+  width: 17%; 
   margin-top: 20px;
-  margin-right: 100px;
   transition: background-color 0.3s, transform 0.3s;
 }
 
@@ -75,9 +75,9 @@
 }
 
 .heroWrap {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 10px;
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
   align-items: center;
 }
 
@@ -88,124 +88,17 @@
 
 .highlightMagic{
   color: #7D2A9D;
-  
 }  
 
+/* second section */
 
 .featuresContainer {
   background-color: #0f0f0f;
-color: white; 
-padding: 4rem 12rem;
-
-}
-
-
-@media screen and (max-width: 1200px) {
-  .featuresContainer {
-    padding: 4rem 8rem;
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .featuresContainer {
-    padding: 4rem 4rem;
-  }
-}
-
-
-.fadeInSection {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  min-height: 100vh;
-  opacity: 0; 
-  transform: translateY(50px); 
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-
-.fadeInSection2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 2rem;
-  min-height: 100vh;
-  opacity: 0; 
-  transform: translateY(50px); 
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-
-
-
-.fadeInText {
-  max-width: 400px;
-  font-size: 1.2rem;
-  color: #f5f5f5;
-}
-
-.highlightGenre {
-
-  margin-left: 100px;
-}
-
-
-
-.fadeInText h2 {
-  font-size: 1.5rem;
-}
-
-
-
-.featuresTitle {
+  color: white;
+  padding: 2rem;
   text-align: center;
-  font-size: 3.5rem;
-  color: rgb(247, 242, 242);
-  margin-top: 1.3rem;
-  opacity: 0; 
-  transform: translateY(-50px); 
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-
-
-.fadeInImage {
-  width: 45%;
-  height: auto;
-  border-radius: 20px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(128, 0, 128, 0.219);
-  margin-left: 100px;
   
 }
-
-.fadeInImage:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
-
-.imageWrapper{
-  position: relative;
-  display: inline-block;
-}
-
-.imageWrapper:hover .fadeInImage {
-  transform: scale(1.1); 
-  opacity: 0.8; 
-}
-
-
-.fadeInText {
-  max-width: 70%;
-  font-size: 1.2rem;
-}
-
-.fadeInText h2 {
-  color: #f4f4f5;
-}
-
 
 .featuresContainer::before {
   content: '';
@@ -217,98 +110,114 @@ padding: 4rem 12rem;
 }
 
 
-.fadeInSectionReverse {
+.featuresTitle {
+  font-size: 2.1rem;
+  margin-bottom: 2rem;
+  color: #f7f2f2;
+  opacity: 0; 
+  transform: translateY(-50px); 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.featuresRow {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  margin: 2rem 0;
-  opacity: 0;
-transform: translateY(50px);
+  align-items: flex-start;
+  text-align: left;
+  gap: 2rem; 
+  flex-wrap: nowrap; 
+  margin-bottom: 100px;
 }
 
-.fadeInSectionReverse img {
-  width: 45%; 
-  height: auto;
-  filter: brightness(70%);
-  display: inline-block;
+.featureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  max-width: 80%; 
+  text-align: center;
 }
 
-.fadeInSectionReverse .fadeInText {
-  width: 50%;
+.featureImage {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureImage:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(128, 0, 128, 0.4);
+  cursor: pointer;
+}
+
+.featureHeading {
+  font-size: 1.5rem;
+  color: #f4f4f5;
+  margin-bottom: 1rem;
+  text-align: left;
+  width: 100%;
+}
+
+.featureDescription {
+  font-size: 1rem;
+  color: #d1d1d1;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.highlight {
+  color: rgba(124, 39, 143, 1);
+}
+
+.featureButton {
+  background-color: rgba(124, 39, 143, 1);
   color: white;
-  text-align: left; 
+  padding: 0.5rem 1.5rem;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
+.featureButton:hover {
+  background-color: rgb(46, 7, 49);
+}
 
+.fadeInSection, .fadeInSectionReverse, .fadeInSection2 {
+  transform: translateY(-50px); 
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
+.fadeInSectionReverse {
+  transform: translateX(-20px); 
+}
 
-@media screen and (max-width: 1200px) {
- 
-
-  .fadeInText {
-      max-width: 80%;
-  }
+.fadeInSection2 {
+  transform: scale(0.8); 
 }
 
 @media screen and (max-width: 992px) {
-  
-
-  .fadeInText {
-      max-width: 90%;
-      font-size: 1rem;
+  .featuresRow {
+    flex-wrap: wrap;
+    gap: 1.5rem;
   }
 
-  .fadeInImage {
-      max-width: 100%;
-  }
-
-  .featuresTitle {
-      font-size: 3rem;
+  .featureItem {
+    max-width: 100%; 
   }
 }
 
-@media screen and (max-width: 768px) {
- 
 
-  .fadeInText {
-      max-width: 100%;
-      font-size: 0.9rem;
-  }
-
-  .fadeInSection {
-      flex-direction: column;
-      gap: 1rem;
-      min-height: auto;
-  }
-
-  .fadeInImage {
-      max-width: 90%;
-  }
-}
-
-@media screen and (max-width: 576px) {
-
-
-  .fadeInSection {
-      flex-direction: column;
-      gap: 1rem;
-      min-height: auto;
-  }
-
-  .fadeInImage {
-      max-width: 100%;
-  }
-
-  .featuresTitle {
-      font-size: 2rem;
-  }
-}
-
+/* next section */
 
 .chane{
   background-color: #0f0f0f;
   color: white;
-  font-size: 3rem;
+  font-size: 2.1rem;
   padding-bottom: 50px;
 }
 
@@ -319,13 +228,15 @@ transform: translateY(50px);
   height: 2px;
   background: linear-gradient(to right, #3b82f6, #a855f7);
   margin: 0 auto 2rem;
+  
 }
 
 
 .carouselsCo {
   background-color: #0f0f0f;
   width: 100%;
-  height: 100%;
+  min-height: 50vh; 
+  overflow: hidden;
   padding-top: 12rem;
 }
 
@@ -343,6 +254,7 @@ transform: translateY(50px);
   height: 100%;
   transform-style: preserve-3d;
   animation: rotate360 60s infinite forwards linear;
+  will-change: transform;
   color: white;
 }
 
