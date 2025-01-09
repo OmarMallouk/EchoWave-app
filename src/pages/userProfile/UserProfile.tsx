@@ -56,6 +56,19 @@ const imagesPerSlide = 3;
            }
          }, [userId]);
 
+         
+
+         const handleOpenModal = (lyrics:any) => {
+          setSelectedLyrics(lyrics);
+          setShowModal(true);
+        };
+      
+        const handleCloseModal = () => {
+          setSelectedLyrics(null);
+          setShowModal(false);
+        };
+
+
      
 
    return ( 
