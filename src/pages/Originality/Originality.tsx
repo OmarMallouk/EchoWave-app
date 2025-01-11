@@ -87,7 +87,10 @@ const Originality = () => {
 
     const generateAlternativeLyrics = async (lyrics: string) => {
       try {
-     
+        const response = await axios.post("http://127.0.0.1:8080/api/lyrics/alternative", {
+          lyrics: lyrics,
+        });
+        return response.data.alternativeLyrics;
       } catch (error) {
         console.error("Error generating alternative lyrics:", error);
         setError("Failed to generate alternative lyrics. Please try again.");
