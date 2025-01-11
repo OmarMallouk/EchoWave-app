@@ -98,6 +98,16 @@ const Originality = () => {
       }
     };
 
+    const handleGenerateAlternative = async () => {
+      if (!submittedLyrics) {
+        setError("Please submit lyrics first.");
+        return;
+      }
+      const result = await generateAlternativeLyrics(submittedLyrics);
+      if (result) {
+        setAlternativeLyrics(result);
+      }
+    };
 
    
     const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
