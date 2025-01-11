@@ -182,6 +182,24 @@ const Channel = () => {
    overflowY: userLyrics?.length > 3 ? "auto" : "visible",
  }}
 >
+ {songs?.length > 0 ? (
+   songs.map((song) => (
+     <div className={styles.lyricsContainer} key={song._id}>
+       <div className={styles.lyricsTitle}>{song.title}</div>
+
+       <button
+         className={styles.viewLyricsButton}
+         onClick={() => handleOpenModal(song)}
+       >
+         View Song lyrics <span role="img" aria-label="search icon">🔍</span>
+       </button>
+     </div>
+   ))
+ ) : (
+   <div>No Song lyrics available.</div>
+ )}
+</div>
+
 
 
 
