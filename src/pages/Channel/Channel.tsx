@@ -50,7 +50,20 @@ const Channel = () => {
              }, [userId]);
             //  console.log("The comments are: ",comments)
              
-     
+         const handleOpenModal = (songs: Song) => {
+          setSelectedSongs(songs);
+            setComments(songs.comments || []);
+            console.log("selected lyrics:", selectedSong)
+            setShowModal(true);
+          };
+
+          console.log("selected lyrics:", selectedSong)
+        
+          const handleCloseModal = () => {
+            setSelectedSongs(null);
+            setShowModal(false);
+          };
+
 
 
 
