@@ -115,6 +115,18 @@ const Channel = () => {
           };
           
 
+          const handleStartMerge = () => {
+            setIsSelecting(true);
+          };
+
+          const handleSelectForMerge = (lyric: string) => {
+            if (selectedForMerge.includes(lyric)) {
+              setSelectedForMerge(selectedForMerge.filter((item) => item !== lyric));
+            } else if (selectedForMerge.length < 2) {
+              setSelectedForMerge([...selectedForMerge, lyric]);
+            }
+          };
+
 
 
           
