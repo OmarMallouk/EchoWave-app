@@ -201,6 +201,20 @@ const Channel = () => {
 </div>
 
 
+{showModal && (
+       <>
+         <div className={styles.modalOverlay} onClick={handleCloseModal}></div>
+         <div className={styles.lyricsModal}>
+           <button className={styles.closeModal} onClick={handleCloseModal}>
+             &times;
+           </button>
+           <h2>Song lyrics</h2>
+           <p>{selectedSong?.content || "No lyrics available."}</p>
+           <button onClick={handleDownload} className={styles.downloadButton}>
+             Download Song lyrics
+           </button>
+
+
 
 
 
