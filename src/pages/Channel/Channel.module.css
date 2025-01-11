@@ -283,3 +283,45 @@
     text-align: center;
   }
 
+  .lyricsCard>h2>span {
+    color: #d012f7;
+  }
+
+  .lyricsCard>h2{
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #f7f5f5;
+  }
+
+  .lyricsCard>p{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #f7f5f5;
+  }
+  
+  .inputContainer {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .inputField {
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    width: 70%;
+  }
+  
+  .addButton{
+    padding: 5px 10px;
+    background-color: #680f8b;
+    border-radius: 15px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
+  .addButton:hover{
+    transform: scale(0.9); 
+  }
