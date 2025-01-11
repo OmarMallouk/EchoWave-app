@@ -214,6 +214,23 @@ const Channel = () => {
              Download Song lyrics
            </button>
 
+           <div>
+  <h2>Comments for: {selectedSong?.title}</h2>
+  {comments && comments.length > 0 ? (
+    comments.map((comment: any, index: number) => (
+      <div key={index} style={{ marginBottom: "10px", padding: "5px", border: "1px solid #ccc" }}>
+        <p>{comment.content}</p>
+        <p><strong>User:</strong> {comment.user}</p>
+        <p><small>{new Date(comment.created_at).toLocaleString()}</small></p>
+      </div>
+    ))
+  ) : (
+    <p>No comments available for this song.</p>
+  )}
+</div>
+         </div>
+       </>
+     )}
 
 
 
