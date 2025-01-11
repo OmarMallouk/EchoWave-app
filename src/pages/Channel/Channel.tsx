@@ -232,6 +232,26 @@ const Channel = () => {
        </>
      )}
 
+<div className={styles.buttonContainer}>
+  <button onClick={handleStartMerge} className={styles.control2}>
+    Create a New Song <span>+</span>
+  </button>
+</div>
+
+
+    {isSelecting && (
+  <div className={styles.modalOverlay}>
+    <div className={styles.lyricsModal}>
+      <button className={styles.closeModal} onClick={() => setIsSelecting(false)}>
+        &times;
+      </button>
+    
+      <button onClick={handleMergeLyrics} className={styles.mergeButton}>
+        Merge Selected Lyrics
+      </button>
+    </div>
+  </div>
+)}
 
 
 
