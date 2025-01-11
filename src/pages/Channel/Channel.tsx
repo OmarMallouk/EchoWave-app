@@ -19,6 +19,33 @@ const Channel = () => {
     const [error, setError] = useState("");
 
 
+    useEffect(() => {
+        const userData = JSON.parse(localStorage.getItem("User") || "{}");
+           if (userData._id) {
+                 setUserId(userData._id);
+               }
+           }, []);
+    
+           useEffect(() => {
+               const fetchUserLyrics = async (id: string) => {
+                 try {
+                   const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+                     headers: {
+                       "Content-Type": "application/json",
+                     },
+                   });
+            
+                  //  console.log("The comments are: ",comments)
+                 } catch (error) {
+                   console.error("Error fetching lyrics", error);
+                 }
+               };
+           
+        
+             }, [userId]);
+            //  console.log("The comments are: ",comments)
+             
+     
 
 
 
