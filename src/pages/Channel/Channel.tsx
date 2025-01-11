@@ -34,14 +34,19 @@ const Channel = () => {
                        "Content-Type": "application/json",
                      },
                    });
-            
+                   console.log(response.data); 
+                   setUserLyrics(response.data.lyrics || []); 
+                   setSongs(response.data.songs || []); 
+
                   //  console.log("The comments are: ",comments)
                  } catch (error) {
                    console.error("Error fetching lyrics", error);
                  }
                };
            
-        
+               if (userId) {
+                 fetchUserLyrics(userId); 
+               }
              }, [userId]);
             //  console.log("The comments are: ",comments)
              
