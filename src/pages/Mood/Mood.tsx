@@ -134,7 +134,7 @@ const Mood = () => {
       </div>
    
    
-<div className={styles.Title1}> <h1>Didn't find any? search <span>more</span> </h1></div>  
+<div className={styles.Title1}> <h1>Didn't find any? <span>search</span> </h1></div>  
 
 <div className="dropdown dropdown-hover dropdown-right dropdown-end">
   <div tabIndex={0} role="button" className="btn m-1">Moods</div>

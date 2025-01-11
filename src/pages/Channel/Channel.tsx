@@ -92,7 +92,22 @@ const Channel = () => {
     
               console.log("Adding lyric:", { title, lyrics, userId: userData._id });
     
-          
+              const response = await axios.post("http://127.0.0.1:8080/api/createSong", {
+                title,
+                content: lyrics,
+                user: userData._id,
+              },{
+                headers:{
+                  "Content-Type": "application/json",
+                },
+              });
+    
+              if (response.status === 200){
+                console.log("lyric added: ", response.data);
+                
+              }else{
+                setError("Failed to add collection");
+              }
             }catch(error){
               console.error("Error adding collection", error);
               setError("Something went wrong :(");
