@@ -77,6 +77,28 @@ const Channel = () => {
           };
 
 
+          const addToCollection = async () =>{
+            if (!title || !lyrics || !userId){
+              setError("Missing fields");
+            return;
+            }
+            try{
+              const userData = JSON.parse(localStorage.getItem("User") || "{}");
+    
+              if (!userData._id){
+                setError("User not found");
+                return;
+              }
+    
+              console.log("Adding lyric:", { title, lyrics, userId: userData._id });
+    
+          
+            }catch(error){
+              console.error("Error adding collection", error);
+              setError("Something went wrong :(");
+            }
+          };
+          
 
 
 
