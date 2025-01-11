@@ -21,6 +21,7 @@ const Originality = () => {
     const [error, setError] = useState("");
     const [selectedLyric, setSelectedLyric] = useState<string>("");
     const [activeTab, setActiveTab] = useState("input");
+    const [alternativeLyrics, setAlternativeLyrics] = useState("");
 
 
     initTWE({ Dropdown, Ripple });
@@ -83,6 +84,17 @@ const Originality = () => {
         console.error("Something went wrong :(", error);
       }
     }
+
+    const generateAlternativeLyrics = async (lyrics: string) => {
+      try {
+     
+      } catch (error) {
+        console.error("Error generating alternative lyrics:", error);
+        setError("Failed to generate alternative lyrics. Please try again.");
+        return null;
+      }
+    };
+
 
    
     const handleDropdownChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -190,7 +202,14 @@ const Originality = () => {
                     <div className="divider lg:divider-horizontal">
                         <h1 className={styles.divider}>OR</h1>
                     </div>
-                    <div className={styles.card}>Alternative Approach</div>
+                    <div className={styles.card}><h2>Alternative Lyrics</h2>
+  {alternativeLyrics ? (
+    <p>{alternativeLyrics}</p>
+  ) : (
+    <button className={styles.btn} onClick={handleGenerateAlternative}>
+      Generate Alternative
+    </button>
+  )}</div>
                 </div>
             </div>
 
