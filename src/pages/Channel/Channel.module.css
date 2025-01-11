@@ -143,3 +143,55 @@
 
 
 
+.lyricsModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #1e1e2f;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 60%;
+    max-height: 80%;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.modalOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Transparent black overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.lyricsModal h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fdf7f7;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .lyricsSelection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .lyricsSelection input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .lyricsSelection label {
+    font-size: 1rem;
+    color: #f3f2f3; 
+  }
