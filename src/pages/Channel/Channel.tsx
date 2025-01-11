@@ -245,7 +245,19 @@ const Channel = () => {
       <button className={styles.closeModal} onClick={() => setIsSelecting(false)}>
         &times;
       </button>
-    
+      <h2>Select Two Lyrics to Merge</h2>
+      <div>
+        {userLyrics.map((lyric) => (
+          <div key={lyric._id} className={styles.lyricsSelection}>
+            <input
+              type="checkbox"
+              checked={selectedForMerge.includes(lyric.content)}
+              onChange={() => handleSelectForMerge(lyric.content)}
+            />
+            <label>{lyric.title}</label>
+          </div>
+        ))}
+      </div>
       <button onClick={handleMergeLyrics} className={styles.mergeButton}>
         Merge Selected Lyrics
       </button>
