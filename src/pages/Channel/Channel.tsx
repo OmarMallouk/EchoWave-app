@@ -265,7 +265,34 @@ const Channel = () => {
   </div>
 )}
 
-
+<div className={`${styles.gridContainer}`}>
+  {lyrics ? (
+    <div className={`${styles.lyricsCard}`}>
+      <h2>Generated Lyrics</h2>
+      <p>{lyrics}</p>
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          placeholder="Enter Title"
+          className={styles.inputField}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button
+          className={styles.addButton}
+          onClick={addToCollection}
+        >
+          Add to Collection
+        </button>
+      </div>
+    </div>
+  ) : (
+    <div className={`${styles.lyricsCard}`}>
+      <h2>No Lyrics Yet</h2>
+      <p>Choose lyrics to create a song</p>
+    </div>
+  )}
+</div>
 
         </div>
      );
