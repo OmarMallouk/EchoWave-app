@@ -128,7 +128,22 @@ const Channel = () => {
           };
 
 
-
+          const handleMergeLyrics = async () => {
+            if (selectedForMerge.length === 2) {
+              try {
+                const [lyric1, lyric2] = selectedForMerge;
+              
+          
+              
+              } catch (error) {
+                console.error("Error merging lyrics:", error);
+              }
+            } else {
+              alert("Please select exactly two lyrics to merge.");
+            }
+          };
+          
+          console.log("selected song", selectedSong);
           
     return ( 
         <div className={styles.body6}>
