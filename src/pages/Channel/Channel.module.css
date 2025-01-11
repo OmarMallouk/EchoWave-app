@@ -242,3 +242,44 @@
     padding-top: 40px;
 }
   
+.control2 {
+    background-color: #7D2A9D;
+    color: rgb(255, 255, 255);
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    width: 10%; 
+    margin-top: 20px;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .control2:hover{
+    background-color: #2e0b3b; 
+    transform: scale(1.05); 
+  }
+
+  .control2>span{
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+  }
+  
+  .gridContainer {
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    color: #fff;
+    margin: 20px 0;
+  }
+  
+  .lyricsCard {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #8d44ad65, #3b328a54);
+    width: 90%;
+    text-align: center;
+  }
+
