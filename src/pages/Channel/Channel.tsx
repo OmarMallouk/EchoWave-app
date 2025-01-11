@@ -132,9 +132,19 @@ const Channel = () => {
             if (selectedForMerge.length === 2) {
               try {
                 const [lyric1, lyric2] = selectedForMerge;
-              
+                const response = await axios.post("http://127.0.0.1:8080/api/lyrics/merge-lyrics", {
+                  lyrics1: lyric1,
+                  lyrics2: lyric2,
+                });
           
-              
+                if (response.status === 200) {
+                  setSongs(response.data.mergedLyrics);
+                  setIsSelecting(false);
+                  setSelectedForMerge([]);
+                } else {
+                  console.error("Error merging lyrics:", response.data.error);
+                  alert("Failed to merge lyrics. Please try again.");
+                }
               } catch (error) {
                 console.error("Error merging lyrics:", error);
               }
