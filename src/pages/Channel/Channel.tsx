@@ -187,7 +187,6 @@ const Channel = () => {
               const songId = selectedSong?._id;
               const comment = newComment;
           
-              // Post comment using Axios
               const response = await axios.post("http://127.0.0.1:8080/users/comment", {
                 userId,
                 songId,
@@ -199,7 +198,6 @@ const Channel = () => {
               });
           
               if (response.status === 200) {
-                // Ensure prevComments is not undefined before mapping over it
                 setComments(prevComments => {
                   if (prevComments) {
                     const newComment = response.data.updatedSong.comments?.slice(-1)[0]; 
@@ -208,12 +206,12 @@ const Channel = () => {
                     return [];
                   }
                 });
-                setNewComment(""); // Clear the comment input
+                setNewComment("");
               } else {
-                console.error(response.data.message); // Log the error message
+                console.error(response.data.message); 
               }
             } catch (error) {
-              console.error("Error adding comment", error); // Catch and log any errors
+              console.error("Error adding comment", error);
             }
           };
           
