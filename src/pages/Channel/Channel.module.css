@@ -77,6 +77,9 @@
     cursor: pointer;
     font-size: 1rem;
     margin-top: 5px;
+    /* text-decoration: underline; */
+    /* text-decoration-color: black;
+    text-decoration-thickness: 2px; */
   }
   
   .editButton:hover {
@@ -133,7 +136,7 @@
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     text-decoration: none;
 }
 
@@ -226,7 +229,7 @@
     color: white;
     padding: 10px 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
     margin-top: 10px;
   }
@@ -306,6 +309,7 @@
     display: flex;
     gap: 10px;
     justify-content: center;
+    color: black;
   }
   
   .inputField {
@@ -324,4 +328,155 @@
 
   .addButton:hover{
     transform: scale(0.9); 
+  }
+
+
+  .modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #1e1e2f;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .modalContent {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .input {
+    padding: 12px 15px;
+    font-size: 16px; 
+    border: 1px solid #7c5dfa; 
+    border-radius: 5px;
+    background-color: #2e2e4f; 
+    color: #fff; 
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .input:hover {
+    border-color: #a785ff;
+  }
+  
+  .input:focus {
+    border-color: #c5a3ff;
+    box-shadow: 0 0 5px #c5a3ff; 
+  }
+
+  .fileInputWrapper {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .fileInput {
+    opacity: 0; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  .customFileButton {
+    display: inline-block;
+    background-color: #7c5dfa;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .customFileButton:hover {
+    background-color: #a785ff; 
+  }
+  
+  .customFileButton:active {
+    background-color: #5c3dbf; 
+  }
+  .saveButton,
+  .cancelButton {
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .saveButton {
+    background-color: #7c5dfa;
+    color: white;
+  }
+  
+  .cancelButton {
+    background-color: #e436f4d2;
+    color: white;
+  }
+
+
+
+  .addCommentContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .addCommentContainer textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: black;
+    border-radius: 14px;
+    resize: none;
+    width: 100%;
+    min-height: 60px;
+  }
+  
+  .addCommentButton {
+    background-color: #7c5dfa;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .addCommentButton:hover {
+    background-color: #5b1dcf;
+  }
+  
+  .commentsSection {
+    margin-top: 20px;
+  }
+  
+  .comment {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    color: black;
+  }
+  
+  .comment p {
+    margin: 0;
+  }
+  
+  .comment p strong {
+    color: #333;
+  }
+  
+  .comment p small {
+    color: #777;
+    font-size: 0.8em;
   }
