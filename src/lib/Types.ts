@@ -1,3 +1,12 @@
+export interface User {
+  channelName: string;
+  description: string;
+  username: string;
+  profile_picture: string;
+  _id: string;
+
+  }
+
 export interface Lyric {
   _id: string;
   title: string;
@@ -10,16 +19,18 @@ export interface Lyric {
 
   }
 
-  export interface Song  {
+  export interface Song {
     title: string;
     _id: string;
     content: string;
     comments?: {
-       content: string;
-       user: string;
-       _id: string;
-        created_at: string }[];
-};
+      content: string;
+      user: string;
+      _id: string;
+      producerId: string;
+      created_at: string;
+    }[];
+  }
   
   export interface UserLyrics {
     lyrics: Lyric[];
