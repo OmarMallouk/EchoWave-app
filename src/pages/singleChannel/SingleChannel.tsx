@@ -75,6 +75,27 @@ const SingleChannel = () => {
     console.log("the user is:", user);
     
 
+    
+    const handleOpenModal = (songs: Song) => {
+      setSelectedSongs(songs);
+        setComments(songs.comments || []);
+        setShowModal(true);
+      };
+
+    console.log("selected", selectedSong);
+    
+    const handleCloseModal = () => {
+      setSelectedSongs(null);
+      setComments(selectedSong?.comments || []);
+      setShowModal(false);
+    };
+
+
+      const handleCommentChange = (e:any) => {
+        setNewComment(e.target.value);
+      };
+      
+
 
 
 
