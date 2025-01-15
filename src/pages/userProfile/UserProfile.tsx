@@ -6,18 +6,35 @@ import channel2 from "/assests/angry1.jpeg?url";
 import channel3 from "/assests/happy2.jpeg?url";
 import channel4 from "/assests/writing.jpg?url";
 import channel5 from "/assests/records5.jpeg?url";
-import { Lyric, UserLyrics } from "@/lib/Types";
+import { Lyric, UserLyrics, User } from "@/lib/Types";
+import { Link } from "react-router-dom";
 
 interface Props {
     userLyrics: UserLyrics;
   }
 
 const UserProfile = () => {
+    const [user, setUser] = useState<User>({
+      channelName: '',
+      description: '',
+      username: '',
+      profile_picture: '',
+      _id: '',
+      role: '',
+      bookmarkedChannels: [],
+       });
+const [bookmarkedChannels, setBookmarkedChannels] =  useState<User['bookmarkedChannels']>([]);
 const [userId, setUserId] = useState('');
 const [userLyrics, setUserLyrics] = useState<Lyric[]>([]);
 const [selectedLyrics, setSelectedLyrics] = useState<string | null>(null);
 const [showModal, setShowModal] = useState(false); 
 const [currentIndex, setCurrentIndex] = useState(0);
+const [isModalOpen, setIsModalOpen] = useState(false);
+    const [formData, setFormData] = useState({
+      description: "",
+      username: "",
+    });
+    const [profilePicture, setProfilePicture] = useState<File | null>(null);
 const imagesPerSlide = 3;
 
 
@@ -36,6 +53,8 @@ const imagesPerSlide = 3;
            }
        }, []);
 
+  
+
        useEffect(() => {
            const fetchUserLyrics = async (id: string) => {
              try {
@@ -45,6 +64,7 @@ const imagesPerSlide = 3;
                  },
                });
                console.log(response.data); 
+               setUser(response.data);
                setUserLyrics(response.data.lyrics || []); 
              } catch (error) {
                console.error("Error fetching lyrics", error);
@@ -56,6 +76,8 @@ const imagesPerSlide = 3;
            }
          }, [userId]);
 
+
+      
          
 
          const handleOpenModal = (lyrics:any) => {
@@ -97,23 +119,71 @@ const imagesPerSlide = 3;
           }
         };
 
+     console.log("bookmarks", bookmarkedChannels);
      
 
    return ( 
        <div className={styles.body6}>
               <div className={styles.profileContainer}>
  <div className={styles.profileInfo}>
-   <h1 className={styles.profileTitle}>Luna Vega</h1>
+   <h1 className={styles.profileTitle}>{user.username}</h1>
    <p className={styles.profileDescription}>
-     "I am Luna 'FunkStar' Vega, a fearless rockstar with a passion for blending the raw energy of rock with the groovy soul of funk. My music is all about bold basslines, gritty guitar riffs, and infectious rhythms that get people moving. On stage, I bring a vibrant, electrifying presence, complete with neon-colored outfits and an unapologetic love for life. Offstage, I'm a dreamer, writing songs under the stars and living by my mantra: 'Stay groovy, stay true.'"
+    {user.description}
    </p>
  </div>
  <div className={styles.profileImage}>
-   <img src={channel1} alt="Luna Vega"/>
+   <img src={`http://localhost:8080${user.profile_picture}`} alt="Luna Vega"/>
    
-   <button className={styles.editButton}> <span className={styles.editIcon}>✏️</span> Edit Profile</button>
+   <button className={styles.editButton} onClick={openModal}> Edit Profile</button>
+
+   {isModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>Edit Channel</h2>
+             <input
+              type="text"
+              name="username"
+              placeholder="Enter new username"
+              value={formData.username}
+              onChange={handleInputChange}
+              className={styles.input}
+            />
+             <input
+              type="text"
+              name="description"
+              placeholder="Enter new description"
+              value={formData.description}
+              onChange={handleInputChange}
+              className={styles.input}
+            />
+           
+           <div className={styles.fileInputWrapper}>
+  <label htmlFor="fileUpload" className={styles.customFileButton}>
+    Upload Profile Picture
+  </label>
+  <input
+    type="file"
+    id="fileUpload"
+    name="profile_picture"
+    className={styles.fileInput}
+    onChange={handleFileChange}
+  />
+</div>
+            <button onClick={handleSubmit} className={styles.saveButton}>
+              Save Changes
+            </button>
+            <button onClick={closeModal} className={styles.cancelButton}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
  </div>
 </div>
+
+
+
 
 
 
@@ -135,7 +205,7 @@ const imagesPerSlide = 3;
          className={styles.viewLyricsButton}
          onClick={() => handleOpenModal(lyric.content)}
        >
-         View Lyrics <span role="img" aria-label="search icon">🔍</span>
+         View Lyrics
        </button>
      </div>
    ))
@@ -168,12 +238,21 @@ const imagesPerSlide = 3;
        &#10094;
      </button>
 
+
      <div className={styles.carousel}>
-       {visibleImages.map((image, index) => (
+       {bookmarkedChannels.map((bookmark, index) => (
+          <Link 
+          key={bookmark._id} 
+          to={`/singleChannel/${bookmark._id}`}
+          state={{ bookmark }} 
+          className={styles.card}
+        >
          <div key={index} className={styles.carouselItem}>
-           <img className={styles.carouselImage} src={image.src} alt={image.title} />
-           <div className={styles.carouselTitle}>{image.title}</div>
+           <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
+           <div className={styles.carouselTitle}>{bookmark.channelName}</div>
+           
          </div>
+         </Link>
        ))}
      </div>
 
