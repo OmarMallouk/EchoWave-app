@@ -79,7 +79,20 @@ const Channel = () => {
         }, [userId]); 
 
         
-      
+            const openModal = () => setIsModalOpen(true);
+            const closeModal = () => setIsModalOpen(false);
+          
+            const handleInputChange = (e: any) => {
+              const { name, value } = e.target;
+              setFormData({ ...formData, [name]: value });
+            };
+
+            const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+              if (e.target.files && e.target.files[0]) {
+                setProfilePicture(e.target.files[0]);
+              }
+            };
+          
      
     return ( 
         <div className={styles.body6}>
