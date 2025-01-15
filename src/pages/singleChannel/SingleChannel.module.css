@@ -190,3 +190,65 @@
     scrollbar-width: none;      
   }
   
+  .lyricsList::-webkit-scrollbar {
+    display: none;  
+  }
+
+.lyricsModal h2 {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fdf7f7;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .lyricsSelection {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .lyricsSelection input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  
+  .lyricsSelection label {
+    font-size: 1rem;
+    color: #f3f2f3; 
+  }
+
+
+  .closeModal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+.downloadButton {
+    background-color: #7c5dfa;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
+  
+  .downloadButton:hover {
+    background-color: #5a3dbd;
+  }
+
+.buttonContainer{
+    display: flex;
+    justify-content: left;
+    margin-left: 120px;
+    padding-top: 40px;
+}
+  
