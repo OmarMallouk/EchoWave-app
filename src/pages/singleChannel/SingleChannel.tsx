@@ -60,7 +60,22 @@ const SingleChannel = () => {
       }
     }, [producer, id]);
 
- 
+  
+
+       useEffect(() => {
+                const userData = JSON.parse(localStorage.getItem("User") || "{}");
+                if (userData._id) {
+                  setUserIds(userData._id);
+                }
+            }, []);
+
+
+    if (loading) return <p>Loading...</p>;
+
+    console.log("the user is:", user);
+    
+
+
 
 
 
