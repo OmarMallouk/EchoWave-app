@@ -4,27 +4,24 @@ import originalCh from "/assests/originalCheck.jpg?url";
 import writing from "/assests/writing.jpg?url";
 import channel1 from "/assests/records5.jpeg?url";
 import styles from "./Home.module.css";
+import axios from "axios";
 import { Button} from '@mantine/core';
+import { Lyric,  Song, User } from "@/lib/Types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 
-const cardsData = [
-  {
-      title: "Jay in the Cray",
-      description: "Jay is, and always have been the right way :!",
-      imgSrc: channel1,
-      link: "https://twitter.com/mannupaaji",
-  },
-];
+
 
 const Home = () => {
+   const [userId, setUserId] = useState('');
+    const[channels, setChannels] = useState('');
+    const [users, setUsers] = useState<User[]>([]);
 
 useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // Animate the features title
   gsap.to(`.${styles.featuresTitle}`, {
     scrollTrigger: {
       trigger: `.${styles.featuresTitle}`,
@@ -38,15 +35,15 @@ useEffect(() => {
   });
 
   gsap.fromTo(
-    `.${styles.fadeInSection}`, // Target all fadeInSection elements
-    { opacity: 0, y: 50 }, // Starting state
+    `.${styles.fadeInSection}`,
+    { opacity: 0, y: 50 }, 
     {
       opacity: 1,
       y: 0,
       duration: 1,
-      stagger: 0.3, // Delay between animations
+      stagger: 0.3, 
       scrollTrigger: {
-        trigger: `.${styles.featuresContainer}`, // Main container as trigger
+        trigger: `.${styles.featuresContainer}`, 
         start: "top 80%",
         toggleActions: "play none none reverse",
       },
@@ -55,7 +52,9 @@ useEffect(() => {
 
 }, []);
 
-   
+
+
+  
 
     return ( 
         <div>
@@ -126,7 +125,7 @@ useEffect(() => {
       </div>
 </div>
 
-            <div className={styles.chane}>Channels</div> 
+            {/* <div className={styles.chane}>Channels</div> 
 
 
 
@@ -146,7 +145,7 @@ useEffect(() => {
     </div>
   </div>
 
-</div>
+</div> */}
 
 </div>
 
