@@ -77,7 +77,30 @@ const imagesPerSlide = 3;
          }, [userId]);
 
 
-      
+         const fetchBookmark = async () => {
+          try {
+            const dataPromises = user.bookmarkedChannels.map(id => axios.get(`http://localhost:8080/users/${id}`));
+            const dataResults = await Promise.all(dataPromises);
+            setBookmarkedChannels(dataResults.map(res => res.data));
+            console.log("Fetched Bookmarked Channels:", dataResults.map(res => res.data));
+          } catch (error) {
+            console.error("Error fetching bookmarked channels:", error);
+          }
+        };
+        
+        useEffect(() => {
+          fetchBookmark();
+        }, [user.bookmarkedChannels]);
+
+         const openModal = () => setIsModalOpen(true);
+         const closeModal = () => setIsModalOpen(false);
+       
+         const handleInputChange = (e: any) => {
+           const { name, value } = e.target;
+           setFormData({ ...formData, [name]: value });
+         };
+
+ 
          
 
          const handleOpenModal = (lyrics:any) => {
