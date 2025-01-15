@@ -82,3 +82,62 @@
   .editButton:hover {
     background-color: #5a3dbd;
   }
+
+  /*title separator */
+
+
+  .Title1 {
+    font-size: 25px;
+    height: auto;
+    width: auto;
+    text-align: left;
+    margin-left: 25px;
+    padding: 20px 0;  
+    color: #fff;  
+  }
+  
+  .Title1>h1>span{
+    color: #bf1fff;
+  }
+
+
+
+  /*next section */
+
+  .lyricsContainer {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 20px;
+    background: #1e1e2f;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    margin-left: 20px;
+    width: 50%;
+}
+
+.lyricsTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    text-align: left;
+}
+
+.viewLyricsButton {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    background-color: #7c5dfa;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+}
+
+.viewLyricsButton:hover {
+    background-color: #5a3dbd;
+}
+
