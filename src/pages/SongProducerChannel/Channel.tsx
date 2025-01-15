@@ -281,7 +281,52 @@ const Channel = () => {
    
    <button className={styles.editButton} onClick={openModal}>  Edit Channel</button>
 
- 
+   {isModalOpen && (
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <h2>Edit Channel</h2>
+             <input
+              type="text"
+              name="description"
+              placeholder="Enter new description"
+              value={formData.description}
+              onChange={handleInputChange}
+              className={styles.input}
+            />
+             <input
+              type="text"
+              name="channelName"
+              placeholder="Enter new channel name"
+              value={formData.channelName}
+              onChange={handleInputChange}
+              className={styles.input}
+            />
+           <div className={styles.fileInputWrapper}>
+  <label htmlFor="fileUpload" className={styles.customFileButton}>
+    Upload Profile Picture
+  </label>
+  <input
+    type="file"
+    id="fileUpload"
+    name="profile_picture"
+    className={styles.fileInput}
+    onChange={handleFileChange}
+  />
+</div>
+            <button onClick={handleSubmit} className={styles.saveButton}>
+              Save Changes
+            </button>
+            <button onClick={closeModal} className={styles.cancelButton}>
+              Cancel
+            </button>
+          </div>
+        </div>
+      )}
+
+ </div>
+</div>
+
+
         </div>
      );
 }
