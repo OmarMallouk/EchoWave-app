@@ -219,7 +219,7 @@ const Originality = () => {
   {alternativeLyrics ? (
     <p>{alternativeLyrics}</p>
   ) : (
-    <button className={styles.btn} onClick={handleGenerateAlternative}>
+    <button className={styles.btn1} onClick={handleGenerateAlternative}>
       Generate Alternative
     </button>
   )}</div>
