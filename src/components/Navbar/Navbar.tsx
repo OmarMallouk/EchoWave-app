@@ -48,7 +48,7 @@ const Navbar = () => {
     };
 
     useEffect(() => {
-        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/origin"  && window.location.pathname !== "/userProfile" && window.location.pathname !== "/channel" && window.location.pathname !== "/channels" && window.location.pathname !== "/register" && window.location.pathname !== "/mood" && window.location.pathname !== "/genre" && window.location.pathname !== "/home" && window.location.pathname !== "/") {
+        if (!isAuthenticated && window.location.pathname !== "/login" && window.location.pathname !== "/origin" && window.location.pathname !== "/singleChannel/:id"  && window.location.pathname !== "/userProfile" && window.location.pathname !== "/channel" && window.location.pathname !== "/channels" && window.location.pathname !== "/register" && window.location.pathname !== "/mood" && window.location.pathname !== "/genre" && window.location.pathname !== "/home" && window.location.pathname !== "/") {
             navigate("/login");
         }
     }, [isAuthenticated, navigate]);
@@ -79,6 +79,7 @@ const Navbar = () => {
                         <li><Link to="/channels">Channels</Link></li>
                         <li><Link to="/userProfile">Profile</Link></li>
                         <li><Link to="/channel">Channel</Link></li>
+                        <li><Link to="/singleChannel/:id">SingleChannel</Link></li>
                     </ul>
                 </div>
                 <button className={styles.authButton} onClick={handleBtns}>

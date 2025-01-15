@@ -5,7 +5,8 @@ import Home from "./pages/Home/Home";
 import Mood from "./pages/Mood/Mood";
 import Genre from "./pages/Genre/Genre";
 import Channels from "./pages/AllChannels/Channels";
-import Channel from "./pages/Channel/Channel";
+import Channel from "./pages/SongProducerChannel/Channel";
+import SingleChannel from "./pages/singleChannel/SingleChannel";
 import Originality from "./pages/Originality/Originality";
 import UserProfile from "./pages/userProfile/UserProfile";
 import Navbar from "./components/Navbar/Navbar";
@@ -33,6 +34,7 @@ const App: React.FC =() => {
       <Route path="/channels" element={<Channels />} />
       <Route path="/channel" element={<Channel/>} />
       <Route path="/userProfile" element={<UserProfile/>} />
+      <Route path="/singleChannel/:id" element={<SingleChannel/>} />
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
       <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>
