@@ -413,7 +413,59 @@ const Channel = () => {
 </div>
 
 
+    {isSelecting && (
+  <div className={styles.modalOverlay}>
+    <div className={styles.lyricsModal}>
+      <button className={styles.closeModal} onClick={() => setIsSelecting(false)}>
+        &times;
+      </button>
+      <h2>Select Two Lyrics to Merge</h2>
+      <div>
+        {userLyrics.map((lyric) => (
+          <div key={lyric._id} className={styles.lyricsSelection}>
+            <input
+              type="checkbox"
+              checked={selectedForMerge.includes(lyric.content)}
+              onChange={() => handleSelectForMerge(lyric.content)}
+            />
+            <label>{lyric.title}</label>
+          </div>
+        ))}
+      </div>
+      <button onClick={handleMergeLyrics} className={styles.mergeButton}>
+        Merge Selected Lyrics
+      </button>
+    </div>
+  </div>
+)}
 
+<div className={`${styles.gridContainer}`}>
+  {newSong ? (
+    <div className={`${styles.lyricsCard}`}>
+      <h2>Generated Lyrics</h2>
+      <p>{newSong}</p>
+      <div className={styles.inputContainer}>
+        <input
+          type="text"
+          placeholder="Enter Title"
+          className={styles.inputField}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <button
+          className={styles.addButton} onClick={addToCollection}
+        >
+          Add to Collection
+        </button>
+      </div>
+    </div>
+  ) : (
+    <div className={`${styles.lyricsCard}`}>
+      <h2>No Lyrics Yet</h2>
+      <p>Choose lyrics to create a song</p>
+    </div>
+  )}
+</div>
 
         </div>
      );
