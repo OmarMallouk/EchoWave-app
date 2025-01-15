@@ -137,6 +137,17 @@ const SingleChannel = () => {
       };
 
 
+      const bookmarkChannel = async (userId:any, producerId:any) => {
+        try {
+          const response = await axios.post('http://127.0.0.1:8080/users/bookmark', { userId:userIds, producerId: user._id});
+          console.log(response.data.message); 
+        } catch (error) {
+          console.error("Error bookmarking channel:", error);
+          alert("Something went wrong. Please try again.");
+        }
+      };
+
+
 
 
     return ( 
