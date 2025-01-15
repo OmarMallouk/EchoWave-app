@@ -33,6 +33,34 @@ const SingleChannel = () => {
 
     
 
+    useEffect(() => {
+      if (producer) {
+        setUserLyrics(producer.lyrics || []);
+        setSongs(producer.songs || []);
+        setChannelData(producer.data);
+        setPreviousData(producer.data);
+        setLoading(false);
+        setUser(producer);
+      } else {
+        const fetchChannelDetails = async () => {
+          try {
+            const response = await axios.get(`http://localhost:8080/users/${id}`);
+            setChannelData(response.data);
+            setUser(response.data);
+            setSongs(response.data.songs || []);
+            setPreviousData(response.data);
+            setUserLyrics(response.data.lyrics || []);
+            setLoading(false);
+          } catch (error) {
+            console.error("Error fetching channel details:", error);
+            setLoading(false);
+          }
+        };
+        fetchChannelDetails();
+      }
+    }, [producer, id]);
+
+ 
 
 
 
