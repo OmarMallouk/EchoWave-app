@@ -10,6 +10,17 @@ import channel1 from "/assests/records5.jpeg?url";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const moodImages = [
+  { mood: 'Sad', imageSrc: '/assests/mood/sad.jpg' },
+  { mood: 'Angry', imageSrc: '/assests/mood/angry.jpg' },
+  { mood: 'Happy', imageSrc: '/assests/mood/happy.jpg' },
+  { mood: 'Stressed', imageSrc: '/assests/mood/stressed.jpg' },
+  { mood: 'Ecstatic', imageSrc: '/assests/mood/ecstatic.jpg' },
+  { mood: 'Depressed', imageSrc: '/assests/mood/depressed.jpg' },
+  { mood: 'Envy', imageSrc: '/assests/mood/joy.jpg' },
+  { mood: 'Loved', imageSrc: '/assests/mood/loved.jpg' },
+];
+
 const Mood = () => {
   const [selectedMood, setSelectedMood] = useState('');
   const [lyrics, setLyrics] = useState(null); 
@@ -21,6 +32,7 @@ const Mood = () => {
         const images = document.querySelectorAll(`.${styles.image}`);
       
         images.forEach((image) => {
+
           gsap.fromTo(
             image,
             { 
@@ -40,7 +52,7 @@ const Mood = () => {
               },
             }
           );
-        });
+      });
       }, []);
 
       useEffect(() => {
@@ -125,9 +137,9 @@ const Mood = () => {
 
  
    <div className={styles.imageGrid}>
-        {['Sad', 'Angry', 'Happy', 'Stressed', 'Ecstatic', 'Depressed', 'Envy', 'Loved'].map((mood) => (
+        {moodImages.map(({mood, imageSrc}) => (
           <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
-            <img src={`https://picsum.photos/300/300?random=${mood}`} alt={mood} />
+            <img src={imageSrc} alt={mood} />
             <div className={styles.imageText}>{mood}</div>
           </div>
         ))}
@@ -148,9 +160,9 @@ const Mood = () => {
 </div>
    
 
-
+<div className={`${styles.gridContainer} `}>
 {lyrics ? (
-  <div className={`${styles.gridContainer} `}>
+  
     <div className={`${styles.lyricsCard}`}>
       <h2>Generated Lyrics for <span>{selectedMood}</span></h2>
       <p>{lyrics}</p>
@@ -171,14 +183,14 @@ const Mood = () => {
         </button>
       </div>
     </div>
-  </div>
+ 
 ): (
-  <div className={styles.placeholderText}>
-    <p>Click on a mood to generate lyrics</p>
-  </div>
+  <div className={`${styles.lyricsCard}`}>
+  <h2>No Lyrics Yet</h2>
+  <p>Choose lyrics to create a song</p>
+</div>
 )}
-
-        
+</div>    
       </div>          
       
       
