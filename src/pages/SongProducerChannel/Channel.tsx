@@ -117,7 +117,65 @@ const Channel = () => {
               }
           };
 
-     
+          const addToCollection = async () =>{
+            if (!title || !newSong || !userId){
+              setError("Missing fields");
+            return;
+
+            }
+            try{
+              const userData = JSON.parse(localStorage.getItem("User") || "{}");
+    
+              if (!userData._id){
+                setError("User not found");
+                return;
+              }
+    
+              console.log("Adding lyric:", { title, lyrics, userId: userData._id });
+    
+              const response = await axios.post("http://127.0.0.1:8080/api/createSong", {
+                title,
+                content: newSong,
+                user: userData._id,
+              },{
+                headers:{
+                  "Content-Type": "application/json",
+                },
+              });
+    
+              if (response.status === 200){
+                setSongs([...songs, response.data]); 
+                setNewSong("");
+                setTitle("");
+                console.log("lyric added: ", response.data);
+                
+              }else{
+                setError("Failed to add collection");
+              }
+            }catch(error){
+              console.error("Error adding collection", error);
+              setError("Something went wrong :(");
+            }
+          };
+             
+
+         const handleOpenModal = (songs: Song) => {
+          setSelectedSongs(songs);
+            setComments(songs.comments || []);
+            setShowModal(true);
+          };
+
+        console.log("selected", selectedSong);
+        
+        const handleCloseModal = () => {
+          setSelectedSongs(null);
+          setComments(selectedSong?.comments || []);
+          setShowModal(false);
+        };
+
+
+  
+
     return ( 
         <div className={styles.body6}>
       
