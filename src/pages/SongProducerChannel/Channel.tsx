@@ -174,7 +174,47 @@ const Channel = () => {
         };
 
 
-  
+          const handleCommentChange = (e:any) => {
+            setNewComment(e.target.value);
+          };
+          
+          const handleAddComment = async () => {
+            try {
+              const userId = user._id; 
+              const songId = selectedSong?._id;
+              const comment = newComment;
+          
+              const response = await axios.post("http://127.0.0.1:8080/users/comment", {
+                userId,
+                songId,
+                comment,
+              }, {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              });
+          
+              if (response.status === 200) {
+                setComments(prevComments => {
+                  if (prevComments) {
+                    const newComment = response.data.updatedSong.comments?.slice(-1)[0]; 
+                    return newComment ? [...prevComments, newComment] : prevComments;
+                  } else {
+                    return [];
+                  }
+                });
+                setNewComment("");
+              } else {
+                console.error(response.data.message); 
+              }
+            } catch (error) {
+              console.error("Error adding comment", error);
+            }
+          };
+          
+
+    
+      
 
     return ( 
         <div className={styles.body6}>
