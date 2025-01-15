@@ -238,11 +238,49 @@ const Channel = () => {
           };
 
 
-      
+          const handleMergeLyrics = async () => {
+            if (selectedForMerge.length === 2) {
+              try {
+                const [lyric1, lyric2] = selectedForMerge;
+                const response = await axios.post("http://127.0.0.1:8080/api/lyrics/merge-lyrics", {
+                  lyrics1: lyric1,
+                  lyrics2: lyric2,
+                });
+                console.log("Merged lyrics response:", response.data);
+                if (response.status === 200) {
+                  setNewSong(response.data.mergedLyrics);
+                  setIsSelecting(false);
+                  setSelectedForMerge([]);
+                  console.log("Merged lyrics response:", response.data);
+                } else {
+                  console.error("Error merging lyrics:", response.data.error);
+                  alert("Failed to merge lyrics. Please try again.");
+                }
+              } catch (error) {
+                console.error("Error merging lyrics:", error);
+              }
+            } else {
+              alert("Please select exactly two lyrics to merge.");
+            }
+          };
+          
+          console.log();
+          
 
     return ( 
         <div className={styles.body6}>
-      
+             <div className={styles.profileContainer}>
+ <div className={styles.profileInfo}>
+   <h1 className={styles.profileTitle}>{user.channelName}</h1>
+   <p className={styles.profileDescription}>
+     "{user.description}"
+   </p>
+ </div>
+ <div className={styles.profileImage}>
+   <img src={`http://localhost:8080${user.profile_picture}`} alt="spacing out"/>
+   
+   <button className={styles.editButton} onClick={openModal}>  Edit Channel</button>
+
  
         </div>
      );
