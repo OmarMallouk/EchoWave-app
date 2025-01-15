@@ -100,7 +100,35 @@ const imagesPerSlide = 3;
            setFormData({ ...formData, [name]: value });
          };
 
- 
+         const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+           if (e.target.files && e.target.files[0]) {
+             setProfilePicture(e.target.files[0]);
+           }
+         };
+       
+         const handleSubmit = async () => {
+           const form = new FormData();
+           if (formData.description) form.append("description", formData.description);
+           if (formData.username) form.append("username", formData.username);
+           if (profilePicture) form.append("profile_picture", profilePicture);
+           try {
+               const response = await axios.put(`http://127.0.0.1:8080/users/${userId}`, form, {
+                   headers: {
+                   },
+               });
+       
+               if (response.status === 200) {
+                   const data = response.data;
+                   console.log("User updated successfully:", data);
+                   closeModal(); 
+               } else {
+                   console.error("Failed to update user:", response.data);
+               }
+           } catch (error) {
+               console.error("Error updating user:", error);
+           }
+       };
+
          
 
          const handleOpenModal = (lyrics:any) => {
