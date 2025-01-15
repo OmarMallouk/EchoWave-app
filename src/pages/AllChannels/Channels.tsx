@@ -26,6 +26,26 @@ const Channels = () => {
 
 
 
+  useEffect(() => {
+    const fetchUserLyrics = async (id: string) => {
+      try {
+        const response = await axios.get(`http://127.0.0.1:8080/users/`, {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        console.log(response.data); 
+        setUsers(response.data);
+        setChannels(response.data.channel);
+      } catch (error) {
+        console.error("Error fetching lyrics", error);
+      }
+    };
+
+    if (userId) {
+      fetchUserLyrics(userId); 
+    }
+  }, [userId]);
 
   const songProducers = users.filter((user) => user.role === "song_producer");
   
