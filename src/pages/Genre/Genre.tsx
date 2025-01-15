@@ -1,10 +1,22 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from "./Genre.module.css"
 import gsap from "gsap";
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import axios from 'axios';
 gsap.registerPlugin(ScrollTrigger);
+
+
+const genreImages = [
+  { genre: 'Hip-hop', imageSrc: '/assests/genre/hip-hop.jpg' },
+  { genre: 'Funk', imageSrc: '/assests/genre/funk.jpg' },
+  { genre: 'Jazz', imageSrc: '/assests/genre/jazz.jpg' },
+  { genre: 'Affrobeat', imageSrc: '/assests/genre/affrobeat.jpg' },
+  { genre: 'Heavy-metal', imageSrc: '/assests/genre/heavy-metal.jpg' },
+  { genre: 'Country', imageSrc: '/assests/genre/country.jpg' },
+  { genre: 'Broadway', imageSrc: '/assests/genre/broadway.jpg' },
+  { genre: 'Gospel', imageSrc: '/assests/genre/gospel.jpg' },
+];
 
 
 const Genre = () => {
@@ -15,22 +27,19 @@ const Genre = () => {
     const [user, setUser] = useState('');
     const [error, setError] = useState("");
 
+    const imageRefs = useRef<(HTMLDivElement | null)[]>([]);
+
     useEffect(() => {
-      const images = document.querySelectorAll(`.${styles.image}`);
-    
-      images.forEach((image) => {
+      imageRefs.current.forEach((ref) => {
         gsap.fromTo(
-          image,
-          { 
-            y: gsap.utils.random(100, 50),
-            x: gsap.utils.random(-50, 50),
-          },
+          ref,
+          { y: gsap.utils.random(100, 50), x: gsap.utils.random(-50, 50) },
           {
-            y: 0, 
+            y: 0,
             x: 0,
             stagger: 0.5,
             scrollTrigger: {
-              trigger: image,
+              trigger: ref,
               start: "top 80%",
               end: "bottom 20%",
               scrub: 1,
@@ -122,9 +131,9 @@ const Genre = () => {
 
 
 <div className={styles.imageGrid}>
-        {['Hip-hop', 'Funk', 'Jazz', 'Affrobeat', 'Heavy-Metal', 'Country', 'Broadway', 'Gospel'].map((genre) => (
-          <div key={genre} className={styles.image} onClick={() => handleGenreSelection(genre)}>
-            <img src={`https://picsum.photos/300/300?random=${genre}`} alt={genre} />
+        {genreImages.map(({genre, imageSrc}, index) => (
+          <div key={genre} className={styles.image} ref={(el) => (imageRefs.current[index] = el)} onClick={() => handleGenreSelection(genre)} >
+            <img src={imageSrc} alt={genre} />
             <div className={styles.imageText}>{genre}</div>
           </div>
         ))}
@@ -146,9 +155,9 @@ const Genre = () => {
 </div>
    
    
-
+<div className={`${styles.gridContainer}`}>
 {lyrics ? (
-  <div className={`${styles.gridContainer}`}>
+
     <div className={`${styles.lyricsCard}`}>
       <h2>Generated Lyrics for <span>{selectedGenre}</span></h2>
       <p>{lyrics}</p>
@@ -169,13 +178,14 @@ const Genre = () => {
         </button>
       </div>
     </div>
-  </div>
-): (
-  <div className={styles.placeholderText}>
-    <p>Click on a genre to generate lyrics</p>
-  </div>
-)}
 
+): (
+  <div className={`${styles.lyricsCard}`}>
+  <h2>No Lyrics Yet</h2>
+  <p>Choose lyrics to create a song</p>
+</div>
+)}
+  </div>
 
         </div>
      );
