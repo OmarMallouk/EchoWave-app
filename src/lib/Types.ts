@@ -4,7 +4,8 @@ export interface User {
   username: string;
   profile_picture: string;
   _id: string;
-
+  role: string;
+  bookmarkedChannels: { channelName: string; profile_picture: string, _id: string; }[],
   }
 
 export interface Lyric {
@@ -27,6 +28,7 @@ export interface Lyric {
       content: string;
       user: string;
       _id: string;
+      profile_picture: string;
       producerId: string;
       created_at: string;
     }[];
