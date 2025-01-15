@@ -93,6 +93,30 @@ const Channel = () => {
               }
             };
           
+            const handleSubmit = async () => {
+              const form = new FormData();
+              if (formData.channelName) form.append("channelName", formData.channelName);
+              if (formData.description) form.append("description", formData.description);
+              if (profilePicture) form.append("profile_picture", profilePicture);
+          
+              try {
+                  const response = await axios.put(`http://127.0.0.1:8080/users/${userId}`, form, {
+                      headers: {
+                      },
+                  });
+          
+                  if (response.status === 200) {
+                      const data = response.data;
+                      console.log("User updated successfully:", data);
+                      closeModal(); 
+                  } else {
+                      console.error("Failed to update user:", response.data);
+                  }
+              } catch (error) {
+                  console.error("Error updating user:", error);
+              }
+          };
+
      
     return ( 
         <div className={styles.body6}>
