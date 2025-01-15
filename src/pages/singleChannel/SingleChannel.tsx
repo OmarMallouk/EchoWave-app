@@ -125,6 +125,16 @@ const SingleChannel = () => {
       };
       
 
+      const handleDownload = () => {
+        if (selectedSong) { 
+          const element = document.createElement("a");
+          const file = new Blob([selectedSong.content], { type: "text/plain" });
+          element.href = URL.createObjectURL(file);
+          element.download = `${selectedSong.title}.txt`;
+          document.body.appendChild(element); 
+          element.click();
+        }
+      };
 
 
 
