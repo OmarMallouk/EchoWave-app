@@ -148,11 +148,32 @@ const SingleChannel = () => {
       };
 
 
-
+      const handleBookmark = (producerId: string) => {
+        const userId = userIds;  
+        bookmarkChannel(userId, producerId);
+      };
 
     return ( 
       <div className={styles.body6}>
+             <div className={styles.profileContainer}>
+ <div className={styles.profileInfo}>
+   <h1 className={styles.profileTitle}>{user.channelName}</h1>
+   <p className={styles.profileDescription}>
+     "{user.description}"
+   </p>
+ </div>
+ <div className={styles.profileImage}>
+   <img src={`http://localhost:8080${user.profile_picture}`} alt="spacing out"/>
+   
+   <button className={styles.bookbtn} onClick={() => handleBookmark(producer._id)}>Bookmark Channel</button>
 
+ </div>
+</div>
+
+
+
+
+  
 
         </div>
     );
