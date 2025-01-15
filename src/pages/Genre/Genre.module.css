@@ -1,6 +1,6 @@
 .body3 {
     position: relative;
-    overflow: visible;
+    overflow: hidden;
     display: block;
     justify-content: center;
     align-items: center;
@@ -12,6 +12,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     height: auto;
     margin: 0;
     padding: 20px;
@@ -27,6 +28,7 @@
     position: relative;
     margin: auto;
     margin-top: 50px;
+    will-change: auto;
 }
 
 .image {
@@ -37,6 +39,7 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
     box-shadow: 0 0 20px rgba(128, 0, 128, 0.219);
     overflow: hidden;
+    will-change: transform;
 }
 
 .image img {
@@ -100,18 +103,18 @@
 
 
   .image:hover {
-  transform: scale(5.1); 
-  opacity: 0.8;
-  transition: transform 1.3s ease; 
+  transform: scale(1.2); 
+  opacity: 0.9;
+  transition: transform 0.4 ease, opacity 0.4s ease; 
   cursor: pointer;
 }
 
 .image:hover img {
-  transform: scale(1.2); 
+  transform: scale(1.1); 
 }
 
 .image:hover::after {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
 }
   
   .image:hover .imageText {
