@@ -213,7 +213,31 @@ const Channel = () => {
           };
           
 
-    
+          const handleDownload = () => {
+            if (selectedSong) { 
+              const element = document.createElement("a");
+              const file = new Blob([selectedSong.content], { type: "text/plain" });
+              element.href = URL.createObjectURL(file);
+              element.download = `${selectedSong.title}.txt`;
+              document.body.appendChild(element); 
+              element.click();
+            }
+          };
+
+
+          const handleStartMerge = () => {
+            setIsSelecting(true);
+          };
+
+          const handleSelectForMerge = (lyric: string) => {
+            if (selectedForMerge.includes(lyric)) {
+              setSelectedForMerge(selectedForMerge.filter((item) => item !== lyric));
+            } else if (selectedForMerge.length < 2) {
+              setSelectedForMerge([...selectedForMerge, lyric]);
+            }
+          };
+
+
       
 
     return ( 
