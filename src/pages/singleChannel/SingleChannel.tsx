@@ -95,6 +95,35 @@ const SingleChannel = () => {
         setNewComment(e.target.value);
       };
       
+      
+      const handleAddComment = async () => {
+        try {
+          const response = await axios.post(
+            "http://127.0.0.1:8080/users/comment",
+            {
+              userId: userIds,
+              songId: selectedSong?._id,
+              comment: newComment,
+            },
+            { headers: { "Content-Type": "application/json" } }
+          );
+      
+          if (response.status === 200) {
+            const updatedComment = response.data.updatedSong.comments?.slice(-1)[0];
+            setComments((prevComments = []) => (updatedComment ? [...prevComments, updatedComment] : prevComments));
+            setNewComment("");
+          } else {
+            console.error("Failed to add comment:", response.data.message);
+          }
+        } catch (error) {
+          if (error instanceof Error) {
+            console.error("Error adding comment:", error.message);
+          } else {
+            console.error("Unexpected error:", error);
+          }
+        }
+      };
+      
 
 
 
