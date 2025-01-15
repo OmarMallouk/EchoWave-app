@@ -52,7 +52,35 @@ const Channel = () => {
         //          }
         //      }, []);
       
+        useEffect(() => {
+          const fetchUserLyrics = async (id: string) => {
+            try {
+              const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+                headers: {
+                  "Content-Type": "application/json",
+                },
+              });
+        
+              if (response.data.id !== previousData) {
+                setUser(response.data);
+                setUserLyrics(response.data.lyrics || []);
+                setSongs(response.data.songs || []);
+                setPreviousData(response.data);
+              }
+              console.log(response.data);
+            } catch (error) {
+              console.error("Error fetching lyrics", error);
+            }
+          };
+        
+          if (userId) {
+            fetchUserLyrics(userId);
+          }
+        }, [userId]); 
 
+        
+      
+     
     return ( 
         <div className={styles.body6}>
       
