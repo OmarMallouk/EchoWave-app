@@ -327,6 +327,48 @@ const Channel = () => {
 </div>
 
 
+<div className={styles.Title1}> <h1>Created Songs</h1></div>  
+
+<div
+ className={styles.lyricsList}
+ style={{
+   maxHeight: userLyrics?.length > 3 ? "300px" : "auto",
+   overflowY: userLyrics?.length > 3 ? "auto" : "visible",
+ }}
+>
+{ Array.isArray(songs) && songs.length > 0 ? (
+  songs.map((song) => (
+    <div className={styles.lyricsContainer} key={song._id}>
+      <div className={styles.lyricsTitle}>{song.title}</div>
+      <button
+        className={styles.viewLyricsButton}
+        onClick={() => handleOpenModal(song)}
+      >
+        View Song Lyrics
+      </button>
+    </div>
+  ))
+) : (
+  <div>No Song lyrics available.</div>
+)}
+</div>
+
+
+{showModal && (
+  <>
+    <div className={styles.modalOverlay} onClick={handleCloseModal}></div>
+    <div className={styles.lyricsModal}>
+      <button className={styles.closeModal} onClick={handleCloseModal}>
+        &times;
+      </button>
+      <h2>Song lyrics</h2>
+      <p>{selectedSong?.content || "No lyrics available."}</p>
+      <button onClick={handleDownload} className={styles.downloadButton}>
+        Download Song lyrics
+      </button>
+
+ 
+
         </div>
      );
 }
