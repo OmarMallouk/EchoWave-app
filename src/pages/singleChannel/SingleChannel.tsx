@@ -198,7 +198,57 @@ const SingleChannel = () => {
 </div>
 
 
-  
+{showModal && (
+  <>
+    <div className={styles.modalOverlay} onClick={handleCloseModal}></div>
+    <div className={styles.lyricsModal}>
+      <button className={styles.closeModal} onClick={handleCloseModal}>
+        &times;
+      </button>
+      <h2>Song lyrics</h2>
+      <p>{selectedSong?.content || "No lyrics available."}</p>
+      <button onClick={handleDownload} className={styles.downloadButton}>
+        Download Song lyrics
+      </button>
+
+      <div className={styles.addCommentContainer}>
+        <h2>Comments for: {selectedSong?.title}</h2>
+        <textarea
+          value={newComment}
+          onChange={handleCommentChange}
+          placeholder="Add a comment..."
+        />
+        <button onClick={handleAddComment} className={styles.addCommentButton}>
+          Add Comment
+        </button>
+
+        {comments && comments.length > 0 ? (
+  <div className={styles.commentsSection}>
+    {comments.map((comment: any, index: number) => (
+      <div key={index} className={styles.comment}>
+        <div className={styles.commentHeader}>
+          <img
+            src={`http://localhost:8080${comment.profile_picture}`}
+            alt="User profile"
+            className={styles.profilePicture}
+          />
+        </div>
+        <div className={styles.commentContent}>
+         
+          <p><strong>user:</strong> {comment.username}</p>
+          <p>comment: {comment.content}</p>
+          <p><small>{new Date(comment.created_at).toLocaleString()}</small></p>
+        </div>
+      </div>
+    ))}
+  </div>
+) : (
+  <p>No comments available for this song.</p>
+)}
+      </div>
+    </div>
+  </>
+)}
 
         </div>
     );
