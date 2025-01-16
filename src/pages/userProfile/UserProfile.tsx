@@ -53,6 +53,24 @@ const imagesPerSlide = 3;
            }
        }, []);
 
+       useEffect(() => {
+        const fetchUser = async (id: string) => {
+          try {
+            const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+              headers: { "Content-Type": "application/json" },
+            });
+            if (response.data._id !== user._id) {
+              setUser(response.data);
+            }
+          } catch (error) {
+            console.error("Error fetching user data", error);
+          }
+        };
+    
+        if (userId) {
+          fetchUser(userId);
+        }
+      }, [user]);
   
 
        useEffect(() => {
@@ -118,9 +136,9 @@ const imagesPerSlide = 3;
                });
        
                if (response.status === 200) {
-                   const data = response.data;
-                   console.log("User updated successfully:", data);
-                   closeModal(); 
+                setUser(response.data);
+                setUserLyrics(response.data.lyrics || []);
+                  closeModal(); 
                } else {
                    console.error("Failed to update user:", response.data);
                }
@@ -291,14 +309,14 @@ const imagesPerSlide = 3;
 
 
      <div className={styles.carousel}>
-       {bookmarkedChannels.map((bookmark, index) => (
+       {bookmarkedChannels.map((bookmark) => (
           <Link 
           key={bookmark._id} 
           to={`/singleChannel/${bookmark._id}`}
           state={{ bookmark }} 
           className={styles.card}
         >
-         <div key={index} className={styles.carouselItem}>
+         <div className={styles.carouselItem}>
            <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
            <div className={styles.carouselTitle}>{bookmark.channelName}</div>
            
