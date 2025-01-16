@@ -4,6 +4,11 @@ import styles from "./Channel.module.css";
 import channel4 from "/assests/writing.jpg?url";
 import { Lyric,  Song, User } from "@/lib/Types";
 import { Link } from "react-router-dom";
+import { toast, ToastContainer  } from 'react-toastify';
+import channel1 from "/assests/space3.jpeg?url";
+import channel2 from "/assests/angry1.jpeg?url";
+import channel3 from "/assests/happy2.jpeg?url";
+import channel5 from "/assests/records5.jpeg?url";
 
 const Channel = () => {
    const [user, setUser] = useState<User>({
@@ -15,6 +20,8 @@ const Channel = () => {
     role:'',
     bookmarkedChannels: [],
     });
+    const [bookmarkedChannels, setBookmarkedChannels] =  useState<User['bookmarkedChannels']>([]);
+    const [currentIndex, setCurrentIndex] = useState(0);
     const [userId, setUserId] = useState('');
     const [userLyrics, setUserLyrics] = useState<Lyric[]>([]);
     const [selectedSong, setSelectedSongs] = useState<Song | null>(null);
@@ -37,6 +44,15 @@ const Channel = () => {
     const [error, setError] = useState("");
 
 
+    const images = [
+      { src: channel1, title: 'Title 1' },
+      { src: channel2, title: 'Title 2' },
+      { src: channel3, title: 'Title 3' },
+      { src: channel4, title: 'Title 3' },
+      { src: channel5, title: 'Title 3' },
+    ];
+  
+
     useEffect(() => {
       const userData = JSON.parse(localStorage.getItem("User") || "{}");
          if (userData._id) {
@@ -44,14 +60,25 @@ const Channel = () => {
              }
          }, []);
 
-
-        //  useEffect(() => {
-        //   const userData = JSON.parse(localStorage.getItem("User") || "{}");
-        //      if (userData._id) {
-        //            setUserId(userData._id);
-        //          }
-        //      }, []);
+         useEffect(() => {
+          const fetchUser = async (id: string) => {
+            try {
+              const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+                headers: { "Content-Type": "application/json" },
+              });
+              if (response.data._id !== user._id) {
+                setUser(response.data);
+              }
+            } catch (error) {
+              console.error("Error fetching user data", error);
+            }
+          };
       
+          if (userId) {
+            fetchUser(userId);
+          }
+        }, [user]);
+
         useEffect(() => {
           const fetchUserLyrics = async (id: string) => {
             try {
@@ -78,6 +105,31 @@ const Channel = () => {
           }
         }, [userId]); 
 
+        const fetchBookmark = async () => {
+          try {
+            const dataPromises = user.bookmarkedChannels.map(id => axios.get(`http://localhost:8080/users/${id}`));
+            const dataResults = await Promise.all(dataPromises);
+            setBookmarkedChannels(dataResults.map(res => res.data));
+            console.log("Fetched Bookmarked Channels:", dataResults.map(res => res.data));
+          } catch (error) {
+            console.error("Error fetching bookmarked channels:", error);
+          }
+        };
+        
+        useEffect(() => {
+          fetchBookmark();
+        }, [user.bookmarkedChannels]);
+
+        const nextImage = () => {
+          setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length); 
+        };
+      
+        const prevImage = () => {
+          setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? images.length - 1 : prevIndex - 1
+          ); 
+        };
+        
         
             const openModal = () => setIsModalOpen(true);
             const closeModal = () => setIsModalOpen(false);
@@ -106,8 +158,9 @@ const Channel = () => {
                   });
           
                   if (response.status === 200) {
-                      const data = response.data;
-                      console.log("User updated successfully:", data);
+                    setUser(response.data);
+                    setUserLyrics(response.data.lyrics || []);
+                    setSongs(response.data.songs || []);
                       closeModal(); 
                   } else {
                       console.error("Failed to update user:", response.data);
@@ -144,6 +197,7 @@ const Channel = () => {
               });
     
               if (response.status === 200){
+                toast.success("Song added successfully!");
                 setSongs([...songs, response.data]); 
                 setNewSong("");
                 setTitle("");
@@ -467,6 +521,39 @@ const Channel = () => {
   )}
 </div>
 
+<div className={styles.Title2}> <h1>Bookmarked Channels </h1></div>  
+
+<div className={styles.carouselContainer}>
+     <button className={`${styles.carouselButton} ${styles.carouselButtonPrev}`} onClick={prevImage}>
+       &#10094;
+     </button>
+
+
+     <div className={styles.carousel}>
+       {bookmarkedChannels.map((bookmark, index) => (
+          <Link 
+          key={bookmark._id} 
+          to={`/singleChannel/${bookmark._id}`}
+          state={{ bookmark }} 
+          className={styles.card}
+        >
+         <div key={index} className={styles.carouselItem}>
+           <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
+           <div className={styles.carouselTitle}>{bookmark.channelName}</div>
+           
+         </div>
+         </Link>
+       ))}
+     </div>
+
+     <button className={`${styles.carouselButton} ${styles.carouselButtonNext}`} onClick={nextImage}>
+       &#10095;
+     </button>
+   </div>
+
+
+ 
+<ToastContainer />
         </div>
      );
 }
