@@ -4,6 +4,7 @@ import { createContext, useState, ReactNode } from "react";
 interface AuthTypes {
     isAuthenticated: boolean;
     user: any;
+    userRole: string,
     login: (token: string, user: any) => void;
     logout: () => void;
 }
@@ -11,6 +12,7 @@ interface AuthTypes {
 export const AuthContext = createContext<AuthTypes>({
     isAuthenticated: false,
     user: null,
+    userRole: "",
     login: () => {}, 
     logout: () => {}, 
   });
@@ -20,10 +22,9 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
         return !!localStorage.getItem("Token");
       });
 
-      const [user, setUser] = useState<any>(() => {
-        const userData = localStorage.getItem("User");
-        return userData ? JSON.parse(userData) : null;
-      });
+    const [userRole, setUserRole] = useState<string>("");
+
+      const [user, setUser] = useState<any>(null);
 
       useEffect(() => {
         const token = localStorage.getItem("Token");
@@ -32,9 +33,12 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
         if (token && userData) {
             setIsAuthenticated(true);
             setUser(JSON.parse(userData));
+            setUserRole(JSON.parse(userData).role);
         } else {
             setIsAuthenticated(false);
             setUser(null);
+            setUserRole("");
+
         }
     }, []);
       
@@ -43,6 +47,7 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
       localStorage.setItem("Token",token);
       setIsAuthenticated(true);
       setUser(user);
+      setUserRole(user.role);
   };
 
   const logout = () => {
@@ -50,11 +55,12 @@ export const AuthProvider: React.FC<{children: ReactNode}> = ({children}) =>{
     localStorage.removeItem("User");
     setIsAuthenticated(false);
     setUser(null);
+    setUserRole("");
 };
 
     return(
 
-        <AuthContext.Provider value={{isAuthenticated,login,logout, user}}>
+        <AuthContext.Provider value={{isAuthenticated,login,logout, user, userRole}}>
             {children}
         </AuthContext.Provider>
     );
