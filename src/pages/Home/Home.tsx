@@ -1,12 +1,9 @@
 import { useEffect,useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import lyricNote from "/assests/genrelyric.jpg?url";
 import originalCh from "/assests/originalCheck.jpg?url";
 import writing from "/assests/writing.jpg?url";
-import channel1 from "/assests/records5.jpeg?url";
 import styles from "./Home.module.css";
-import axios from "axios";
-import { Button} from '@mantine/core';
-import { Lyric,  Song, User } from "@/lib/Types";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -16,8 +13,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
    const [userId, setUserId] = useState('');
-    const[channels, setChannels] = useState('');
-    const [users, setUsers] = useState<User[]>([]);
 
 useEffect(() => {
   gsap.registerPlugin(ScrollTrigger);
@@ -59,30 +54,32 @@ useEffect(() => {
                  setUserId(userData._id);
                }
            }, []);
+
+           
   
 
- useEffect(() => {
-    const fetchUserLyrics = async (id: string) => {
-      try {
-        const response = await axios.get(`http://127.0.0.1:8080/users/`, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-        console.log(response.data); 
-        setUsers(response.data);
-        setChannels(response.data.channel);
-      } catch (error) {
-        console.error("Error fetching lyrics", error);
-      }
-    };
+//  useEffect(() => {
+//     const fetchUserLyrics = async (id: string) => {
+//       try {
+//         const response = await axios.get(`http://127.0.0.1:8080/users/`, {
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//         });
+//         console.log(response.data); 
+//         setUsers(response.data);
+//         setChannels(response.data.channel);
+//       } catch (error) {
+//         console.error("Error fetching lyrics", error);
+//       }
+//     };
 
-    if (userId) {
-      fetchUserLyrics(userId); 
-    }
-  }, [userId]);
+//     if (userId) {
+//       fetchUserLyrics(userId); 
+//     }
+//   }, [userId]);
    
-  console.log("users", users);
+//   console.log("users", users);
   
 
     return ( 
@@ -114,7 +111,7 @@ useEffect(() => {
   <h2 className={`${styles.featuresTitle} fadeInSection`}>Features</h2>
   <div className={styles.featuresRow}>
         <div className={`${styles.fadeInSection}`}>
-          <div className={styles.featureItem}>
+        <Link to="/mood" className={styles.featureItem}>
             <img src={lyricNote} alt="Writing Feature" className={styles.featureImage} />
             <h3 className={styles.featureHeading}>
             “Craft <span className={styles.highlight}>Lyrics</span> That Match Your <br /><span className={styles.highlight}>Mood</span>”
@@ -122,12 +119,12 @@ useEffect(() => {
             <p className={styles.featureDescription}>
               Let your emotions guide the words as our AI tailors lyrics to fit the genre you choose.
             </p>
-            <button className={styles.featureButton}>Start Now</button>
-          </div>
+            <Link to="/mood" className={styles.featureButton}>Check Now</Link>
+          </Link>
         </div>
 
         <div className={`${styles.fadeInSection}`}>
-          <div className={styles.featureItem}>
+        <Link to="/genre" className={styles.featureItem}>
             <img src={originalCh} alt="Lyric Note Feature" className={styles.featureImage} />
             <h3 className={styles.featureHeading}>
             “Tailored <span className={styles.highlight}>Lyrics</span> for Every <br /><span className={styles.highlight}>Genre</span>”
@@ -135,12 +132,12 @@ useEffect(() => {
             <p className={styles.featureDescription}>
               Whether it’s hip-hop, rock, or country, our AI crafts lyrics that flow smoothly with your chosen style.
             </p>
-            <button className={styles.featureButton}>Get Started</button>
-          </div>
+            <Link to="/genre" className={styles.featureButton}>Check Now</Link>
+            </Link>
         </div>
 
         <div className={`${styles.fadeInSection}`}>
-          <div className={styles.featureItem}>
+        <Link to="/origin" className={styles.featureItem}>
             <img src={writing} alt="Originality Check Feature" className={styles.featureImage} />
             <h3 className={styles.featureHeading}>
             “Stay Unique with our Originality <br /><span className={styles.highlight}>Feature</span>”
@@ -148,8 +145,8 @@ useEffect(() => {
             <p className={styles.featureDescription}>
               Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.
             </p>
-            <button className={styles.featureButton}>Check Now</button>
-          </div>
+            <Link to="/origin" className={styles.featureButton}>Check Now</Link>
+            </Link>
         </div>
       </div>
 </div>
