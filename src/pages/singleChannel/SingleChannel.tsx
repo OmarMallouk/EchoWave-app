@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Lyric,  Song, User } from "@/lib/Types";
 import { Link, useLocation } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
 import styles from "./SingleChannel.module.css";
 
 const SingleChannel = () => {
@@ -112,6 +113,7 @@ const SingleChannel = () => {
             const updatedComment = response.data.updatedSong.comments?.slice(-1)[0];
             setComments((prevComments = []) => (updatedComment ? [...prevComments, updatedComment] : prevComments));
             setNewComment("");
+            toast.success("Comment added successfully!");
           } else {
             console.error("Failed to add comment:", response.data.message);
           }
@@ -136,11 +138,21 @@ const SingleChannel = () => {
         }
       };
 
+      console.log(userIds);
+      
+      
 
       const bookmarkChannel = async (userId:any, producerId:any) => {
+      
         try {
           const response = await axios.post('http://127.0.0.1:8080/users/bookmark', { userId:userIds, producerId: user._id});
-          console.log(response.data.message); 
+          if (response.status == 200){
+            toast.success("Channel bookmarked successfully!");
+            console.log(response.data.message); 
+          
+        } else {
+          console.error("Failed to bookmark:", response.data.message);
+        }
         } catch (error) {
           console.error("Error bookmarking channel:", error);
           alert("Something went wrong. Please try again.");
@@ -148,9 +160,13 @@ const SingleChannel = () => {
       };
 
 
-      const handleBookmark = (producerId: string) => {
+      const handleBookmark = () => {
         const userId = userIds;  
-        bookmarkChannel(userId, producerId);
+        if (user) {
+          bookmarkChannel(userId, user._id);
+        } else {
+          console.error("User data is undefined.");
+        }
       };
 
     return ( 
@@ -165,7 +181,7 @@ const SingleChannel = () => {
  <div className={styles.profileImage}>
    <img src={`http://localhost:8080${user.profile_picture}`} alt="spacing out"/>
    
-   <button className={styles.bookbtn} onClick={() => handleBookmark(producer._id)}>Bookmark Channel</button>
+   <button className={styles.bookbtn} onClick={() => handleBookmark()}>Bookmark Channel</button>
 
  </div>
 </div>
@@ -249,7 +265,7 @@ const SingleChannel = () => {
     </div>
   </>
 )}
-
+ <ToastContainer />
         </div>
     );
 }
