@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import styles from "./Mood.module.css";
 import axios from 'axios';
-
-import originalCh from "/assests/originalCheck.jpg?url";
-import writing from "/assests/writing.jpg?url";
-import channel1 from "/assests/records5.jpeg?url";
+import { toast, ToastContainer  } from 'react-toastify';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,116 +24,139 @@ const Mood = () => {
   const [title, setTitle] = useState('');
   const [user, setUser] = useState('');
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    useEffect(() => {
-        const images = document.querySelectorAll(`.${styles.image}`);
-      
-        images.forEach((image) => {
+  const debounce = <T extends (...args: any[]) => void>(func: T, delay: number) => {
+    let timerId: NodeJS.Timeout;
+    return (...args: Parameters<T>) => {
+      clearTimeout(timerId);
+      timerId = setTimeout(() => func(...args), delay);
+    };
+  };
 
-          gsap.fromTo(
-            image,
-            { 
-              y: gsap.utils.random(100, 50),
-              x: gsap.utils.random(-50, 50),
-            },
-            {
-              y: 0, 
-              x: 0,
-              stagger: 0.5,
-              scrollTrigger: {
-                trigger: image,
-                start: "top 80%",
-                end: "bottom 20%",
-                scrub: 1,
-                markers: false,
-              },
-            }
-          );
-      });
-      }, []);
+  const animateImages = useCallback(() => {
+    const images = document.querySelectorAll<HTMLDivElement>(`.${styles.image}`);
 
-      useEffect(() => {
-        const userData = JSON.parse(localStorage.getItem("User") || "{}");
-        if (userData._id) {
-            setUser(userData._id);
+    images.forEach((image) => {
+      gsap.fromTo(
+        image,
+        { 
+          y: gsap.utils.random(100, 50),
+          x: gsap.utils.random(-50, 50),
+        },
+        {
+          y: 0, 
+          x: 0,
+          stagger: 0.5,
+          scrollTrigger: {
+            trigger: image,
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 1,
+            markers: false,
+          },
         }
-    }, []);
+      );
+    });
+  }, []);
 
-      const handleMoodSelection = async (mood:any) => {
-        setSelectedMood(mood);
-        await generateMoodLyrics(mood);
-      };
-      
-      const generateMoodLyrics = async (mood:any) => {
-        try {
-          const prompt = `mood: ${mood}, lyrics:`;
-          const response = await axios.post(
-            'http://127.0.0.1:5000/generate-mood',
-            { prompt },
-            {
-              headers: {
-                'Content-Type': 'application/json',
-              },
-            }
-          );
-          setLyrics(response.data.generated_text);
-        } catch (error) {
-          setLyrics(null);
-          console.error("Error calling generate-mood API:", error);
+  const debouncedAnimate = useCallback(debounce(animateImages, 100), [animateImages]);
+
+  useEffect(() => {
+    debouncedAnimate();
+  }, [debouncedAnimate]);
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("User") || "{}");
+    if (userData._id) {
+      setUser(userData._id);
+    }
+  }, []);
+
+  const handleMoodSelection = async (mood: any) => {
+    setSelectedMood(mood);
+    setLoading(true); 
+    await generateMoodLyrics(mood);
+    setLoading(false); 
+
+    const lyricsCard = document.querySelector(`.${styles.gridContainer}`);
+    if (lyricsCard) {
+      lyricsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  const generateMoodLyrics = async (mood: any) => {
+    try {
+      const prompt = `mood: ${mood}, lyrics:`;
+      const response = await axios.post(
+        'http://127.0.0.1:5000/generate-mood',
+        { prompt },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
         }
-      };
+      );
+      setLyrics(response.data.generated_text);
+    } catch (error) {
+      setLyrics(null);
+      console.error("Error calling generate-mood API:", error);
+    }
+  };
 
-      
+  const addToCollection = async () => {
+    if (!title || !lyrics || !selectedMood || !user) {
+      setError("Missing fields");
+      return;
+    }
+    setIsSubmitting(true);
+    try {
+      const userData = JSON.parse(localStorage.getItem("User") || "{}");
 
-      console.log({ title, lyrics, selectedMood, user });
-
-      const addToCollection = async () =>{
-        if (!title || !lyrics || !selectedMood || !user){
-          setError("Missing fields");
+      if (!userData._id) {
+        setError("User not found");
         return;
-        }
-        try{
-          const userData = JSON.parse(localStorage.getItem("User") || "{}");
+      }
 
-          if (!userData._id){
-            setError("User not found");
-            return;
-          }
+      console.log("Adding lyric:", { title, lyrics, selectedMood, user: userData._id });
 
-          console.log("Adding lyric:", { title, lyrics, selectedMood, user: userData._id });
+      const response = await axios.post("http://127.0.0.1:8080/lyrics/create", {
+        title,
+        content: lyrics,
+        user: userData._id,
+        mood: { name: selectedMood },
+      }, {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-          const response = await axios.post("http://127.0.0.1:8080/lyrics/create", {
-            title,
-            content: lyrics,
-            user: userData._id,
-            mood: { name: selectedMood },
-          },{
-            headers:{
-              "Content-Type": "application/json",
-            },
-          });
+      if (response.status === 200) {
+        toast.success("Lyrics added successfully!");
+        console.log("lyric added: ", response.data);
 
-          if (response.status === 200){
-            console.log("lyric added: ", response.data);
-            
-          }else{
-            setError("Failed to add collection");
-          }
-        }catch(error){
-          console.error("Error adding collection", error);
-          setError("Something went wrong :(");
-        }
-      };
-
+      } else {
+        setError("Failed to add collection");
+      }
+    } catch (error) {
+      console.error("Error adding collection", error);
+      setError("Something went wrong :(");
+    }finally{
+      setIsSubmitting(false);
+    }
+  };
 
   return (
-   <div className={styles.body2}> 
+    <div className={styles.body2}> 
 
-   <div className={styles.Title1}> <h1>Choose a mood and feel the <span>harmony</span></h1></div>
+      <div className={styles.Title1}> 
+        <h1>Choose a mood and feel the <span>harmony</span></h1>
+      </div>
 
+      {loading && <div className={styles.loading}>Loading...</div>}
 
- 
-   <div className={styles.imageGrid}>
+      <div className={styles.imageGrid}>
         {moodImages.map(({mood, imageSrc}) => (
           <div key={mood} className={styles.image} onClick={() => handleMoodSelection(mood)}>
             <img src={imageSrc} alt={mood} />
@@ -144,57 +164,54 @@ const Mood = () => {
           </div>
         ))}
       </div>
-   
-   
-<div className={styles.Title1}> <h1>Didn't find any? <span>search</span> </h1></div>  
 
-<div className="dropdown dropdown-hover dropdown-right dropdown-end">
-  <div tabIndex={0} role="button" className="btn m-1">Moods</div>
-  <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-    {['Joy', 'Fear', 'Sorrow', 'Anguish'].map((mood) => (
-      <li key={mood}>
-        <a onClick={() => handleMoodSelection(mood)}>{mood}</a>
-      </li>
-    ))}
-  </ul>
-</div>
-   
+      <div className={styles.Title1}> 
+        <h1>Didn't find any? <span>search</span> </h1>
+      </div>  
 
-<div className={`${styles.gridContainer} `}>
-{lyrics ? (
-  
-    <div className={`${styles.lyricsCard}`}>
-      <h2>Generated Lyrics for <span>{selectedMood}</span></h2>
-      <p>{lyrics}</p>
-      
-      <div className={styles.inputContainer}>
-        <input
-          type="text"
-          placeholder="Enter Title"
-          className={styles.inputField}
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <button
-          className={styles.addButton}
-          onClick={addToCollection}
-        >
-          Add to Collection
-        </button>
+      <div className="dropdown dropdown-hover dropdown-right dropdown-end">
+        <div tabIndex={0} role="button" className="btn m-1">Moods</div>
+        <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+          {['Joy', 'Fear', 'Sorrow', 'Anguish'].map((mood) => (
+            <li key={mood}>
+              <a onClick={() => handleMoodSelection(mood)}>{mood}</a>
+            </li>
+          ))}
+        </ul>
       </div>
-    </div>
- 
-): (
-  <div className={`${styles.lyricsCard}`}>
-  <h2>No Lyrics Yet</h2>
-  <p>Choose lyrics to create a song</p>
-</div>
-)}
-</div>    
-      </div>          
-      
-      
-                   
+
+      <div className={`${styles.gridContainer}`}>
+        {lyrics ? (
+          <div className={`${styles.lyricsCard}`}>
+            <h2>Generated Lyrics for <span>{selectedMood}</span></h2>
+            <p>{lyrics}</p>
+
+            <div className={styles.inputContainer}>
+              <input
+                type="text"
+                placeholder="Enter Title"
+                className={styles.inputField}
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
+              <button
+                className={styles.addButton}
+                onClick={addToCollection} disabled={isSubmitting}
+              >
+                Add to Collection
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className={`${styles.lyricsCard}`}>
+            <h2>No Lyrics Yet</h2>
+            <p>Choose lyrics to create a song</p>
+          </div>
+        )}
+      </div>    
+
+      <ToastContainer />
+    </div>          
   );
 };
 
