@@ -183,3 +183,10 @@
   .addButton:hover{
     transform: scale(0.9); 
   }
+
+
+  .addButton:disabled {
+    background-color: #bbb; 
+    cursor: not-allowed;
+    transform: scale(1); 
+}
