@@ -197,35 +197,36 @@ const Originality = () => {
       </div>
 
 <div className={styles.flexContainer2}>
-                <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-4">
-                    <div className={styles.card}>
-                    {lyricResult && lyricResult.length > 0 ? (
-                lyricResult.map((result: any, index: number) => (
-                    <div key={index}>
-                      <p><strong>Artist:</strong> {result.artist}</p>
-                      <p><strong>Track:</strong> {result.track}</p>
-                        <p><strong>Lyric:</strong> {result.lyric}</p>
-                        <p><strong>Similarity Score:</strong> {result.similarity}</p>
-                    </div>
-                ))
-            ) : (
-                "Waiting for results"
-            )}
-        </div>
-                    <div className="divider lg:divider-horizontal">
-                        <h1 className={styles.divider}>OR</h1>
-                    </div>
-                    <div className={styles.card}><h2>Alternative Lyrics</h2>
-  {alternativeLyrics ? (
-    <p>{alternativeLyrics}</p>
-  ) : (
-    <button className={styles.btn1} onClick={handleGenerateAlternative}>
-      Generate Alternative
-    </button>
-  )}</div>
+{lyricResult && lyricResult.length > 0 && (
+        <div className={styles.flexContainer2}>
+          <div className="flex w-full flex-col lg:flex-row items-center justify-center gap-4">
+            <div className={styles.card}>
+              {lyricResult.map((result: any, index: number) => (
+                <div className={styles.p1} key={index}>
+                  <p><strong>Artist:</strong> {result.artist}</p>
+                  <p><strong>Track:</strong> {result.track}</p>
+                  <p><strong>Lyric:</strong> {result.lyric}</p>
+                  <p><strong>Similarity Score:</strong> {result.similarity}</p>
                 </div>
+              ))}
             </div>
-
+            <div className="divider lg:divider-horizontal">
+              <h1 className={styles.divider}>OR</h1>
+            </div>
+            <div className={styles.card}>
+              <h2>Alternative Lyrics</h2>
+              {alternativeLyrics ? (
+                <p>{alternativeLyrics}</p>
+              ) : (
+                <button className={styles.btn1} onClick={handleGenerateAlternative}>
+                  Generate Alternative
+                </button>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
+</div>
 </div>
      );
 }

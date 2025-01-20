@@ -171,28 +171,33 @@ const SingleChannel = () => {
 
     return ( 
       <div className={styles.body6}>
-             <div className={styles.profileContainer}>
- <div className={styles.profileInfo}>
-   <h1 className={styles.profileTitle}>{user.channelName}</h1>
-   <p className={styles.profileDescription}>
-     "{user.description}"
-   </p>
- </div>
- <div className={styles.profileImage}>
-   <img src={`http://localhost:8080${user.profile_picture}`} alt="spacing out"/>
-   
-   <button className={styles.bookbtn} onClick={() => handleBookmark()}>Bookmark Channel</button>
 
- </div>
+<div className={styles.channelLayout}>
+  <div className={styles.leftSide}>
+  <div className={styles.profileImage}>
+  <img src={`http://localhost:8080${user.profile_picture}`} alt="Channel"  />
+    <h2  className={styles.profileTitle}>Channel Name</h2>
+    <p className={styles.profileDescription}>This is the channel description.</p>
+    <button className={styles.bookbtn} onClick={() => handleBookmark()}>Bookmark Channel</button>
+    </div>
+  </div>
+
+
+  <div className={styles.rightSide}>
+  <div className={styles.buttonContainer}>
+  <div className={styles.Title1}>
+      <h1>Created Songs</h1>
+    </div>
+
 </div>
 
+    
 
-<div className={styles.Title1}> <h1>Created Songs</h1></div>  
 
-<div
+    <div
  className={styles.lyricsList}
  style={{
-   maxHeight: userLyrics?.length > 3 ? "300px" : "auto",
+   maxHeight: userLyrics?.length > 3 ? "400px" : "auto",
    overflowY: userLyrics?.length > 3 ? "auto" : "visible",
  }}
 >
@@ -212,7 +217,7 @@ const SingleChannel = () => {
   <div>No Song lyrics available.</div>
 )}
 </div>
-
+</div>
 
 {showModal && (
   <>
@@ -228,7 +233,6 @@ const SingleChannel = () => {
       </button>
 
       <div className={styles.addCommentContainer}>
-        <h2>Comments for: {selectedSong?.title}</h2>
         <textarea
           value={newComment}
           onChange={handleCommentChange}
@@ -265,9 +269,15 @@ const SingleChannel = () => {
     </div>
   </>
 )}
- <ToastContainer />
-        </div>
-    );
+
+
+    
+    
+   <ToastContainer />
+    </div>
+    </div>
+          );
+
 }
 
 export default SingleChannel;

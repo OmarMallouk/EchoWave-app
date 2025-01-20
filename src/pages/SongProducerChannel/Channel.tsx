@@ -103,7 +103,7 @@ const Channel = () => {
           if (userId) {
             fetchUserLyrics(userId);
           }
-        }, [userId]); 
+        }, [userId, songs.length]); 
 
         const fetchBookmark = async () => {
           try {
@@ -195,12 +195,14 @@ const Channel = () => {
                   "Content-Type": "application/json",
                 },
               });
-    
-              if (response.status === 200){
-                toast.success("Song added successfully!");
-                setSongs([...songs, response.data]); 
+              console.log("API Response:", response.data);
+              console.log("Response Status:", response.status);
+              if (response.status === 201){
+
+                setSongs((prevSongs) => [...prevSongs, response.data]);
                 setNewSong("");
                 setTitle("");
+                toast.success("Song added successfully!");
                 console.log("lyric added: ", response.data);
                 
               }else{
@@ -322,24 +324,23 @@ const Channel = () => {
           
 
     return ( 
-        <div className={styles.body6}>
-             <div className={styles.profileContainer}>
- <div className={styles.profileInfo}>
-   <h1 className={styles.profileTitle}>{user.channelName}</h1>
-   <p className={styles.profileDescription}>
-     "{user.description}"
-   </p>
- </div>
- <div className={styles.profileImage}>
-   <img src={`http://localhost:8080${user.profile_picture}`} alt="spacing out"/>
-   
-   <button className={styles.editButton} onClick={openModal}>  Edit Channel</button>
+      <div className={styles.body6}>
+         <ToastContainer />
+      <div className={styles.channelLayout}>
+  <div className={styles.leftSide}>
+  <div className={styles.profileImage}>
+  <img src={`http://localhost:8080${user.profile_picture}`} alt={channel1}  />
+    <h2  className={styles.profileTitle}>{user.channelName}</h2>
+    <p className={styles.profileDescription}>{user.description}</p>
+    <button className={styles.editButton} onClick={openModal}>Edit Channel</button>
+    </div>
+  </div>
 
-   {isModalOpen && (
+  {isModalOpen && (
         <div className={styles.modal}>
           <div className={styles.modalContent}>
             <h2>Edit Channel</h2>
-             <input
+            <input
               type="text"
               name="description"
               placeholder="Enter new description"
@@ -347,7 +348,7 @@ const Channel = () => {
               onChange={handleInputChange}
               className={styles.input}
             />
-             <input
+            <input
               type="text"
               name="channelName"
               placeholder="Enter new channel name"
@@ -355,44 +356,52 @@ const Channel = () => {
               onChange={handleInputChange}
               className={styles.input}
             />
-           <div className={styles.fileInputWrapper}>
-  <label htmlFor="fileUpload" className={styles.customFileButton}>
-    Upload Profile Picture
-  </label>
-  <input
-    type="file"
-    id="fileUpload"
-    name="profile_picture"
-    className={styles.fileInput}
-    onChange={handleFileChange}
-  />
-</div>
-            <button onClick={handleSubmit} className={styles.saveButton}>
-              Save Changes
-            </button>
-            <button onClick={closeModal} className={styles.cancelButton}>
-              Cancel
-            </button>
+            <div className={styles.fileInputWrapper}>
+              <label htmlFor="fileUpload" className={styles.customFileButton}>
+                Upload Profile Picture
+              </label>
+              <input
+                type="file"
+                id="fileUpload"
+                name="profile_picture"
+                className={styles.fileInput}
+                onChange={handleFileChange}
+              />
+            </div>
+            <button onClick={handleSubmit} className={styles.saveButton}>Save Changes</button>
+            <button onClick={closeModal} className={styles.cancelButton}>Cancel</button>
           </div>
         </div>
       )}
 
- </div>
+  
+
+  
+  <div className={styles.rightSide}>
+  <div className={styles.buttonContainer}>
+  <div className={styles.Title1}>
+      <h1>Created Songs</h1>
+    </div>
+
+  <button onClick={handleStartMerge} className={styles.control2}>
+    Create a New Song <span>+</span>
+  </button>
+ 
 </div>
 
+    
 
-<div className={styles.Title1}> <h1>Created Songs</h1></div>  
 
-<div
+    <div
  className={styles.lyricsList}
  style={{
-   maxHeight: userLyrics?.length > 3 ? "300px" : "auto",
+   maxHeight: userLyrics?.length > 3 ? "400px" : "auto",
    overflowY: userLyrics?.length > 3 ? "auto" : "visible",
  }}
 >
 { Array.isArray(songs) && songs.length > 0 ? (
-  songs.map((song) => (
-    <div className={styles.lyricsContainer} key={song._id}>
+  songs.map((song, index) => (
+    <div className={styles.lyricsContainer} key={song._id || index}>
       <div className={styles.lyricsTitle}>{song.title}</div>
       <button
         className={styles.viewLyricsButton}
@@ -406,7 +415,7 @@ const Channel = () => {
   <div>No Song lyrics available.</div>
 )}
 </div>
-
+</div>
 
 {showModal && (
   <>
@@ -422,7 +431,6 @@ const Channel = () => {
       </button>
 
       <div className={styles.addCommentContainer}>
-        <h2>Comments for: {selectedSong?.title}</h2>
         <textarea
           value={newComment}
           onChange={handleCommentChange}
@@ -460,14 +468,7 @@ const Channel = () => {
   </>
 )}
 
-<div className={styles.buttonContainer}>
-  <button onClick={handleStartMerge} className={styles.control2}>
-    Create a New Song <span>+</span>
-  </button>
-</div>
-
-
-    {isSelecting && (
+{isSelecting && (
   <div className={styles.modalOverlay}>
     <div className={styles.lyricsModal}>
       <button className={styles.closeModal} onClick={() => setIsSelecting(false)}>
@@ -493,7 +494,12 @@ const Channel = () => {
   </div>
 )}
 
-<div className={`${styles.gridContainer}`}>
+
+
+    
+    </div>
+
+    <div className={`${styles.gridContainer}`}>
   {newSong ? (
     <div className={`${styles.lyricsCard}`}>
       <h2>Generated Lyrics</h2>
@@ -551,11 +557,9 @@ const Channel = () => {
      </button>
    </div>
 
-
- 
-<ToastContainer />
-        </div>
-     );
+   <ToastContainer />
+    </div>
+          );
 }
  
 export default Channel;

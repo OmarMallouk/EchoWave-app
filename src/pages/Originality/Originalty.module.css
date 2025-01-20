@@ -125,14 +125,21 @@
     place-items: center;
     width: 30%; 
     height: 500px; 
+    font-size: 18px;
     background: linear-gradient(to bottom right, #2d082e8e, #4b2768c5, #391f46a9); 
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    padding: 20px;
     color: white;
     font-weight: bold;
     text-align: center;
   }
+
   
+  strong {
+    color: #d112f7e1; 
+  }
+
   .divider {
     margin: 20px 0; 
     color: #ffffff; 

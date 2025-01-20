@@ -192,80 +192,77 @@ const imagesPerSlide = 3;
      
 
    return ( 
-       <div className={styles.body6}>
-              <div className={styles.profileContainer}>
- <div className={styles.profileInfo}>
-   <h1 className={styles.profileTitle}>{user.username}</h1>
-   <p className={styles.profileDescription}>
-    {user.description}
-   </p>
- </div>
- <div className={styles.profileImage}>
-   <img src={`http://localhost:8080${user.profile_picture}`} alt="Luna Vega"/>
-   
-   <button className={styles.editButton} onClick={openModal}> Edit Profile</button>
-
-   {isModalOpen && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
-            <h2>Edit Channel</h2>
-             <input
-              type="text"
-              name="username"
-              placeholder="Enter new username"
-              value={formData.username}
-              onChange={handleInputChange}
-              className={styles.input}
-            />
-             <input
-              type="text"
-              name="description"
-              placeholder="Enter new description"
-              value={formData.description}
-              onChange={handleInputChange}
-              className={styles.input}
-            />
-           
-           <div className={styles.fileInputWrapper}>
-  <label htmlFor="fileUpload" className={styles.customFileButton}>
-    Upload Profile Picture
-  </label>
-  <input
-    type="file"
-    id="fileUpload"
-    name="profile_picture"
-    className={styles.fileInput}
-    onChange={handleFileChange}
-  />
+    <div className={styles.body6}>
+    <div className={styles.channelLayout}>
+<div className={styles.leftSide}>
+<div className={styles.profileImage}>
+<img src={`http://localhost:8080${user.profile_picture}`} alt={channel1}  />
+  <h2  className={styles.profileTitle}>{user.username}</h2>
+  <p className={styles.profileDescription}>{user.description}</p>
+  <button className={styles.editButton} onClick={openModal}>Edit Profile</button>
+  </div>
 </div>
-            <button onClick={handleSubmit} className={styles.saveButton}>
-              Save Changes
-            </button>
-            <button onClick={closeModal} className={styles.cancelButton}>
-              Cancel
-            </button>
+
+{isModalOpen && (
+      <div className={styles.modal}>
+        <div className={styles.modalContent}>
+          <h2>Edit Channel</h2>
+          <input
+            type="text"
+            name="description"
+            placeholder="Enter new description"
+            value={formData.description}
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+          <input
+            type="text"
+            name="channelName"
+            placeholder="Enter new channel name"
+            value={formData.username}
+            onChange={handleInputChange}
+            className={styles.input}
+          />
+          <div className={styles.fileInputWrapper}>
+            <label htmlFor="fileUpload" className={styles.customFileButton}>
+              Upload Profile Picture
+            </label>
+            <input
+              type="file"
+              id="fileUpload"
+              name="profile_picture"
+              className={styles.fileInput}
+              onChange={handleFileChange}
+            />
           </div>
+          <button onClick={handleSubmit} className={styles.saveButton}>Save Changes</button>
+          <button onClick={closeModal} className={styles.cancelButton}>Cancel</button>
         </div>
-      )}
+      </div>
+    )}
 
- </div>
+
+
+
+<div className={styles.rightSide}>
+<div className={styles.buttonContainer}>
+<div className={styles.Title1}>
+    <h1>Created Lyrics</h1>
+  </div>
+
 </div>
 
+  
 
 
-
-
-
-<div className={styles.Title1}> <h1>Created Lyrics </h1></div>  
-
-<div
- className={styles.lyricsList}
- style={{
-   maxHeight: userLyrics?.length > 3 ? "300px" : "auto",
-   overflowY: userLyrics?.length > 3 ? "auto" : "visible",
- }}
+  <div
+className={styles.lyricsList}
+style={{
+ maxHeight: userLyrics?.length > 3 ? "400px" : "auto",
+ overflowY: userLyrics?.length > 3 ? "auto" : "visible",
+}}
 >
- {userLyrics?.length > 0 ? (
+{userLyrics?.length > 0 ? (
    userLyrics.map((lyric) => (
      <div className={styles.lyricsContainer} key={lyric._id}>
        <div className={styles.lyricsTitle}>{lyric.title}</div>
@@ -283,6 +280,7 @@ const imagesPerSlide = 3;
  )}
 </div>
 
+</div>
 {showModal && (
        <>
          <div className={styles.modalOverlay} onClick={handleCloseModal}></div>
@@ -299,40 +297,40 @@ const imagesPerSlide = 3;
        </>
      )}
 
-     
-<div className={styles.Title2}> <h1>Bookmarked Channels </h1></div>  
+
+
+ </div>
+
+ <div className={styles.Title2}> <h1>Bookmarked Channels </h1></div>  
 
 <div className={styles.carouselContainer}>
-     <button className={`${styles.carouselButton} ${styles.carouselButtonPrev}`} onClick={prevImage}>
-       &#10094;
-     </button>
+   <button className={`${styles.carouselButton} ${styles.carouselButtonPrev}`} onClick={prevImage}>
+     &#10094;
+   </button>
 
 
-     <div className={styles.carousel}>
-       {bookmarkedChannels.map((bookmark) => (
-          <Link 
-          key={bookmark._id} 
-          to={`/singleChannel/${bookmark._id}`}
-          state={{ bookmark }} 
-          className={styles.card}
-        >
-         <div className={styles.carouselItem}>
-           <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
-           <div className={styles.carouselTitle}>{bookmark.channelName}</div>
-           
-         </div>
-         </Link>
-       ))}
-     </div>
-
-     <button className={`${styles.carouselButton} ${styles.carouselButtonNext}`} onClick={nextImage}>
-       &#10095;
-     </button>
+   <div className={styles.carousel}>
+     {bookmarkedChannels.map((bookmark, index) => (
+        <Link 
+        key={bookmark._id} 
+        to={`/singleChannel/${bookmark._id}`}
+        state={{ bookmark }} 
+        className={styles.card}
+      >
+       <div key={index} className={styles.carouselItem}>
+         <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
+         <div className={styles.carouselTitle}>{bookmark.channelName}</div>
+         
+       </div>
+       </Link>
+     ))}
    </div>
 
-
- 
-       </div>
+   <button className={`${styles.carouselButton} ${styles.carouselButtonNext}`} onClick={nextImage}>
+     &#10095;
+   </button>
+ </div>
+ </div>
     );
 }
 
