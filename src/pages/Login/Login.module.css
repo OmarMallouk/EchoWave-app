@@ -40,9 +40,10 @@
   }
   
   .loginForm input {
-    width: 100%; 
+    width: 110%; 
     max-width: 300px; 
     padding: 12px;
+    margin-right: 20px;
     border: 1px solid #ccc;
     border-radius: 10px;
     font-size: 16px;
@@ -56,10 +57,10 @@ margin-top: 10px;
   }
 
   .loginForm img {
-    height: 150px;
+    height: 120px;
     width: 80%; 
     max-width: 200px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     margin-left: 20px;
   }
 

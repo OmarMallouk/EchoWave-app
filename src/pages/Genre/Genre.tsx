@@ -8,13 +8,13 @@ gsap.registerPlugin(ScrollTrigger);
 
 const genreImages = [
   { genre: 'Hip-hop', imageSrc: '/assests/genre/hip-hop.jpg' },
-  { genre: 'Funk', imageSrc: '/assests/genre/funk.jpg' },
-  { genre: 'Jazz', imageSrc: '/assests/genre/jazz.jpg' },
-  { genre: 'Affrobeat', imageSrc: '/assests/genre/affrobeat.jpg' },
+  { genre: 'Afrobeat', imageSrc: '/assests/genre/affrobeat.jpg' },
   { genre: 'Heavy-metal', imageSrc: '/assests/genre/heavy-metal.jpg' },
   { genre: 'Country', imageSrc: '/assests/genre/country.jpg' },
-  { genre: 'Broadway', imageSrc: '/assests/genre/broadway.jpg' },
+  { genre: 'Broadway', imageSrc: '/assests/genre/broadd.jpg' },
   { genre: 'Gospel', imageSrc: '/assests/genre/gospel.jpg' },
+  { genre: 'Funk', imageSrc: '/assests/genre/funk.jpg' },
+  { genre: 'Jazz', imageSrc: '/assests/genre/jazz.jpg' },
 ];
 
 const Genre = () => {
@@ -163,7 +163,7 @@ const Genre = () => {
       </div>
 
       <div className={styles.Title1}>
-        <h1>Didn't find any? search <span>more</span> </h1>
+        <h1>Didn't find any? <span>search</span> </h1>
       </div>
 
       <div className="dropdown dropdown-hover dropdown-right dropdown-end">

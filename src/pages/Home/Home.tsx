@@ -55,31 +55,7 @@ useEffect(() => {
                }
            }, []);
 
-           
-  
 
-//  useEffect(() => {
-//     const fetchUserLyrics = async (id: string) => {
-//       try {
-//         const response = await axios.get(`http://127.0.0.1:8080/users/`, {
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//         });
-//         console.log(response.data); 
-//         setUsers(response.data);
-//         setChannels(response.data.channel);
-//       } catch (error) {
-//         console.error("Error fetching lyrics", error);
-//       }
-//     };
-
-//     if (userId) {
-//       fetchUserLyrics(userId); 
-//     }
-//   }, [userId]);
-   
-//   console.log("users", users);
   
 
     return ( 
@@ -114,7 +90,7 @@ useEffect(() => {
         <Link to="/mood" className={styles.featureItem}>
             <img src={lyricNote} alt="Writing Feature" className={styles.featureImage} />
             <h3 className={styles.featureHeading}>
-            “Craft <span className={styles.highlight}>Lyrics</span> That Match Your <br /><span className={styles.highlight}>Mood</span>”
+            Craft <span className={styles.highlight}>Lyrics</span> That Match Your <br /><span className={styles.highlight}>Mood</span>
             </h3>
             <p className={styles.featureDescription}>
               Let your emotions guide the words as our AI tailors lyrics to fit the genre you choose.
@@ -127,7 +103,7 @@ useEffect(() => {
         <Link to="/genre" className={styles.featureItem}>
             <img src={originalCh} alt="Lyric Note Feature" className={styles.featureImage} />
             <h3 className={styles.featureHeading}>
-            “Tailored <span className={styles.highlight}>Lyrics</span> for Every <br /><span className={styles.highlight}>Genre</span>”
+            Tailored <span className={styles.highlight}>Lyrics</span> for Every <br /><span className={styles.highlight}>Genre</span>
             </h3>
             <p className={styles.featureDescription}>
               Whether it’s hip-hop, rock, or country, our AI crafts lyrics that flow smoothly with your chosen style.
@@ -140,7 +116,7 @@ useEffect(() => {
         <Link to="/origin" className={styles.featureItem}>
             <img src={writing} alt="Originality Check Feature" className={styles.featureImage} />
             <h3 className={styles.featureHeading}>
-            “Stay Unique with our Originality <br /><span className={styles.highlight}>Feature</span>”
+            Stay Unique with our Originality <br /><span className={styles.highlight}>Feature</span>
             </h3>
             <p className={styles.featureDescription}>
               Get instant feedback on your lyrics’ uniqueness and spot similarities with existing songs effortlessly.
@@ -151,27 +127,10 @@ useEffect(() => {
       </div>
 </div>
 
-            {/* <div className={styles.chane}>Channels</div> 
+   
 
 
 
-<div className={styles.carouselsCo}>
-  
-              <div className={styles.container2}>
-    <div className={styles.carousel}>
-      <div className={styles.carousel__face}><span>This is something</span></div>
-      <div className={styles.carousel__face}><span>Very special</span></div>
-      <div className={styles.carousel__face}><span>Special is the key</span></div>
-      <div className={styles.carousel__face}><span>For you</span></div>
-      <div className={styles.carousel__face}><span>Just give it</span></div>
-      <div className={styles.carousel__face}><span>A try</span></div>
-      <div className={styles.carousel__face}><span>And see</span></div>
-      <div className={styles.carousel__face}><span>How IT Works</span></div>
-      <div className={styles.carousel__face}><span>Woow</span></div>
-    </div>
-  </div>
-
-</div> */}
 
 </div>
 
