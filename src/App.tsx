@@ -9,6 +9,7 @@ import Channel from "./pages/SongProducerChannel/Channel";
 import SingleChannel from "./pages/singleChannel/SingleChannel";
 import Originality from "./pages/Originality/Originality";
 import UserProfile from "./pages/userProfile/UserProfile";
+import Admin from "./pages/Admin/Admin";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
 import ScrollToTop from "./components/ui/ScrollToTop";
@@ -35,6 +36,7 @@ const App: React.FC =() => {
       <Route path="/channel" element={<Channel/>} />
       <Route path="/userProfile" element={<UserProfile/>} />
       <Route path="/singleChannel/:id" element={<SingleChannel/>} />
+      <Route path="/dashboard" element={<Admin/>} />
       <Route path="/login" element={<ProtectedRoutes publicOnly><Login /></ProtectedRoutes>}/>
       <Route path="/register" element={<ProtectedRoutes publicOnly><Register /></ProtectedRoutes>}/>
       </Routes>

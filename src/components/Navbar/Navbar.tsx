@@ -10,6 +10,13 @@ const Navbar = ({}) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeItem, setActiveItem] = useState("");
+
+
+
+    const handleItemClick = (item:any) => {
+        setActiveItem(item); 
+    };
 
     const navigate = useNavigate();
 
@@ -22,7 +29,6 @@ const Navbar = ({}) => {
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollPos = window.pageYOffset;
-            // If Im scrolling down, hide the navbar
             if (prevScrollPos < currentScrollPos) {
                 setIsScrolled(true);
             } else {
@@ -56,51 +62,139 @@ const Navbar = ({}) => {
 
     return ( 
         <div className={styles.navPage}>
-            <div className={styles.navContainer}>
-                <div className={styles.navLogo} >
-                        <img src={logo} alt="Logo" />
-                    <div className={styles.navText}>Echo Wave</div>
-                </div>
-                <button className={styles.navToggle} onClick={toggleMenu}>
-                    ☰
-                </button>
-                <div className={styles.ulContainer}>
-                    <ul
-                        className={`${styles.navMenu} ${
-                            isMenuOpen ? styles.menuOpen : ""
-                        }`}
+        <div className={styles.navContainer}>
+        <div className={styles.navLogo}>
+    <Link to="/">
+        <img className={styles.imgLogo} src={logo} alt="Logo" />
+    </Link>
+    <div className={styles.navText}>Echo Wave</div>
+</div>
+            <button className={styles.navToggle} onClick={toggleMenu}>
+                ☰
+            </button>
+            <div className={styles.ulContainer}>
+            <ul className={`${styles.navMenu} ${isMenuOpen ? styles.menuOpen : ""}`}>
+                   
+
+                    {isAuthenticated && userRole === "song_producer" && (
+                        <>
+
+<li
+                        className={
+                            activeItem === "home" ? styles.activeItem : ""
+                        }
+                        onClick={() => handleItemClick("home")}
                     >
-                        <li>
-                             <Link to="/">Home</Link>
-                             </li>
-                       
-                         {isAuthenticated &&  userRole === "song_producer" &&(
-                        <>
-                            <li><Link to="/mood">Mood</Link></li>
-                            <li><Link to="/genre">Genre</Link></li>
-                            <li><Link to="/origin">Originality</Link></li>
-                            <li><Link to="/channels">Channels</Link></li>
-                            <li><Link to="/channel">Channel</Link></li>
+                        <Link to="/">Home</Link>
+                    </li>
+                            <li
+                                className={
+                                    activeItem === "mood" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("mood")}
+                            >
+                                <Link to="/mood">Mood</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "genre" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("genre")}
+                            >
+                                <Link to="/genre">Genre</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "origin" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("origin")}
+                            >
+                                <Link to="/origin">Originality</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "channels" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("channels")}
+                            >
+                                <Link to="/channels">Channels</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "channel" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("channel")}
+                            >
+                                <Link to="/channel">MyChannel</Link>
+                            </li>
                         </>
                     )}
 
-                        {isAuthenticated &&  userRole === "user" &&(
+                    {isAuthenticated && userRole === "user" && (
                         <>
-                            <li><Link to="/mood">Mood</Link></li>
-                            <li><Link to="/genre">Genre</Link></li>
-                            <li><Link to="/origin">Originality</Link></li>
-                            <li><Link to="/channels">Channels</Link></li>
-                            <li><Link to="/userProfile">Profile</Link></li>
-
+                            <li
+                                className={
+                                    activeItem === "mood" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("mood")}
+                            >
+                                <Link to="/mood">Mood</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "genre" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("genre")}
+                            >
+                                <Link to="/genre">Genre</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "origin" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("origin")}
+                            >
+                                <Link to="/origin">Originality</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "channels" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("channels")}
+                            >
+                                <Link to="/channels">Channels</Link>
+                            </li>
+                            <li
+                                className={
+                                    activeItem === "profile" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("profile")}
+                            >
+                                <Link to="/userProfile">Profile</Link>
+                            </li>
                         </>
                     )}
-                    </ul>
-                </div>
-                <button className={styles.authButton} onClick={handleBtns}>
-                    {isAuthenticated ? "Logout" : "Login"}
-                </button>
+
+{isAuthenticated && userRole === "admin" && (
+                        <>
+                            <li
+                                className={
+                                    activeItem === "dashboard" ? styles.activeItem : ""
+                                }
+                                onClick={() => handleItemClick("admin")}
+                            >
+                                <Link to="/dashboard">Dashboard</Link>
+                            </li>
+                   
+                        </>
+                    )}
+                </ul>
             </div>
+            <button className={styles.authButton} onClick={handleBtns}> 
+                {isAuthenticated ? "Logout" : "Login"}
+            </button>
         </div>
+    </div>
     );
     
 };
