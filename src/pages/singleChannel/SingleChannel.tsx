@@ -45,7 +45,7 @@ const SingleChannel = () => {
       } else {
         const fetchChannelDetails = async () => {
           try {
-            const response = await axios.get(`http://localhost:8000/users/${id}`);
+            const response = await axios.get(`http://35.181.154.194:8000/users/${id}`);
             setChannelData(response.data);
             setUser(response.data);
             setSongs(response.data.songs || []);
@@ -175,7 +175,7 @@ const SingleChannel = () => {
 <div className={styles.channelLayout}>
   <div className={styles.leftSide}>
   <div className={styles.profileImage}>
-  <img src={`http://localhost:8000${user.profile_picture}`} alt="Channel"  />
+  <img src={`http://35.181.154.194:8000${user.profile_picture}`} alt="Channel"  />
     <h2  className={styles.profileTitle}>Channel Name</h2>
     <p className={styles.profileDescription}>This is the channel description.</p>
     <button className={styles.bookbtn} onClick={() => handleBookmark()}>Bookmark Channel</button>
@@ -248,7 +248,7 @@ const SingleChannel = () => {
       <div key={index} className={styles.comment}>
         <div className={styles.commentHeader}>
           <img
-            src={`http://localhost:8000${comment.profile_picture}`}
+            src={`http://35.181.154.194:8000${comment.profile_picture}`}
             alt="User profile"
             className={styles.profilePicture}
           />

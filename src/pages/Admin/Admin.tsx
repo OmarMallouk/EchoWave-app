@@ -77,7 +77,7 @@ const Admin = () => {
       {users.map((user) => (
         <div key={user._id} className={styles.userCard}>
           <img
-            src={`http://localhost:8000${user.profile_picture}`}
+            src={`http://35.181.154.194:8000${user.profile_picture}`}
             alt={`${user.username}'s profile`}
             className={styles.profilePicture}
           />

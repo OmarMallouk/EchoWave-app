@@ -196,7 +196,7 @@ const imagesPerSlide = 3;
     <div className={styles.channelLayout}>
 <div className={styles.leftSide}>
 <div className={styles.profileImage}>
-<img src={`http://localhost:8000${user.profile_picture}`} alt={channel1}  />
+<img src={`http://35.181.154.194:8000${user.profile_picture}`} alt={channel1}  />
   <h2  className={styles.profileTitle}>{user.username}</h2>
   <p className={styles.profileDescription}>{user.description}</p>
   <button className={styles.editButton} onClick={openModal}>Edit Profile</button>
@@ -318,7 +318,7 @@ style={{
         className={styles.card}
       >
        <div key={index} className={styles.carouselItem}>
-         <img className={styles.carouselImage} src={`http://localhost:8000${bookmark.profile_picture}`} alt={bookmark.channelName} />
+         <img className={styles.carouselImage} src={`http://35.181.154.194:8000${bookmark.profile_picture}`} alt={bookmark.channelName} />
          <div className={styles.carouselTitle}>{bookmark.channelName}</div>
          
        </div>
