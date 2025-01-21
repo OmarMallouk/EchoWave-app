@@ -4,7 +4,7 @@ import axios from "axios";
 export const register = async (username: string, email:string, password: string, role:string, channelName?: string) =>{
 
     try {
-        const response = await axios.post("http://127.0.0.1:8080/users/create", {username,email,password, role, channelName},
+        const response = await axios.post("http://35.181.154.194:8000/users/create", {username,email,password, role, channelName},
             {headers:{
                 "Content-Type": "application/json",
             },}
@@ -26,7 +26,7 @@ export const register = async (username: string, email:string, password: string,
 export const loginn = async (username: string, password: string) =>{
 
     try {
-        const response = await axios.post("http://127.0.0.1:8080/auth/login", {username,password},{
+        const response = await axios.post("http://35.181.154.194:8000/auth/login", {username,password},{
             headers:{
                 "Content-Type": "application/json",
             },});

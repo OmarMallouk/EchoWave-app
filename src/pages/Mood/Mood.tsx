@@ -90,7 +90,7 @@ const Mood = () => {
     try {
       const prompt = `mood: ${mood}, lyrics:`;
       const response = await axios.post(
-        'http://127.0.0.1:5000/generate-mood',
+        'http://35.181.154.194:5000/generate-mood',
         { prompt },
         {
           headers: {
@@ -121,7 +121,7 @@ const Mood = () => {
 
       console.log("Adding lyric:", { title, lyrics, selectedMood, user: userData._id });
 
-      const response = await axios.post("http://127.0.0.1:8080/lyrics/create", {
+      const response = await axios.post("http://35.181.154.194:8000/lyrics/create", {
         title,
         content: lyrics,
         user: userData._id,

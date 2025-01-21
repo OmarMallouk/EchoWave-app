@@ -63,7 +63,7 @@ const Channel = () => {
          useEffect(() => {
           const fetchUser = async (id: string) => {
             try {
-              const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+              const response = await axios.get(`http://35.181.154.194:8000/users/${id}`, {
                 headers: { "Content-Type": "application/json" },
               });
               if (response.data._id !== user._id) {
@@ -82,7 +82,7 @@ const Channel = () => {
         useEffect(() => {
           const fetchUserLyrics = async (id: string) => {
             try {
-              const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+              const response = await axios.get(`http://35.181.154.194:8000/users/${id}`, {
                 headers: {
                   "Content-Type": "application/json",
                 },
@@ -107,7 +107,7 @@ const Channel = () => {
 
         const fetchBookmark = async () => {
           try {
-            const dataPromises = user.bookmarkedChannels.map(id => axios.get(`http://localhost:8080/users/${id}`));
+            const dataPromises = user.bookmarkedChannels.map(id => axios.get(`http://35.181.154.194:8000/users/${id}`));
             const dataResults = await Promise.all(dataPromises);
             setBookmarkedChannels(dataResults.map(res => res.data));
             console.log("Fetched Bookmarked Channels:", dataResults.map(res => res.data));
@@ -152,7 +152,7 @@ const Channel = () => {
               if (profilePicture) form.append("profile_picture", profilePicture);
           
               try {
-                  const response = await axios.put(`http://127.0.0.1:8080/users/${userId}`, form, {
+                  const response = await axios.put(`http://35.181.154.194:8000/users/${userId}`, form, {
                       headers: {
                       },
                   });
@@ -186,7 +186,7 @@ const Channel = () => {
     
               console.log("Adding lyric:", { title, lyrics, userId: userData._id });
     
-              const response = await axios.post("http://127.0.0.1:8080/api/createSong", {
+              const response = await axios.post("http://35.181.154.194:8000/api/createSong", {
                 title,
                 content: newSong,
                 user: userData._id,
@@ -240,7 +240,7 @@ const Channel = () => {
               const songId = selectedSong?._id;
               const comment = newComment;
           
-              const response = await axios.post("http://127.0.0.1:8080/users/comment", {
+              const response = await axios.post("http://35.181.154.194:8000/users/comment", {
                 userId,
                 songId,
                 comment,
@@ -298,7 +298,7 @@ const Channel = () => {
             if (selectedForMerge.length === 2) {
               try {
                 const [lyric1, lyric2] = selectedForMerge;
-                const response = await axios.post("http://127.0.0.1:8080/api/lyrics/merge-lyrics", {
+                const response = await axios.post("http://35.181.154.194:8000/api/lyrics/merge-lyrics", {
                   lyrics1: lyric1,
                   lyrics2: lyric2,
                 });
@@ -329,7 +329,7 @@ const Channel = () => {
       <div className={styles.channelLayout}>
   <div className={styles.leftSide}>
   <div className={styles.profileImage}>
-  <img src={`http://localhost:8080${user.profile_picture}`} alt={channel1}  />
+  <img src={`http://localhost:8000${user.profile_picture}`} alt={channel1}  />
     <h2  className={styles.profileTitle}>{user.channelName}</h2>
     <p className={styles.profileDescription}>{user.description}</p>
     <button className={styles.editButton} onClick={openModal}>Edit Channel</button>
@@ -446,7 +446,7 @@ const Channel = () => {
       <div key={index} className={styles.comment}>
         <div className={styles.commentHeader}>
           <img
-            src={`http://localhost:8080${comment.profile_picture}`}
+            src={`http://localhost:8000${comment.profile_picture}`}
             alt="User profile"
             className={styles.profilePicture}
           />
@@ -544,7 +544,7 @@ const Channel = () => {
           className={styles.card}
         >
          <div key={index} className={styles.carouselItem}>
-           <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
+           <img className={styles.carouselImage} src={`http://localhost:8000${bookmark.profile_picture}`} alt={bookmark.channelName} />
            <div className={styles.carouselTitle}>{bookmark.channelName}</div>
            
          </div>

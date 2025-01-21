@@ -56,7 +56,7 @@ const imagesPerSlide = 3;
        useEffect(() => {
         const fetchUser = async (id: string) => {
           try {
-            const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+            const response = await axios.get(`http://35.181.154.194:8000/users/${id}`, {
               headers: { "Content-Type": "application/json" },
             });
             if (response.data._id !== user._id) {
@@ -76,7 +76,7 @@ const imagesPerSlide = 3;
        useEffect(() => {
            const fetchUserLyrics = async (id: string) => {
              try {
-               const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+               const response = await axios.get(`http://35.181.154.194:8000/users/${id}`, {
                  headers: {
                    "Content-Type": "application/json",
                  },
@@ -97,7 +97,7 @@ const imagesPerSlide = 3;
 
          const fetchBookmark = async () => {
           try {
-            const dataPromises = user.bookmarkedChannels.map(id => axios.get(`http://localhost:8080/users/${id}`));
+            const dataPromises = user.bookmarkedChannels.map(id => axios.get(`http://35.181.154.194:8000/users/${id}`));
             const dataResults = await Promise.all(dataPromises);
             setBookmarkedChannels(dataResults.map(res => res.data));
             console.log("Fetched Bookmarked Channels:", dataResults.map(res => res.data));
@@ -130,7 +130,7 @@ const imagesPerSlide = 3;
            if (formData.username) form.append("username", formData.username);
            if (profilePicture) form.append("profile_picture", profilePicture);
            try {
-               const response = await axios.put(`http://127.0.0.1:8080/users/${userId}`, form, {
+               const response = await axios.put(`http://35.181.154.194:8000/users/${userId}`, form, {
                    headers: {
                    },
                });
@@ -196,7 +196,7 @@ const imagesPerSlide = 3;
     <div className={styles.channelLayout}>
 <div className={styles.leftSide}>
 <div className={styles.profileImage}>
-<img src={`http://localhost:8080${user.profile_picture}`} alt={channel1}  />
+<img src={`http://localhost:8000${user.profile_picture}`} alt={channel1}  />
   <h2  className={styles.profileTitle}>{user.username}</h2>
   <p className={styles.profileDescription}>{user.description}</p>
   <button className={styles.editButton} onClick={openModal}>Edit Profile</button>
@@ -318,7 +318,7 @@ style={{
         className={styles.card}
       >
        <div key={index} className={styles.carouselItem}>
-         <img className={styles.carouselImage} src={`http://localhost:8080${bookmark.profile_picture}`} alt={bookmark.channelName} />
+         <img className={styles.carouselImage} src={`http://localhost:8000${bookmark.profile_picture}`} alt={bookmark.channelName} />
          <div className={styles.carouselTitle}>{bookmark.channelName}</div>
          
        </div>

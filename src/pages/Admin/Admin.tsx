@@ -22,7 +22,7 @@ const Admin = () => {
   useEffect(() => {
     const fetchUserLyrics = async (id: string) => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8080/users/`, {
+        const response = await axios.get(`http://35.181.154.194:8000/users/`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -45,7 +45,7 @@ const Admin = () => {
 
   const deleteUser = async (id: string) => {
     try {
-      const response = await axios.delete(`http://127.0.0.1:8080/users/${id}`);
+      const response = await axios.delete(`http://35.181.154.194:8000/users/${id}`);
       console.log('User deleted:', response.data);
       return response.data;
     } catch (error: any) {
@@ -77,7 +77,7 @@ const Admin = () => {
       {users.map((user) => (
         <div key={user._id} className={styles.userCard}>
           <img
-            src={`http://localhost:8080${user.profile_picture}`}
+            src={`http://localhost:8000${user.profile_picture}`}
             alt={`${user.username}'s profile`}
             className={styles.profilePicture}
           />

@@ -76,9 +76,9 @@ const Genre = () => {
 
   const handleGenreSelection = async (genre: any) => {
     setSelectedGenre(genre);
-    setLoading(true); // Start loading
+    setLoading(true); 
     await generateGenreLyrics(genre);
-    setLoading(false); // Stop loading
+    setLoading(false); 
 
     const lyricsCard = document.querySelector(`.${styles.gridContainer}`);
     if (lyricsCard) {
@@ -90,7 +90,7 @@ const Genre = () => {
     try {
       const prompt = `genre: ${genre}, lyrics:`;
       const response = await axios.post(
-        'http://127.0.0.1:5000/generate-genre',
+        'http://35.181.154.194:5000/generate-genre',
         { prompt },
         {
           headers: {
@@ -121,7 +121,7 @@ const Genre = () => {
 
       console.log("Adding lyric:", { title, lyrics, selectedGenre, user: userData._id });
 
-      const response = await axios.post("http://127.0.0.1:8080/lyrics/create", {
+      const response = await axios.post("http://35.181.154.194:8000/lyrics/create", {
         title,
         content: lyrics,
         user: userData._id,

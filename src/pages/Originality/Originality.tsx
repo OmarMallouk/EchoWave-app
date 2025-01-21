@@ -36,7 +36,7 @@ const Originality = () => {
         useEffect(() => {
           const fetchUserLyrics = async (id: string) => {
             try {
-              const response = await axios.get(`http://127.0.0.1:8080/users/${id}`, {
+              const response = await axios.get(`http://35.181.154.194:8000/users/${id}`, {
                 headers: {
                   "Content-Type": "application/json",
                 },
@@ -70,7 +70,7 @@ const Originality = () => {
     const generatedScore = async (selectedLyric:any) =>{
       try {
         
-        const response = await axios.post("http://127.0.0.1:5000/api/similarity",
+        const response = await axios.post("http://35.181.154.194:5000/api/similarity",
           {lyrics:selectedLyric},
           {
             headers: {
@@ -87,7 +87,7 @@ const Originality = () => {
 
     const generateAlternativeLyrics = async (lyrics: string) => {
       try {
-        const response = await axios.post("http://127.0.0.1:8080/api/lyrics/alternative", {
+        const response = await axios.post("http://35.181.154.194:8000/api/lyrics/alternative", {
           lyrics: lyrics,
         });
         return response.data.alternativeLyrics;

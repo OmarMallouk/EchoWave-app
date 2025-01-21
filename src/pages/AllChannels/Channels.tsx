@@ -29,7 +29,7 @@ const Channels = () => {
   useEffect(() => {
     const fetchUserLyrics = async (id: string) => {
       try {
-        const response = await axios.get(`http://127.0.0.1:8080/users/`, {
+        const response = await axios.get(`http://35.181.154.194:8000/users/`, {
           headers: {
             "Content-Type": "application/json",
           },
@@ -65,7 +65,7 @@ const Channels = () => {
        >
         <div key={item._id} className={styles.card}>
           <img
-  src={item.profile_picture ? `http://localhost:8080${item.profile_picture}` : channel1}
+  src={item.profile_picture ? `http://localhost:8000${item.profile_picture}` : channel1}
   alt={item.channelName || "Default Channel Name"}
   className={styles.cardImage}
 />
